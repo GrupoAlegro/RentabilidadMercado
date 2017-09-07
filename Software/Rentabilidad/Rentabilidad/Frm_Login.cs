@@ -46,7 +46,7 @@ namespace Rentabilidad
                             vIdUsuario = sLogin.Datos.Rows[0][0].ToString();
                             vIdAdmin = Convert.ToInt32(sLogin.Datos.Rows[0][2].ToString());
                             vIdActivo = Convert.ToInt32(sLogin.Datos.Rows[0][3].ToString());
-                            FrmPrincipal frmP = new FrmPrincipal();
+                            Frm_Principal frmP = new Frm_Principal();
                             MSRegistro RegIn = new MSRegistro();
                             
                             if (vIdActivo == 1)

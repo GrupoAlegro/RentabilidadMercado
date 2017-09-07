@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Rentabilidad
 {
-    public partial class FrmPrincipal : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class Frm_Principal : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public FrmPrincipal()
+        public Frm_Principal()
         {
             InitializeComponent();
         }
