@@ -47,15 +47,15 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).BeginInit();
@@ -63,16 +63,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // repositoryItemTextEdit1
@@ -199,9 +199,9 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 473);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 470);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(761, 19);
+            this.barDockControlBottom.Size = new System.Drawing.Size(761, 22);
             // 
             // barDockControlLeft
             // 
@@ -209,7 +209,7 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(62, 473);
+            this.barDockControlLeft.Size = new System.Drawing.Size(64, 470);
             // 
             // barDockControlRight
             // 
@@ -217,53 +217,26 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(761, 0);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 473);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 470);
             // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.groupControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(62, 0);
+            this.panelControl1.Location = new System.Drawing.Point(64, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Padding = new System.Windows.Forms.Padding(10);
-            this.panelControl1.Size = new System.Drawing.Size(699, 136);
+            this.panelControl1.Size = new System.Drawing.Size(697, 136);
             this.panelControl1.TabIndex = 4;
-            // 
-            // panelControl2
-            // 
-            this.panelControl2.Controls.Add(this.gridControl1);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(62, 136);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Padding = new System.Windows.Forms.Padding(10);
-            this.panelControl2.Size = new System.Drawing.Size(699, 337);
-            this.panelControl2.TabIndex = 5;
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(12, 12);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.MenuManager = this.barManager1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(675, 313);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
             // 
             // groupControl1
             // 
             this.groupControl1.Controls.Add(this.panelControl3);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(12, 12);
+            this.groupControl1.Location = new System.Drawing.Point(13, 13);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Padding = new System.Windows.Forms.Padding(6);
-            this.groupControl1.Size = new System.Drawing.Size(675, 112);
+            this.groupControl1.Size = new System.Drawing.Size(671, 110);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "País";
             // 
@@ -276,24 +249,16 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(8, 28);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(659, 76);
+            this.panelControl3.Size = new System.Drawing.Size(655, 74);
             this.panelControl3.TabIndex = 0;
             // 
-            // labelControl1
+            // textEdit2
             // 
-            this.labelControl1.Location = new System.Drawing.Point(19, 13);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(55, 13);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Codigo País";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(19, 45);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(59, 13);
-            this.labelControl2.TabIndex = 1;
-            this.labelControl2.Text = "Nombre País";
+            this.textEdit2.Location = new System.Drawing.Point(96, 41);
+            this.textEdit2.MenuManager = this.barManager1;
+            this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Size = new System.Drawing.Size(326, 20);
+            this.textEdit2.TabIndex = 3;
             // 
             // textEdit1
             // 
@@ -303,13 +268,48 @@
             this.textEdit1.Size = new System.Drawing.Size(100, 20);
             this.textEdit1.TabIndex = 2;
             // 
-            // textEdit2
+            // labelControl2
             // 
-            this.textEdit2.Location = new System.Drawing.Point(96, 41);
-            this.textEdit2.MenuManager = this.barManager1;
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(326, 20);
-            this.textEdit2.TabIndex = 3;
+            this.labelControl2.Location = new System.Drawing.Point(20, 46);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(59, 13);
+            this.labelControl2.TabIndex = 1;
+            this.labelControl2.Text = "Nombre País";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(20, 14);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(55, 13);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "Codigo País";
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.gridControl1);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl2.Location = new System.Drawing.Point(64, 136);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Padding = new System.Windows.Forms.Padding(10);
+            this.panelControl2.Size = new System.Drawing.Size(697, 334);
+            this.panelControl2.TabIndex = 5;
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Location = new System.Drawing.Point(13, 13);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.MenuManager = this.barManager1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(671, 308);
+            this.gridControl1.TabIndex = 0;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
             // 
             // Frm_Pais
             // 
@@ -331,17 +331,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-            this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

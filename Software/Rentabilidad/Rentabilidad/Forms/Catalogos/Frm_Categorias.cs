@@ -17,5 +17,15 @@ namespace Rentabilidad.Forms.Catalogos
         {
             InitializeComponent();
         }
+
+        private void groupControl1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void labelControl1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

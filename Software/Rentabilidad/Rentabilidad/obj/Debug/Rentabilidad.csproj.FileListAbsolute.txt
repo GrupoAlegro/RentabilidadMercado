@@ -183,3 +183,5 @@ C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rent
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Properties.Resources.resources
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.csproj.GenerateResource.Cache
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.exe.licenses
+C:\Users\Aux_Sistemas\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.exe
+C:\Users\Aux_Sistemas\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.pdb
