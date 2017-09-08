@@ -178,10 +178,16 @@ C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rent
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_Conexiones.resources
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_DataBaseSQL.resources
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_InstanciaSQL.resources
-C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.FrmPrincipal.resources
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_Login.resources
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Properties.Resources.resources
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.csproj.GenerateResource.Cache
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.exe.licenses
 C:\Users\Aux_Sistemas\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.exe
 C:\Users\Aux_Sistemas\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.pdb
+C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Forms.Catalogos.Frm_Calibres.resources
+C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Forms.Catalogos.Frm_Categorias.resources
+C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_Pais.resources
+C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Forms.Catalogos.Frm_Tratamiento.resources
+C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Forms.Control.Frm_Precios_Calibres.resources
+C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Forms.Control.Frm_Precios_Pais.resources
+C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_Principal.resources
