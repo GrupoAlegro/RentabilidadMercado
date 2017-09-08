@@ -104,6 +104,18 @@
     <Compile Include="Forms\Catalogos\Frm_Tratamiento.Designer.cs">
       <DependentUpon>Frm_Tratamiento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Control\Frm_Precios_Calibres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Control\Frm_Precios_Calibres.Designer.cs">
+      <DependentUpon>Frm_Precios_Calibres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Control\Frm_Precios_Pais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Control\Frm_Precios_Pais.Designer.cs">
+      <DependentUpon>Frm_Precios_Pais.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +151,12 @@
     <EmbeddedResource Include="Forms\Catalogos\Frm_Tratamiento.resx">
       <DependentUpon>Frm_Tratamiento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Control\Frm_Precios_Calibres.resx">
+      <DependentUpon>Frm_Precios_Calibres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Control\Frm_Precios_Pais.resx">
+      <DependentUpon>Frm_Precios_Pais.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_Principal.resx">
       <DependentUpon>Frm_Principal.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,7 +184,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Forms\Control\" />
     <Folder Include="Reports\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
