@@ -17,5 +17,10 @@ namespace Rentabilidad.Forms.Catalogos
         {
             InitializeComponent();
         }
+
+        private void labelControl2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
