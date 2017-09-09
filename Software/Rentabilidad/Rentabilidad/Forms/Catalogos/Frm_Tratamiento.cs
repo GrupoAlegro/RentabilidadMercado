@@ -8,8 +8,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using CapaDeDatos;
 
-namespace Rentabilidad.Forms.Catalogos
+namespace Rentabilidad
 {
     public partial class Frm_Tratamiento : DevExpress.XtraEditors.XtraForm
     {
@@ -22,5 +23,15 @@ namespace Rentabilidad.Forms.Catalogos
         {
 
         }
-    }
+
+        private void Frm_Tratamiento_Shown(object sender, EventArgs e)
+        {
+            CLS_Tratamiento selTratamiento = new CLS_Tratamiento();
+            selTratamiento.MtdSeleccionar();
+            if (selTratamiento.Exito)
+            {
+                dtgTratamiento.DataSource = selTratamiento.Datos;
+            }
+        }
+}
 }

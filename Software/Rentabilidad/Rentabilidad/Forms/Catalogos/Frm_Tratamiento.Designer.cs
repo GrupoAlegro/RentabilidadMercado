@@ -1,4 +1,4 @@
-﻿namespace Rentabilidad.Forms.Catalogos
+﻿namespace Rentabilidad
 {
     partial class Frm_Tratamiento
     {
@@ -43,28 +43,30 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.dtgTratamiento = new DevExpress.XtraGrid.GridControl();
+            this.dtgValTratamiento = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgTratamiento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgValTratamiento)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -201,16 +203,6 @@
             this.panelControl1.Size = new System.Drawing.Size(686, 140);
             this.panelControl1.TabIndex = 4;
             // 
-            // panelControl2
-            // 
-            this.panelControl2.Controls.Add(this.gridControl1);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(64, 140);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Padding = new System.Windows.Forms.Padding(10);
-            this.panelControl2.Size = new System.Drawing.Size(686, 322);
-            this.panelControl2.TabIndex = 0;
-            // 
             // groupControl1
             // 
             this.groupControl1.Controls.Add(this.panelControl3);
@@ -234,13 +226,21 @@
             this.panelControl3.Size = new System.Drawing.Size(644, 78);
             this.panelControl3.TabIndex = 0;
             // 
-            // labelControl1
+            // textEdit2
             // 
-            this.labelControl1.Location = new System.Drawing.Point(22, 16);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(94, 13);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Codigo Tratamiento";
+            this.textEdit2.Location = new System.Drawing.Point(147, 45);
+            this.textEdit2.MenuManager = this.barManager1;
+            this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Size = new System.Drawing.Size(271, 20);
+            this.textEdit2.TabIndex = 3;
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.Location = new System.Drawing.Point(147, 13);
+            this.textEdit1.MenuManager = this.barManager1;
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(100, 20);
+            this.textEdit1.TabIndex = 2;
             // 
             // labelControl2
             // 
@@ -251,38 +251,60 @@
             this.labelControl2.Text = "Nombre Tratamiento";
             this.labelControl2.Click += new System.EventHandler(this.labelControl2_Click);
             // 
-            // textEdit1
+            // labelControl1
             // 
-            this.textEdit1.Location = new System.Drawing.Point(147, 13);
-            this.textEdit1.MenuManager = this.barManager1;
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(100, 20);
-            this.textEdit1.TabIndex = 2;
+            this.labelControl1.Location = new System.Drawing.Point(22, 16);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(94, 13);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "Codigo Tratamiento";
             // 
-            // textEdit2
+            // panelControl2
             // 
-            this.textEdit2.Location = new System.Drawing.Point(147, 45);
-            this.textEdit2.MenuManager = this.barManager1;
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(271, 20);
-            this.textEdit2.TabIndex = 3;
+            this.panelControl2.Controls.Add(this.dtgTratamiento);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl2.Location = new System.Drawing.Point(64, 140);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Padding = new System.Windows.Forms.Padding(10);
+            this.panelControl2.Size = new System.Drawing.Size(686, 322);
+            this.panelControl2.TabIndex = 0;
             // 
-            // gridControl1
+            // dtgTratamiento
             // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(13, 13);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.MenuManager = this.barManager1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(660, 296);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.dtgTratamiento.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgTratamiento.Location = new System.Drawing.Point(13, 13);
+            this.dtgTratamiento.MainView = this.dtgValTratamiento;
+            this.dtgTratamiento.MenuManager = this.barManager1;
+            this.dtgTratamiento.Name = "dtgTratamiento";
+            this.dtgTratamiento.Size = new System.Drawing.Size(660, 296);
+            this.dtgTratamiento.TabIndex = 0;
+            this.dtgTratamiento.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.dtgValTratamiento});
             // 
-            // gridView1
+            // dtgValTratamiento
             // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
+            this.dtgValTratamiento.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2});
+            this.dtgValTratamiento.GridControl = this.dtgTratamiento;
+            this.dtgValTratamiento.Name = "dtgValTratamiento";
+            this.dtgValTratamiento.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Codigo Tratamiento";
+            this.gridColumn1.FieldName = "c_codigo_tra";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Nombre Tratamiento";
+            this.gridColumn2.FieldName = "v_nombre_tra";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
             // 
             // Frm_Tratamiento
             // 
@@ -297,20 +319,21 @@
             this.Controls.Add(this.barDockControlTop);
             this.Name = "Frm_Tratamiento";
             this.Text = "Frm_Tratamiento";
+            this.Shown += new System.EventHandler(this.Frm_Tratamiento_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-            this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgTratamiento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgValTratamiento)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,7 +361,9 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit textEdit2;
         private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.GridControl dtgTratamiento;
+        private DevExpress.XtraGrid.Views.Grid.GridView dtgValTratamiento;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
     }
 }

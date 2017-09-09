@@ -20,7 +20,7 @@ namespace Rentabilidad
 
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-            Application.Run(new Frm_Categorias());
+            Application.Run(new Frm_Tratamiento());
         }
     }
 }
