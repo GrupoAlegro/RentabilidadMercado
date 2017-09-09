@@ -1,4 +1,4 @@
-﻿namespace Rentabilidad.Forms.Catalogos
+﻿namespace Rentabilidad
 {
     partial class Frm_Categorias
     {
@@ -43,28 +43,30 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.dtgCategoria = new DevExpress.XtraGrid.GridControl();
+            this.dtgValCategoria = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgCategoria)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgValCategoria)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -201,16 +203,6 @@
             this.panelControl1.Size = new System.Drawing.Size(696, 140);
             this.panelControl1.TabIndex = 4;
             // 
-            // panelControl2
-            // 
-            this.panelControl2.Controls.Add(this.gridControl1);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(64, 140);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Padding = new System.Windows.Forms.Padding(10);
-            this.panelControl2.Size = new System.Drawing.Size(696, 330);
-            this.panelControl2.TabIndex = 5;
-            // 
             // groupControl1
             // 
             this.groupControl1.Controls.Add(this.panelControl3);
@@ -235,22 +227,13 @@
             this.panelControl3.Size = new System.Drawing.Size(654, 78);
             this.panelControl3.TabIndex = 0;
             // 
-            // labelControl1
+            // textEdit2
             // 
-            this.labelControl1.Location = new System.Drawing.Point(20, 16);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(83, 13);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Codigo Categoria";
-            this.labelControl1.Click += new System.EventHandler(this.labelControl1_Click);
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(20, 50);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(87, 13);
-            this.labelControl2.TabIndex = 1;
-            this.labelControl2.Text = "Nombre Categoria";
+            this.textEdit2.Location = new System.Drawing.Point(123, 46);
+            this.textEdit2.MenuManager = this.barManager1;
+            this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Size = new System.Drawing.Size(297, 20);
+            this.textEdit2.TabIndex = 3;
             // 
             // textEdit1
             // 
@@ -260,30 +243,70 @@
             this.textEdit1.Size = new System.Drawing.Size(100, 20);
             this.textEdit1.TabIndex = 2;
             // 
-            // textEdit2
+            // labelControl2
             // 
-            this.textEdit2.Location = new System.Drawing.Point(123, 46);
-            this.textEdit2.MenuManager = this.barManager1;
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(297, 20);
-            this.textEdit2.TabIndex = 3;
+            this.labelControl2.Location = new System.Drawing.Point(20, 50);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(87, 13);
+            this.labelControl2.TabIndex = 1;
+            this.labelControl2.Text = "Nombre Categoria";
             // 
-            // gridControl1
+            // labelControl1
             // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(13, 13);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.MenuManager = this.barManager1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(670, 304);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.labelControl1.Location = new System.Drawing.Point(20, 16);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(83, 13);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "Codigo Categoria";
+            this.labelControl1.Click += new System.EventHandler(this.labelControl1_Click);
             // 
-            // gridView1
+            // panelControl2
             // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
+            this.panelControl2.Controls.Add(this.dtgCategoria);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl2.Location = new System.Drawing.Point(64, 140);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Padding = new System.Windows.Forms.Padding(10);
+            this.panelControl2.Size = new System.Drawing.Size(696, 330);
+            this.panelControl2.TabIndex = 5;
+            // 
+            // dtgCategoria
+            // 
+            this.dtgCategoria.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgCategoria.Location = new System.Drawing.Point(13, 13);
+            this.dtgCategoria.MainView = this.dtgValCategoria;
+            this.dtgCategoria.MenuManager = this.barManager1;
+            this.dtgCategoria.Name = "dtgCategoria";
+            this.dtgCategoria.Size = new System.Drawing.Size(670, 304);
+            this.dtgCategoria.TabIndex = 0;
+            this.dtgCategoria.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.dtgValCategoria});
+            this.dtgCategoria.Click += new System.EventHandler(this.dtgCategoria_Click);
+            // 
+            // dtgValCategoria
+            // 
+            this.dtgValCategoria.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2});
+            this.dtgValCategoria.GridControl = this.dtgCategoria;
+            this.dtgValCategoria.Name = "dtgValCategoria";
+            this.dtgValCategoria.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Codigo Categoria";
+            this.gridColumn1.FieldName = "c_codigo_cat";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Nombre Categoria";
+            this.gridColumn2.FieldName = "v_nombre_cat";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
             // 
             // Frm_Categorias
             // 
@@ -298,20 +321,21 @@
             this.Controls.Add(this.barDockControlTop);
             this.Name = "Frm_Categorias";
             this.Text = "Frm_Categorias";
+            this.Shown += new System.EventHandler(this.Frm_Categorias_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-            this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgCategoria)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgValCategoria)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,7 +363,9 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit textEdit1;
         private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.GridControl dtgCategoria;
+        private DevExpress.XtraGrid.Views.Grid.GridView dtgValCategoria;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
     }
 }

@@ -8,8 +8,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using CapaDeDatos;
 
-namespace Rentabilidad.Forms.Catalogos
+namespace Rentabilidad
 {
     public partial class Frm_Categorias : DevExpress.XtraEditors.XtraForm
     {
@@ -25,6 +26,22 @@ namespace Rentabilidad.Forms.Catalogos
 
         private void labelControl1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void dtgCategoria_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Frm_Categorias_Shown(object sender, EventArgs e)
+        {
+            CLS_Categorias selcategorias = new CLS_Categorias();
+            selcategorias.MtdSeleccionar();
+            if (selcategorias.Exito)
+            {
+                dtgCategoria.DataSource = selcategorias.Datos;
+            }
 
         }
     }
