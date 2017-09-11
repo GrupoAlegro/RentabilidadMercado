@@ -44,13 +44,13 @@ namespace Rentabilidad
                         if (sLogin.Datos.Rows.Count > 0)
                         {
                             vIdUsuario = sLogin.Datos.Rows[0][0].ToString();
-                            vIdAdmin = Convert.ToInt32(sLogin.Datos.Rows[0][2].ToString());
-                            vIdActivo = Convert.ToInt32(sLogin.Datos.Rows[0][3].ToString());
+                            vIdActivo = Convert.ToInt32(sLogin.Datos.Rows[0][2].ToString());
                             Frm_Principal frmP = new Frm_Principal();
                             MSRegistro RegIn = new MSRegistro();
                             
                             if (vIdActivo == 1)
                             {
+                                frmP.c_codigo_usu = txtUser.Text;
                                 frmP.Show();
                                 this.Hide();
                             }
@@ -100,13 +100,13 @@ namespace Rentabilidad
         
         private void Frm_Login_Load(object sender, EventArgs e)
         {
-            cERecordarContrasenia.Enabled = habilitado;
-            if (habilitado == true)
-            {
-                MSRegistro RegOut = new MSRegistro();
-                txtUser.Text=RegOut.GetSetting("Agro_IntelliTrace", "Login", "Email");
-                cERecordarContrasenia.Checked=true;
-            }
+            //cERecordarContrasenia.Enabled = habilitado;
+            //if (habilitado == true)
+            //{
+            //    MSRegistro RegOut = new MSRegistro();
+            //    txtUser.Text=RegOut.GetSetting("Agro_IntelliTrace", "Login", "Email");
+            //    cERecordarContrasenia.Checked=true;
+            //}
             txtUser.Focus();
         }
     }

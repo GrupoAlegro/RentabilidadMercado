@@ -11,9 +11,16 @@ namespace Rentabilidad
 {
     public partial class Frm_Principal : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        public string c_codigo_usu { get; set; }
         public Frm_Principal()
         {
             InitializeComponent();
+        }
+        private void btnPais_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Frm_Pais.DefInstance.MdiParent = this;
+            Frm_Pais.DefInstance.c_codigo_usu = c_codigo_usu;
+            Frm_Pais.DefInstance.Show();
         }
     }
 }

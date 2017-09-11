@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Principal));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnPais = new DevExpress.XtraBars.BarButtonItem();
             this.btnCategorias = new DevExpress.XtraBars.BarButtonItem();
@@ -67,30 +68,35 @@
             this.ribbonPage2,
             this.ribbonPage3});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
-            this.ribbonControl1.Size = new System.Drawing.Size(756, 146);
+            this.ribbonControl1.Size = new System.Drawing.Size(758, 146);
             // 
             // btnPais
             // 
             this.btnPais.Caption = "Pais";
             this.btnPais.Id = 1;
+            this.btnPais.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPais.ImageOptions.LargeImage")));
             this.btnPais.Name = "btnPais";
+            this.btnPais.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPais_ItemClick);
             // 
             // btnCategorias
             // 
             this.btnCategorias.Caption = "Categorias";
             this.btnCategorias.Id = 2;
+            this.btnCategorias.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnCategorias.ImageOptions.LargeImage")));
             this.btnCategorias.Name = "btnCategorias";
             // 
             // btrnCalibres
             // 
             this.btrnCalibres.Caption = "Calibres";
             this.btrnCalibres.Id = 3;
+            this.btrnCalibres.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btrnCalibres.ImageOptions.LargeImage")));
             this.btrnCalibres.Name = "btrnCalibres";
             // 
             // btnTratamiento
             // 
             this.btnTratamiento.Caption = "Tratamiento";
             this.btnTratamiento.Id = 4;
+            this.btnTratamiento.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnTratamiento.ImageOptions.LargeImage")));
             this.btnTratamiento.Name = "btnTratamiento";
             // 
             // barButtonItem1
@@ -153,7 +159,7 @@
             // 
             // SkinForm
             // 
-            this.SkinForm.LookAndFeel.SkinName = "Sharp";
+            this.SkinForm.LookAndFeel.SkinName = "Money Twins";
             // 
             // xtraTabbedMdiManager1
             // 
@@ -164,12 +170,12 @@
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(756, 544);
+            this.ClientSize = new System.Drawing.Size(758, 545);
             this.Controls.Add(this.ribbonControl1);
             this.IsMdiContainer = true;
             this.Name = "Frm_Principal";
             this.Ribbon = this.ribbonControl1;
-            this.Text = "Form1";
+            this.Text = "Principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
