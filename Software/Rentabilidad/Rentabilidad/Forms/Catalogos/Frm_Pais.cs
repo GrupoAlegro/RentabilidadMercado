@@ -14,6 +14,7 @@ namespace Rentabilidad
 {
     public partial class Frm_Pais : DevExpress.XtraEditors.XtraForm
     {
+        public Frm_Calibres FrmCalibre;
         int FilaSelect = 0;
         Boolean IsEditPais;
         public string c_codigo_usu { get; set; }
