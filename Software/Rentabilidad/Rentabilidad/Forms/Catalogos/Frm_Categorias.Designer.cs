@@ -320,7 +320,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "Frm_Categorias";
-            this.Text = "Frm_Categorias";
+            this.Text = "Categorias";
             this.Shown += new System.EventHandler(this.Frm_Categorias_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
