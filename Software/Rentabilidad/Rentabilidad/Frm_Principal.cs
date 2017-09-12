@@ -22,5 +22,12 @@ namespace Rentabilidad
             Frm_Pais.DefInstance.c_codigo_usu = c_codigo_usu;
             Frm_Pais.DefInstance.Show();
         }
+
+        private void btnCategorias_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Frm_Categorias.DefInstance.MdiParent = this;
+            Frm_Categorias.DefInstance.c_codigo_usu = c_codigo_usu;
+            Frm_Categorias.DefInstance.Show();
+        }
     }
 }

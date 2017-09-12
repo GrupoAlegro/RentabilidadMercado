@@ -84,6 +84,7 @@
             this.btnCategorias.Id = 2;
             this.btnCategorias.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnCategorias.ImageOptions.LargeImage")));
             this.btnCategorias.Name = "btnCategorias";
+            this.btnCategorias.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCategorias_ItemClick);
             // 
             // btrnCalibres
             // 
