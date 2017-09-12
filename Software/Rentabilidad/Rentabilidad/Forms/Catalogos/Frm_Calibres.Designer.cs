@@ -54,8 +54,8 @@
             this.txtCodigoCat = new DevExpress.XtraEditors.TextEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.spinEdit2 = new DevExpress.XtraEditors.SpinEdit();
-            this.spinEdit1 = new DevExpress.XtraEditors.SpinEdit();
+            this.spHasta = new DevExpress.XtraEditors.SpinEdit();
+            this.spDesde = new DevExpress.XtraEditors.SpinEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.btnImpPais = new DevExpress.XtraEditors.SimpleButton();
@@ -79,8 +79,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigoTra.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombreCat.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigoCat.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spHasta.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spDesde.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombrePai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigoPai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombreCal.Properties)).BeginInit();
@@ -237,8 +237,8 @@
             this.groupControl1.Controls.Add(this.txtCodigoCat);
             this.groupControl1.Controls.Add(this.labelControl7);
             this.groupControl1.Controls.Add(this.labelControl8);
-            this.groupControl1.Controls.Add(this.spinEdit2);
-            this.groupControl1.Controls.Add(this.spinEdit1);
+            this.groupControl1.Controls.Add(this.spHasta);
+            this.groupControl1.Controls.Add(this.spDesde);
             this.groupControl1.Controls.Add(this.labelControl6);
             this.groupControl1.Controls.Add(this.labelControl5);
             this.groupControl1.Controls.Add(this.btnImpPais);
@@ -275,7 +275,6 @@
             // 
             // txtCodigoTra
             // 
-            this.txtCodigoTra.Enabled = false;
             this.txtCodigoTra.Location = new System.Drawing.Point(140, 242);
             this.txtCodigoTra.MenuManager = this.barManager1;
             this.txtCodigoTra.Name = "txtCodigoTra";
@@ -316,7 +315,6 @@
             // 
             // txtCodigoCat
             // 
-            this.txtCodigoCat.Enabled = false;
             this.txtCodigoCat.Location = new System.Drawing.Point(140, 182);
             this.txtCodigoCat.MenuManager = this.barManager1;
             this.txtCodigoCat.Name = "txtCodigoCat";
@@ -339,35 +337,39 @@
             this.labelControl8.TabIndex = 13;
             this.labelControl8.Text = "Codigo Categoria";
             // 
-            // spinEdit2
+            // spHasta
             // 
-            this.spinEdit2.EditValue = new decimal(new int[] {
+            this.spHasta.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.spinEdit2.Location = new System.Drawing.Point(322, 152);
-            this.spinEdit2.MenuManager = this.barManager1;
-            this.spinEdit2.Name = "spinEdit2";
-            this.spinEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.spHasta.Location = new System.Drawing.Point(322, 152);
+            this.spHasta.MenuManager = this.barManager1;
+            this.spHasta.Name = "spHasta";
+            this.spHasta.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spinEdit2.Size = new System.Drawing.Size(100, 20);
-            this.spinEdit2.TabIndex = 12;
+            this.spHasta.Properties.Mask.EditMask = "###,###0.000 kg";
+            this.spHasta.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.spHasta.Size = new System.Drawing.Size(100, 20);
+            this.spHasta.TabIndex = 12;
             // 
-            // spinEdit1
+            // spDesde
             // 
-            this.spinEdit1.EditValue = new decimal(new int[] {
+            this.spDesde.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.spinEdit1.Location = new System.Drawing.Point(140, 152);
-            this.spinEdit1.MenuManager = this.barManager1;
-            this.spinEdit1.Name = "spinEdit1";
-            this.spinEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.spDesde.Location = new System.Drawing.Point(140, 152);
+            this.spDesde.MenuManager = this.barManager1;
+            this.spDesde.Name = "spDesde";
+            this.spDesde.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spinEdit1.Size = new System.Drawing.Size(100, 20);
-            this.spinEdit1.TabIndex = 11;
+            this.spDesde.Properties.Mask.EditMask = "###,###0.000 kg";
+            this.spDesde.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.spDesde.Size = new System.Drawing.Size(100, 20);
+            this.spDesde.TabIndex = 11;
             // 
             // labelControl6
             // 
@@ -392,6 +394,7 @@
             this.btnImpPais.Size = new System.Drawing.Size(75, 23);
             this.btnImpPais.TabIndex = 8;
             this.btnImpPais.Text = "Importar";
+            this.btnImpPais.Click += new System.EventHandler(this.btnImpPais_Click);
             // 
             // txtNombrePai
             // 
@@ -403,12 +406,14 @@
             // 
             // txtCodigoPai
             // 
-            this.txtCodigoPai.Enabled = false;
             this.txtCodigoPai.Location = new System.Drawing.Point(140, 94);
             this.txtCodigoPai.MenuManager = this.barManager1;
             this.txtCodigoPai.Name = "txtCodigoPai";
             this.txtCodigoPai.Size = new System.Drawing.Size(100, 20);
             this.txtCodigoPai.TabIndex = 6;
+            this.txtCodigoPai.TextChanged += new System.EventHandler(this.txtCodigoPai_TextChanged);
+            this.txtCodigoPai.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoPai_KeyDown);
+            this.txtCodigoPai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoPai_KeyPress);
             // 
             // labelControl3
             // 
@@ -449,7 +454,6 @@
             this.labelControl2.Size = new System.Drawing.Size(73, 13);
             this.labelControl2.TabIndex = 1;
             this.labelControl2.Text = "Nombre Calibre";
-            this.labelControl2.Click += new System.EventHandler(this.labelControl2_Click);
             // 
             // labelControl1
             // 
@@ -500,6 +504,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.Name = "Frm_Calibres";
             this.Text = "Calibres";
+            this.Shown += new System.EventHandler(this.Frm_Calibres_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -510,8 +515,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigoTra.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombreCat.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigoCat.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spHasta.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spDesde.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombrePai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigoPai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombreCal.Properties)).EndInit();
@@ -556,8 +561,8 @@
         private DevExpress.XtraEditors.TextEdit txtCodigoCat;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraEditors.SpinEdit spinEdit2;
-        private DevExpress.XtraEditors.SpinEdit spinEdit1;
+        private DevExpress.XtraEditors.SpinEdit spHasta;
+        private DevExpress.XtraEditors.SpinEdit spDesde;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.SimpleButton btnImpPais;
