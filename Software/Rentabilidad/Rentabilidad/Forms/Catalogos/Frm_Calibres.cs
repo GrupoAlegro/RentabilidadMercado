@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace Rentabilidad.Forms.Catalogos
+namespace Rentabilidad
 {
     public partial class Frm_Calibres : DevExpress.XtraEditors.XtraForm
     {

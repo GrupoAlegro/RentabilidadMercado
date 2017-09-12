@@ -1,4 +1,4 @@
-﻿namespace Rentabilidad.Forms.Catalogos
+﻿namespace Rentabilidad
 {
     partial class Frm_Calibres
     {

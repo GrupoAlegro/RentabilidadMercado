@@ -39,7 +39,14 @@ namespace Rentabilidad
         private void Frm_Pais_Shown(object sender, EventArgs e)
         {
             CargarGrid();
+            if (FrmCalibre != null)
+            {
+                
+            }
+            else
+            {
 
+            }
         }
 
         private void CargarGrid()
