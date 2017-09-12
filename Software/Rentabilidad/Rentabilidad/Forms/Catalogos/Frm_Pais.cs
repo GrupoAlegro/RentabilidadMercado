@@ -168,18 +168,22 @@ namespace Rentabilidad
         {
             if (IsEditPais == true)
             {
-                CLS_Pais selpais = new CLS_Pais();
-                selpais.c_codigo_pai = txtCodigoPai.Text;
-                selpais.MtdEliminar();
-                if (selpais.Exito)
+                DialogResult = XtraMessageBox.Show("¿Desea Eliminar el Registro?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                if (DialogResult == DialogResult.Yes)
                 {
-                    dtgPais.DataSource = selpais.Datos;
-                    XtraMessageBox.Show("Registro Eliminado Exitosamente");
+                    CLS_Pais selpais1 = new CLS_Pais();
+                    selpais1.c_codigo_pai = txtCodigoPai.Text;
+                    selpais1.MtdEliminar();
+                    if (selpais1.Exito)
+                    {
+                        dtgPais.DataSource = selpais1.Datos;
+                        XtraMessageBox.Show("Registro Eliminado Exitosamente");
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show(selpais1.Mensaje);
+                    }
                     CargarGrid();
-                }
-                else
-                {
-                    XtraMessageBox.Show(selpais.Mensaje);
                 }
             }
             else
