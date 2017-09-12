@@ -276,7 +276,6 @@ C:\Users\Aux_Sistemas\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad
 C:\Users\Aux_Sistemas\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_Conexiones.resources
 C:\Users\Aux_Sistemas\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_DataBaseSQL.resources
 C:\Users\Aux_Sistemas\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_InstanciaSQL.resources
-C:\Users\Aux_Sistemas\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Forms.Catalogos.Frm_Calibres.resources
 C:\Users\Aux_Sistemas\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_Categorias.resources
 C:\Users\Aux_Sistemas\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_Pais.resources
 C:\Users\Aux_Sistemas\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Forms.Control.Frm_Precios_Calibres.resources
@@ -289,3 +288,4 @@ C:\Users\Aux_Sistemas\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad
 C:\Users\Aux_Sistemas\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_Tratamiento.resources
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_Categorias.resources
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_Tratamiento.resources
+C:\Users\Aux_Sistemas\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_Calibres.resources

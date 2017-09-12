@@ -10,6 +10,7 @@ namespace CapaDeDatos
     {
         public string c_codigo_cat { get; set; }
         public string v_nombre_cat { get; set; }
+        public string c_codigo_usu { get; set; }
 
 
         public void MtdSeleccionar()
@@ -20,7 +21,7 @@ namespace CapaDeDatos
             Exito = true;
             try
             {
-                _conexion.NombreProcedimiento = "usp_Rent_t_categorias";
+                _conexion.NombreProcedimiento = "usp_Rent_t_categorias_Select";
 
                 _conexion.EjecutarDataset();
 
@@ -43,6 +44,69 @@ namespace CapaDeDatos
 
         }
 
+        public void MtdSeleccionarCodigoNombre()
+        {
+            TipoDato _dato = new TipoDato();
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "usp_Rent_t_categorias_CN_select";
+                _dato.CadenaTexto = c_codigo_cat;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_cat");
+                _dato.CadenaTexto = v_nombre_cat;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "v_nombre_cat");
+                _conexion.EjecutarDataset();
+
+                if (_conexion.Exito)
+                {
+                    Datos = _conexion.Datos;
+                }
+                else
+                {
+                    Mensaje = _conexion.Mensaje;
+                    Exito = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Mensaje = e.Message;
+                Exito = false;
+            }
+
+
+        }
+        public void MtdActualizar()
+        {
+            TipoDato _dato = new TipoDato();
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "usp_Rent_t_categorias_Update";
+
+                _dato.CadenaTexto = c_codigo_cat;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_cat");
+                _dato.CadenaTexto = v_nombre_cat;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "v_nombre_cat");
+                _dato.CadenaTexto = c_codigo_usu;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_usu");
+                _conexion.EjecutarDataset();
+
+                if (_conexion.Exito)
+                {
+                    Datos = _conexion.Datos;
+                }
+                else
+                {
+                    Mensaje = _conexion.Mensaje;
+                    Exito = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Mensaje = e.Message;
+                Exito = false;
+            }
+        }
     }
 
 }
