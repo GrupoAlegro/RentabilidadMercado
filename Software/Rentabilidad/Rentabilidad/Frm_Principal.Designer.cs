@@ -92,6 +92,7 @@
             this.btrnCalibres.Id = 3;
             this.btrnCalibres.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btrnCalibres.ImageOptions.LargeImage")));
             this.btrnCalibres.Name = "btrnCalibres";
+            this.btrnCalibres.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btrnCalibres_ItemClick);
             // 
             // btnTratamiento
             // 

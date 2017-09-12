@@ -41,11 +41,11 @@ namespace Rentabilidad
             CargarGrid();
             if (FrmCalibre != null)
             {
-                
+                this.btnImportar.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
             }
             else
             {
-
+                this.btnImportar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             }
         }
 
@@ -197,6 +197,18 @@ namespace Rentabilidad
             else
             {
                 XtraMessageBox.Show("Seleccione un elemento para eliminar");
+            }
+        }
+
+        private void btnImportar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if(IsEditPais==true)
+            {
+                if(FrmCalibre!=null)
+                {
+                    FrmCalibre.mtdBuscarPais(txtCodigoPai.Text, txtNombrePai.Text);
+                    Close();
+                }
             }
         }
     }

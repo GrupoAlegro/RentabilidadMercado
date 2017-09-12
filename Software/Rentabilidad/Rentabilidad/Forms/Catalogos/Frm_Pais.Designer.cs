@@ -41,6 +41,7 @@
             this.btnGuardar = new DevExpress.XtraBars.BarLargeButtonItem();
             this.btnEliminar = new DevExpress.XtraBars.BarLargeButtonItem();
             this.btnSalir = new DevExpress.XtraBars.BarLargeButtonItem();
+            this.btnImportar = new DevExpress.XtraBars.BarLargeButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -58,7 +59,6 @@
             this.dtgValPais = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnImportar = new DevExpress.XtraBars.BarLargeButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).BeginInit();
@@ -185,6 +185,16 @@
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSalir_ItemClick);
             // 
+            // btnImportar
+            // 
+            this.btnImportar.Caption = "Importar";
+            this.btnImportar.Id = 5;
+            this.btnImportar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnImportar.ImageOptions.Image")));
+            this.btnImportar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnImportar.ImageOptions.LargeImage")));
+            this.btnImportar.Name = "btnImportar";
+            this.btnImportar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btnImportar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnImportar_ItemClick);
+            // 
             // bar3
             // 
             this.bar3.BarName = "Barra de estado";
@@ -203,15 +213,15 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(763, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(765, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 474);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 478);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(763, 22);
+            this.barDockControlBottom.Size = new System.Drawing.Size(765, 22);
             // 
             // barDockControlLeft
             // 
@@ -219,15 +229,15 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(67, 474);
+            this.barDockControlLeft.Size = new System.Drawing.Size(67, 478);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(763, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(765, 0);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 474);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 478);
             // 
             // panelControl1
             // 
@@ -236,7 +246,7 @@
             this.panelControl1.Location = new System.Drawing.Point(67, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Padding = new System.Windows.Forms.Padding(10);
-            this.panelControl1.Size = new System.Drawing.Size(696, 136);
+            this.panelControl1.Size = new System.Drawing.Size(698, 136);
             this.panelControl1.TabIndex = 4;
             // 
             // groupControl1
@@ -246,7 +256,7 @@
             this.groupControl1.Location = new System.Drawing.Point(13, 13);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Padding = new System.Windows.Forms.Padding(6);
-            this.groupControl1.Size = new System.Drawing.Size(670, 110);
+            this.groupControl1.Size = new System.Drawing.Size(672, 110);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "País";
             // 
@@ -259,7 +269,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(8, 28);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(654, 74);
+            this.panelControl3.Size = new System.Drawing.Size(656, 74);
             this.panelControl3.TabIndex = 0;
             // 
             // txtNombrePai
@@ -301,7 +311,7 @@
             this.panelControl2.Location = new System.Drawing.Point(67, 136);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Padding = new System.Windows.Forms.Padding(10);
-            this.panelControl2.Size = new System.Drawing.Size(696, 338);
+            this.panelControl2.Size = new System.Drawing.Size(698, 342);
             this.panelControl2.TabIndex = 5;
             // 
             // dtgPais
@@ -311,7 +321,7 @@
             this.dtgPais.MainView = this.dtgValPais;
             this.dtgPais.MenuManager = this.barManager1;
             this.dtgPais.Name = "dtgPais";
-            this.dtgPais.Size = new System.Drawing.Size(670, 312);
+            this.dtgPais.Size = new System.Drawing.Size(672, 316);
             this.dtgPais.TabIndex = 0;
             this.dtgPais.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dtgValPais});
@@ -346,19 +356,11 @@
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
             // 
-            // btnImportar
-            // 
-            this.btnImportar.Caption = "Importar";
-            this.btnImportar.Id = 5;
-            this.btnImportar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barLargeButtonItem1.ImageOptions.Image")));
-            this.btnImportar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barLargeButtonItem1.ImageOptions.LargeImage")));
-            this.btnImportar.Name = "btnImportar";
-            // 
             // Frm_Pais
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(763, 496);
+            this.ClientSize = new System.Drawing.Size(765, 500);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.barDockControlLeft);
@@ -366,6 +368,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "Frm_Pais";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pais";
             this.Shown += new System.EventHandler(this.Frm_Pais_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
