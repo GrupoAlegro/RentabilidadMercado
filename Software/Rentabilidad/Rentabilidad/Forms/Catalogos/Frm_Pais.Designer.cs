@@ -187,7 +187,7 @@
             // 
             // btnImportar
             // 
-            this.btnImportar.Caption = "Importar";
+            this.btnImportar.Caption = "Seleccionar";
             this.btnImportar.Id = 5;
             this.btnImportar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnImportar.ImageOptions.Image")));
             this.btnImportar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnImportar.ImageOptions.LargeImage")));
@@ -229,7 +229,7 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(67, 478);
+            this.barDockControlLeft.Size = new System.Drawing.Size(81, 478);
             // 
             // barDockControlRight
             // 
@@ -243,10 +243,10 @@
             // 
             this.panelControl1.Controls.Add(this.groupControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(67, 0);
+            this.panelControl1.Location = new System.Drawing.Point(81, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Padding = new System.Windows.Forms.Padding(10);
-            this.panelControl1.Size = new System.Drawing.Size(698, 136);
+            this.panelControl1.Size = new System.Drawing.Size(684, 136);
             this.panelControl1.TabIndex = 4;
             // 
             // groupControl1
@@ -256,7 +256,7 @@
             this.groupControl1.Location = new System.Drawing.Point(13, 13);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Padding = new System.Windows.Forms.Padding(6);
-            this.groupControl1.Size = new System.Drawing.Size(672, 110);
+            this.groupControl1.Size = new System.Drawing.Size(658, 110);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "País";
             // 
@@ -269,7 +269,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(8, 28);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(656, 74);
+            this.panelControl3.Size = new System.Drawing.Size(642, 74);
             this.panelControl3.TabIndex = 0;
             // 
             // txtNombrePai
@@ -308,10 +308,10 @@
             // 
             this.panelControl2.Controls.Add(this.dtgPais);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(67, 136);
+            this.panelControl2.Location = new System.Drawing.Point(81, 136);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Padding = new System.Windows.Forms.Padding(10);
-            this.panelControl2.Size = new System.Drawing.Size(698, 342);
+            this.panelControl2.Size = new System.Drawing.Size(684, 342);
             this.panelControl2.TabIndex = 5;
             // 
             // dtgPais
@@ -321,7 +321,7 @@
             this.dtgPais.MainView = this.dtgValPais;
             this.dtgPais.MenuManager = this.barManager1;
             this.dtgPais.Name = "dtgPais";
-            this.dtgPais.Size = new System.Drawing.Size(672, 316);
+            this.dtgPais.Size = new System.Drawing.Size(658, 316);
             this.dtgPais.TabIndex = 0;
             this.dtgPais.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dtgValPais});

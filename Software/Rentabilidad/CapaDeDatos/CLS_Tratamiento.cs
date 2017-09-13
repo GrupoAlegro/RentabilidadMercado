@@ -10,6 +10,7 @@ namespace CapaDeDatos
     {
         public string c_codigo_tra { get; set; }
         public string v_nombre_tra { get; set; }
+        public string c_codigo_usu { get; set; }
 
         public void MtdSeleccionar()
         {
@@ -40,6 +41,129 @@ namespace CapaDeDatos
             }
 
 
+        }
+        public void MtdSeleccionarCodigoNombre()
+        {
+            TipoDato _dato = new TipoDato();
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "usp_Rent_t_tratamiento_CN_select";
+                _dato.CadenaTexto = c_codigo_tra;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_tra");
+                _dato.CadenaTexto = v_nombre_tra;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "v_nombre_tra");
+                _conexion.EjecutarDataset();
+
+                if (_conexion.Exito)
+                {
+                    Datos = _conexion.Datos;
+                }
+                else
+                {
+                    Mensaje = _conexion.Mensaje;
+                    Exito = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Mensaje = e.Message;
+                Exito = false;
+            }
+
+
+        }
+        public void MtdEliminar()
+        {
+            TipoDato _dato = new TipoDato();
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "usp_Rent_t_tratamiento_Delete";
+
+                _dato.CadenaTexto = c_codigo_tra;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_tra");
+                _conexion.EjecutarDataset();
+
+                if (_conexion.Exito)
+                {
+                    Datos = _conexion.Datos;
+                }
+                else
+                {
+                    Mensaje = _conexion.Mensaje;
+                    Exito = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Mensaje = e.Message;
+                Exito = false;
+            }
+        }
+        public void MtdInsertar()
+        {
+            TipoDato _dato = new TipoDato();
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "usp_Rent_t_tratamiento_Insert";
+
+                _dato.CadenaTexto = c_codigo_tra;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_tra");
+                _dato.CadenaTexto = v_nombre_tra;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "v_nombre_tra");
+                _dato.CadenaTexto = c_codigo_usu;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_usu");
+                _conexion.EjecutarDataset();
+
+                if (_conexion.Exito)
+                {
+                    Datos = _conexion.Datos;
+                }
+                else
+                {
+                    Mensaje = _conexion.Mensaje;
+                    Exito = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Mensaje = e.Message;
+                Exito = false;
+            }
+        }
+        public void MtdActualizar()
+        {
+            TipoDato _dato = new TipoDato();
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "usp_Rent_t_tratamiento_Update";
+
+                _dato.CadenaTexto = c_codigo_tra;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_tra");
+                _dato.CadenaTexto = v_nombre_tra;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "v_nombre_tra");
+                _dato.CadenaTexto = c_codigo_usu;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_usu");
+                _conexion.EjecutarDataset();
+
+                if (_conexion.Exito)
+                {
+                    Datos = _conexion.Datos;
+                }
+                else
+                {
+                    Mensaje = _conexion.Mensaje;
+                    Exito = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Mensaje = e.Message;
+                Exito = false;
+            }
         }
     }
 }

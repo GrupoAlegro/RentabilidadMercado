@@ -48,12 +48,6 @@ namespace Rentabilidad
             aa.WindowState = System.Windows.Forms.FormWindowState.Normal;
             aa.ShowDialog();
         }
-
-        private void txtCodigoPai_KeyPress(object sender, KeyPressEventArgs e)
-        {
-           
-        }
-
         private void txtCodigoPai_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyValue==13)
@@ -84,15 +78,48 @@ namespace Rentabilidad
                 XtraMessageBox.Show(selpais.Mensaje);
             }
         }
+        public void mtdBuscarTratamiento(string valCodigo, string ValNombre)
+        {
+            CLS_Tratamiento seltratamiento = new CLS_Tratamiento();
+            seltratamiento.c_codigo_tra = valCodigo;
+            seltratamiento.v_nombre_tra = ValNombre;
+            seltratamiento.MtdSeleccionarCodigoNombre();
+            if (seltratamiento.Exito)
+            {
+                if (seltratamiento.Datos.Rows.Count > 0)
+                {
+                    txtCodigoTra.Text = seltratamiento.Datos.Rows[0][0].ToString();
+                    txtNombreTra.Text = seltratamiento.Datos.Rows[0][1].ToString();
+                }
+            }
+            else
+            {
+                XtraMessageBox.Show(seltratamiento.Mensaje);
+            }
+        }
+        public void mtdBuscarCategorias(string valCodigo, string ValNombre)
+        {
+            CLS_Categorias selCategorias = new CLS_Categorias();
+            selCategorias.c_codigo_cat = valCodigo;
+            selCategorias.v_nombre_cat = ValNombre;
+            selCategorias.MtdSeleccionarCodigoNombre();
+            if (selCategorias.Exito)
+            {
+                if (selCategorias.Datos.Rows.Count > 0)
+                {
+                    txtCodigoCat.Text = selCategorias.Datos.Rows[0][0].ToString();
+                    txtNombreCat.Text = selCategorias.Datos.Rows[0][1].ToString();
+                }
+            }
+            else
+            {
+                XtraMessageBox.Show(selCategorias.Mensaje);
+            }
+        }
 
         private void txtCodigoPai_TextChanged(object sender, EventArgs e)
         {
             txtNombrePai.Text = string.Empty;
-        }
-
-        private void Frm_Calibres_Shown(object sender, EventArgs e)
-        {
-            
         }
     }
 }

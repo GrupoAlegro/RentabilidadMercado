@@ -184,7 +184,6 @@ C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rent
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.exe.licenses
 C:\Users\Aux_Sistemas\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.exe
 C:\Users\Aux_Sistemas\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.pdb
-C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Forms.Catalogos.Frm_Calibres.resources
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_Pais.resources
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Forms.Control.Frm_Precios_Calibres.resources
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Forms.Control.Frm_Precios_Pais.resources
@@ -289,3 +288,4 @@ C:\Users\Aux_Sistemas\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_Categorias.resources
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_Tratamiento.resources
 C:\Users\Aux_Sistemas\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_Calibres.resources
+C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_Calibres.resources

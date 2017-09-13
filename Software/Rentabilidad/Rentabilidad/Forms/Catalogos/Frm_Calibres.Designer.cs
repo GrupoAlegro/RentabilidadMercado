@@ -413,7 +413,6 @@
             this.txtCodigoPai.TabIndex = 6;
             this.txtCodigoPai.TextChanged += new System.EventHandler(this.txtCodigoPai_TextChanged);
             this.txtCodigoPai.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoPai_KeyDown);
-            this.txtCodigoPai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoPai_KeyPress);
             // 
             // labelControl3
             // 
@@ -504,7 +503,6 @@
             this.Controls.Add(this.barDockControlTop);
             this.Name = "Frm_Calibres";
             this.Text = "Calibres";
-            this.Shown += new System.EventHandler(this.Frm_Calibres_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);

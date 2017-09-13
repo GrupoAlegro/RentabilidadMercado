@@ -73,11 +73,11 @@ namespace Rentabilidad
 
         private void Frm_Categorias_Shown(object sender, EventArgs e)
         {
-            MtdCargar();
+            CargarGrid();
 
         }
 
-        private void MtdCargar()
+        private void CargarGrid()
         {
             CLS_Categorias selcategorias = new CLS_Categorias();
             selcategorias.MtdSeleccionar();
@@ -92,30 +92,30 @@ namespace Rentabilidad
 
         }
 
-        private void barLargeButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnLimpiar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             txtCodigoCat.Text = string.Empty;
             txtNombreCat.Text = string.Empty;
             IsEditCategorias = false;
             txtCodigoCat.Enabled = true;
-            MtdCargar();
+            CargarGrid();
         }
 
-        private void barLargeButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnBuscar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (txtCodigoCat.Text != string.Empty || txtNombreCat.Text != string.Empty)
             {
-                CLS_Categorias selcat = new CLS_Categorias();
-                selcat.c_codigo_cat = txtCodigoCat.Text;
-                selcat.v_nombre_cat = txtNombreCat.Text;
-                selcat.MtdSeleccionarCodigoNombre();
-                if (selcat.Exito)
+                CLS_Categorias selCategorias = new CLS_Categorias();
+                selCategorias.c_codigo_cat = txtCodigoCat.Text;
+                selCategorias.v_nombre_cat = txtNombreCat.Text;
+                selCategorias.MtdSeleccionarCodigoNombre();
+                if (selCategorias.Exito)
                 {
-                    dtgCategoria.DataSource = selcat.Datos;
+                    dtgCategoria.DataSource = selCategorias.Datos;
                 }
                 else
                 {
-                    XtraMessageBox.Show(selcat.Mensaje);
+                    XtraMessageBox.Show(selCategorias.Mensaje);
                 }
             }
             else
@@ -124,7 +124,7 @@ namespace Rentabilidad
             }
         }
 
-        private void barLargeButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (IsEditCategorias == true)
             {
@@ -172,6 +172,51 @@ namespace Rentabilidad
                 else
                 {
                     XtraMessageBox.Show("Faltan datos por capturar");
+                }
+            }
+        }
+
+        private void btnEliminar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (IsEditCategorias == true)
+            {
+                DialogResult = XtraMessageBox.Show("¿Desea Eliminar el Registro?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                if (DialogResult == DialogResult.Yes)
+                {
+                    CLS_Pais selpais1 = new CLS_Pais();
+                    selpais1.c_codigo_pai = txtCodigoCat.Text;
+                    selpais1.MtdEliminar();
+                    if (selpais1.Exito)
+                    {
+                        dtgCategoria.DataSource = selpais1.Datos;
+                        XtraMessageBox.Show("Registro Eliminado Exitosamente");
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show(selpais1.Mensaje);
+                    }
+                    CargarGrid();
+                }
+            }
+            else
+            {
+                XtraMessageBox.Show("Seleccione un elemento para eliminar");
+            }
+        }
+
+        private void btnSalir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Close();
+        }
+
+        private void btnImportar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (IsEditCategorias == true)
+            {
+                if (FrmCalibre != null)
+                {
+                    FrmCalibre.mtdBuscarCategorias(txtCodigoCat.Text, txtNombreCat.Text);
+                    Close();
                 }
             }
         }
