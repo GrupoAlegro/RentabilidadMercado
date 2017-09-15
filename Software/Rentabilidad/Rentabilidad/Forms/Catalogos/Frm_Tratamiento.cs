@@ -16,11 +16,27 @@ namespace Rentabilidad
     {
         Boolean IsEditTratamiento;
         public Frm_Calibres FrmCalibre;
-        public string c_codigo_usu { get; private set; }
+        public string c_codigo_usu { get; set; }
 
         public Frm_Tratamiento()
         {
             InitializeComponent();
+        }
+        private static Frm_Tratamiento m_FormDefInstance;
+        private int FilaSelect;
+
+        public static Frm_Tratamiento DefInstance
+        {
+            get
+            {
+                if (m_FormDefInstance == null || m_FormDefInstance.IsDisposed)
+                    m_FormDefInstance = new Frm_Tratamiento();
+                return m_FormDefInstance;
+            }
+            set
+            {
+                m_FormDefInstance = value;
+            }
         }
         private void Frm_Tratamiento_Shown(object sender, EventArgs e)
         {
@@ -135,6 +151,30 @@ namespace Rentabilidad
                     FrmCalibre.mtdBuscarTratamiento(txtCodigoTra.Text, txtNombreTra.Text);
                     Close();
                 }
+            }
+        }
+
+        private void dtgTratamiento_Click(object sender, EventArgs e)
+        {
+            MtdSubeDatos();
+        }
+        private void MtdSubeDatos()
+        {
+            try
+            {
+                foreach (int i in this.dtgValTratamiento.GetSelectedRows())
+                {
+                    FilaSelect = i;
+                    IsEditTratamiento = true;
+                    DataRow row = dtgValTratamiento.GetDataRow(i);
+                    txtCodigoTra.Text = row["c_codigo_tra"].ToString();
+                    txtNombreTra.Text = row["v_nombre_tra"].ToString();
+                    txtCodigoTra.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
             }
         }
     }

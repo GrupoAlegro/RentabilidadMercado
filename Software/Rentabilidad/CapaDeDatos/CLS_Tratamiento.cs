@@ -20,7 +20,7 @@ namespace CapaDeDatos
             Exito = true;
             try
             {
-                _conexion.NombreProcedimiento = "usp_Rent_t_tratamiento";
+                _conexion.NombreProcedimiento = "usp_Rent_t_tratamiento_Select";
 
                 _conexion.EjecutarDataset();
 

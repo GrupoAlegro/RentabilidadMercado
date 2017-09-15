@@ -100,6 +100,7 @@
             this.btnTratamiento.Id = 4;
             this.btnTratamiento.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnTratamiento.ImageOptions.LargeImage")));
             this.btnTratamiento.Name = "btnTratamiento";
+            this.btnTratamiento.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTratamiento_ItemClick);
             // 
             // barButtonItem1
             // 
@@ -125,8 +126,8 @@
             this.ribbonPageGroup1.AllowTextClipping = false;
             this.ribbonPageGroup1.ItemLinks.Add(this.btnPais);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnCategorias);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btrnCalibres);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnTratamiento);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btrnCalibres);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.ShowCaptionButton = false;
             this.ribbonPageGroup1.Text = "Catalogos";
@@ -179,6 +180,7 @@
             this.Ribbon = this.ribbonControl1;
             this.Text = "Principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_Principal_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             this.ResumeLayout(false);

@@ -36,5 +36,17 @@ namespace Rentabilidad
             Frm_Calibres.DefInstance.c_codigo_usu = c_codigo_usu;
             Frm_Calibres.DefInstance.Show();
         }
+
+        private void btnTratamiento_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Frm_Tratamiento.DefInstance.MdiParent = this;
+            Frm_Tratamiento.DefInstance.c_codigo_usu = c_codigo_usu;
+            Frm_Tratamiento.DefInstance.Show();
+        }
+
+        private void Frm_Principal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

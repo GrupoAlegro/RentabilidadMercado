@@ -295,6 +295,7 @@
             this.dtgTratamiento.TabIndex = 0;
             this.dtgTratamiento.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dtgValTratamiento});
+            this.dtgTratamiento.Click += new System.EventHandler(this.dtgTratamiento_Click);
             // 
             // dtgValTratamiento
             // 
@@ -310,6 +311,8 @@
             this.gridColumn1.Caption = "Codigo Tratamiento";
             this.gridColumn1.FieldName = "c_codigo_tra";
             this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.OptionsColumn.ReadOnly = true;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
             // 
@@ -318,6 +321,8 @@
             this.gridColumn2.Caption = "Nombre Tratamiento";
             this.gridColumn2.FieldName = "v_nombre_tra";
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
+            this.gridColumn2.OptionsColumn.ReadOnly = true;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
             // 
