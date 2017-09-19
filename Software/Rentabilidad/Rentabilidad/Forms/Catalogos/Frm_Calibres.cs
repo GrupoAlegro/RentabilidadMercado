@@ -15,7 +15,7 @@ namespace Rentabilidad
     public partial class Frm_Calibres : DevExpress.XtraEditors.XtraForm
     {
         public string c_codigo_usu { get; set; }
-
+        bool IsEditCalibres = false;
         public Frm_Calibres()
         {
             InitializeComponent();
@@ -241,6 +241,161 @@ namespace Rentabilidad
             {
                 SiguienteFoco(0);
             }
+        }
+
+        private void btnBuscar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (txtCodigoCal.Text != string.Empty || txtNombreCal.Text != string.Empty || txtCodigoCat.Text != string.Empty || txtCodigoPai.Text != string.Empty || txtCodigoTra.Text != string.Empty)
+            {
+                CLS_Calibres selCal = new CLS_Calibres();
+                selCal.c_codigo_cal = txtCodigoCal.Text;
+                selCal.v_nombre_cal = txtNombreCal.Text;
+                selCal.c_codigo_pai = txtCodigoPai.Text;
+                selCal.c_codigo_cat = txtCodigoCat.Text;
+                selCal.c_codigo_tra = txtCodigoTra.Text;
+                selCal.MtdSeleccionarCodigoNombre();
+                if (selCal.Exito)
+                {
+                    dtgCalibres.DataSource = selCal.Datos;
+                }
+                else
+                {
+                    XtraMessageBox.Show(selCal.Mensaje);
+                }
+            }
+            else
+            {
+                XtraMessageBox.Show("No existen parametros de Busqueda");
+            }
+        }
+        private void btnLimpiar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            MtdLimpiar();
+            CargarGrid();
+        }
+        private void MtdLimpiar()
+        {
+            txtCodigoCal.Text = string.Empty;
+            txtNombreCal.Text = string.Empty;
+            txtCodigoCat.Text = string.Empty;
+            txtNombreCat.Text = string.Empty;
+            txtCodigoPai.Text = string.Empty;
+            txtNombrePai.Text = string.Empty;
+            txtCodigoTra.Text = string.Empty;
+            txtNombreTra.Text = string.Empty;
+            spDesde.EditValue = "0.00";
+            spHasta.EditValue = "0.00";
+            SiguienteFoco(0);
+        }
+        private void CargarGrid()
+        {
+            CLS_Calibres selCal = new CLS_Calibres();
+            selCal.MtdSeleccionar();
+            if (selCal.Exito)
+            {
+                dtgCalibres.DataSource = selCal.Datos;
+            }
+        }
+        private void btnGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (IsEditCalibres == true)
+            {
+                if (txtCodigoPai.Text != string.Empty && txtNombrePai.Text != string.Empty)
+                {
+                    CLS_Calibres selCalibres = new CLS_Calibres();
+                    selCalibres.c_codigo_cal = txtCodigoCal.Text;
+                    selCalibres.v_nombre_cal = txtNombreCal.Text;
+                    selCalibres.c_codigo_pai = txtCodigoPai.Text;
+                    selCalibres.c_codigo_cat = txtCodigoCat.Text;
+                    selCalibres.c_codigo_tra = txtCodigoTra.Text;
+                    selCalibres.n_gramaje_desde = Convert.ToDecimal(spDesde.EditValue);
+                    selCalibres.n_gramaje_hasta = Convert.ToDecimal(spHasta.EditValue);
+                    selCalibres.MtdActualizar();
+                    if (selCalibres.Exito)
+                    {
+                        dtgCalibres.DataSource = selCalibres.Datos;
+                        XtraMessageBox.Show("Registro Actualizado Exitosamente");
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show(selCalibres.Mensaje);
+                    }
+                }
+                else
+                {
+                    XtraMessageBox.Show("Faltan datos por capturar");
+                }
+            }
+            else
+            {
+                if (txtCodigoPai.Text != string.Empty && txtNombrePai.Text != string.Empty)
+                {
+                    CLS_Calibres selCalibres = new CLS_Calibres();
+                    selCalibres.c_codigo_cal = txtCodigoCal.Text;
+                    selCalibres.v_nombre_cal = txtNombreCal.Text;
+                    selCalibres.c_codigo_pai = txtCodigoPai.Text;
+                    selCalibres.c_codigo_cat = txtCodigoCat.Text;
+                    selCalibres.c_codigo_tra = txtCodigoTra.Text;
+                    selCalibres.n_gramaje_desde = Convert.ToDecimal(spDesde.EditValue);
+                    selCalibres.n_gramaje_hasta = Convert.ToDecimal(spHasta.EditValue);
+                    selCalibres.MtdInsertar();
+                    if (selCalibres.Exito)
+                    {
+                        dtgCalibres.DataSource = selCalibres.Datos;
+                        XtraMessageBox.Show("Registro Insertado Exitosamente");
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show(selCalibres.Mensaje);
+                    }
+                }
+                else
+                {
+                    XtraMessageBox.Show("Faltan datos por capturar");
+                }
+            }
+        }
+        private void btnEliminar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (IsEditCalibres == true)
+            {
+                DialogResult = XtraMessageBox.Show("¿Desea Eliminar el Registro?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                if (DialogResult == DialogResult.Yes)
+                {
+                    CLS_Calibres selCalibres = new CLS_Calibres();
+                    selCalibres.c_codigo_cal = txtCodigoCal.Text;
+                    selCalibres.MtdEliminar();
+                    if (selCalibres.Exito)
+                    {
+                        dtgCalibres.DataSource = selCalibres.Datos;
+                        XtraMessageBox.Show("Registro Eliminado Exitosamente");
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show(selCalibres.Mensaje);
+                    }
+                    CargarGrid();
+                }
+            }
+            else
+            {
+                XtraMessageBox.Show("Seleccione un elemento para eliminar");
+            }
+        }
+        private void btnSalir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Close();
+        }
+
+        private void Frm_Calibres_Shown(object sender, EventArgs e)
+        {
+            MtdLimpiar();
+            CargarGrid();
+        }
+
+        private void Frm_Calibres_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

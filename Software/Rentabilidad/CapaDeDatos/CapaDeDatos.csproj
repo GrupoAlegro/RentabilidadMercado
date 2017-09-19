@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CLS_Calibres.cs" />
     <Compile Include="CLS_Categorias.cs" />
     <Compile Include="CLS_Pais.cs" />
     <Compile Include="CLS_Tratamiento.cs" />
