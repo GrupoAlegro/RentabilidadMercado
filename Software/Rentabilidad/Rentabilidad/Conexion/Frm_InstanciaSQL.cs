@@ -14,7 +14,6 @@ namespace Rentabilidad
     public partial class Frm_InstanciaSQL : DevExpress.XtraEditors.XtraForm
     {
         public string CadenaServer { get; set; }
-        int FilaSelect=0;
         public Frm_InstanciaSQL()
         {
             InitializeComponent();

@@ -48,5 +48,12 @@ namespace Rentabilidad
         {
             Application.Exit();
         }
+
+        private void btnPrecioFecha_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Frm_Precios_Fechas.DefInstance.MdiParent = this;
+            Frm_Precios_Fechas.DefInstance.c_codigo_usu = c_codigo_usu;
+            Frm_Precios_Fechas.DefInstance.Show();
+        }
     }
 }

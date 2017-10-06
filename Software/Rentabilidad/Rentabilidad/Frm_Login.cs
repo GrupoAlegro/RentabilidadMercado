@@ -15,7 +15,6 @@ namespace Rentabilidad
     public partial class Frm_Login : DevExpress.XtraEditors.XtraForm
     {
         string vIdUsuario = string.Empty;
-        int vIdAdmin = 0;
         int vIdActivo = 0;
         public Boolean habilitado = true;
         public Frm_Login()

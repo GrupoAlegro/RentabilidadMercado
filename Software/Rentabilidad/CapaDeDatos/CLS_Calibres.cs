@@ -128,9 +128,9 @@ namespace CapaDeDatos
                 _dato.CadenaTexto = c_codigo_tra;
                 _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_tra");
                 _dato.DecimalValor = n_gramaje_desde;
-                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "n_gramaje_desde");
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_gramaje_desde");
                 _dato.DecimalValor = n_gramaje_hasta;
-                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "n_gramaje_hasta");
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_gramaje_hasta");
                 _dato.CadenaTexto = c_codigo_usu;
                 _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_usu");
                 _conexion.EjecutarDataset();
@@ -157,22 +157,22 @@ namespace CapaDeDatos
             Exito = true;
             try
             {
-                _conexion.NombreProcedimiento = "usp_Rent_t_categorias_Update";
+                _conexion.NombreProcedimiento = "usp_Rent_t_Calibres_Update";
 
                 _dato.CadenaTexto = c_codigo_cal;
                 _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_cal");
                 _dato.CadenaTexto = v_nombre_cal;
                 _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "v_nombre_cal");
-                _dato.CadenaTexto = c_codigo_cat;
-                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_cat");
                 _dato.CadenaTexto = c_codigo_pai;
                 _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_pai");
+                _dato.DecimalValor = n_gramaje_desde;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_gramaje_desde");
+                _dato.DecimalValor = n_gramaje_hasta;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_gramaje_hasta");
+                _dato.CadenaTexto = c_codigo_cat;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_cat");
                 _dato.CadenaTexto = c_codigo_tra;
                 _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_tra");
-                _dato.DecimalValor = n_gramaje_desde;
-                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "n_gramaje_desde");
-                _dato.DecimalValor = n_gramaje_hasta;
-                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "n_gramaje_hasta");
                 _dato.CadenaTexto = c_codigo_usu;
                 _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_usu");
 

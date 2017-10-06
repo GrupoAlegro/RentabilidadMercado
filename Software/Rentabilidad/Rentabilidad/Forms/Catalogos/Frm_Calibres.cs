@@ -14,6 +14,7 @@ namespace Rentabilidad
 {
     public partial class Frm_Calibres : DevExpress.XtraEditors.XtraForm
     {
+        public Frm_Precios_Fechas FrmPrecioFechas;
         public string c_codigo_usu { get; set; }
         bool IsEditCalibres = false;
         public Frm_Calibres()
@@ -21,6 +22,8 @@ namespace Rentabilidad
             InitializeComponent();
         }
         private static Frm_Calibres m_FormDefInstance;
+        private int FilaSelect;
+
         public static Frm_Calibres DefInstance
         {
             get
@@ -300,7 +303,7 @@ namespace Rentabilidad
         {
             if (IsEditCalibres == true)
             {
-                if (txtCodigoPai.Text != string.Empty && txtNombrePai.Text != string.Empty)
+                if (txtCodigoCal.Text != string.Empty && txtNombreCal.Text != string.Empty && txtCodigoCat.Text != string.Empty && txtCodigoPai.Text != string.Empty && txtCodigoTra.Text != string.Empty)
                 {
                     CLS_Calibres selCalibres = new CLS_Calibres();
                     selCalibres.c_codigo_cal = txtCodigoCal.Text;
@@ -310,9 +313,11 @@ namespace Rentabilidad
                     selCalibres.c_codigo_tra = txtCodigoTra.Text;
                     selCalibres.n_gramaje_desde = Convert.ToDecimal(spDesde.EditValue);
                     selCalibres.n_gramaje_hasta = Convert.ToDecimal(spHasta.EditValue);
+                    selCalibres.c_codigo_usu = c_codigo_usu;
                     selCalibres.MtdActualizar();
                     if (selCalibres.Exito)
                     {
+                        MtdLimpiar();
                         dtgCalibres.DataSource = selCalibres.Datos;
                         XtraMessageBox.Show("Registro Actualizado Exitosamente");
                     }
@@ -328,7 +333,7 @@ namespace Rentabilidad
             }
             else
             {
-                if (txtCodigoPai.Text != string.Empty && txtNombrePai.Text != string.Empty)
+                if (txtCodigoCal.Text != string.Empty && txtNombreCal.Text != string.Empty && txtCodigoCat.Text != string.Empty && txtCodigoPai.Text != string.Empty && txtCodigoTra.Text != string.Empty)
                 {
                     CLS_Calibres selCalibres = new CLS_Calibres();
                     selCalibres.c_codigo_cal = txtCodigoCal.Text;
@@ -338,9 +343,11 @@ namespace Rentabilidad
                     selCalibres.c_codigo_tra = txtCodigoTra.Text;
                     selCalibres.n_gramaje_desde = Convert.ToDecimal(spDesde.EditValue);
                     selCalibres.n_gramaje_hasta = Convert.ToDecimal(spHasta.EditValue);
+                    selCalibres.c_codigo_usu = c_codigo_usu;
                     selCalibres.MtdInsertar();
                     if (selCalibres.Exito)
                     {
+                        MtdLimpiar();
                         dtgCalibres.DataSource = selCalibres.Datos;
                         XtraMessageBox.Show("Registro Insertado Exitosamente");
                     }
@@ -367,8 +374,9 @@ namespace Rentabilidad
                     selCalibres.MtdEliminar();
                     if (selCalibres.Exito)
                     {
-                        dtgCalibres.DataSource = selCalibres.Datos;
                         XtraMessageBox.Show("Registro Eliminado Exitosamente");
+                        MtdLimpiar();
+                        dtgCalibres.DataSource = selCalibres.Datos;
                     }
                     else
                     {
@@ -389,13 +397,66 @@ namespace Rentabilidad
 
         private void Frm_Calibres_Shown(object sender, EventArgs e)
         {
+            spDesde.Properties.Mask.EditMask = "###,###0.000 kg";
+            spDesde.Properties.Mask.UseMaskAsDisplayFormat = true;
+            spHasta.Properties.Mask.EditMask = "###,###0.000 kg";
+            spHasta.Properties.Mask.UseMaskAsDisplayFormat = true;
+            Desde.DisplayFormat.FormatString = "###,###0.000 kg";
+            Hasta.DisplayFormat.FormatString = "###,###0.000 kg";
             MtdLimpiar();
             CargarGrid();
+            if (FrmPrecioFechas != null)
+            {
+                this.btnImportar.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+            }
+            else
+            {
+                this.btnImportar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            }
         }
 
-        private void Frm_Calibres_Load(object sender, EventArgs e)
+        private void dtgCalibres_Click(object sender, EventArgs e)
         {
+            MtdSubeDatos();
+        }
+        private void MtdSubeDatos()
+        {
+            try
+            {
+                foreach (int i in this.dtgValCalibres.GetSelectedRows())
+                {
+                    FilaSelect = i;
+                    IsEditCalibres = true;
+                    DataRow row = dtgValCalibres.GetDataRow(i);
+                    txtCodigoCal.Text = row["c_codigo_cal"].ToString(); 
+                    txtNombreCal.Text = row["v_nombre_cal"].ToString(); 
+                    txtCodigoCat.Text = row["c_codigo_cat"].ToString();
+                    txtNombreCat.Text = row["v_nombre_cat"].ToString();
+                    txtCodigoPai.Text = row["c_codigo_pai"].ToString();
+                    txtNombrePai.Text = row["v_nombre_pai"].ToString();
+                    txtCodigoTra.Text = row["c_codigo_tra"].ToString();
+                    txtNombreTra.Text = row["v_nombre_tra"].ToString(); 
+                    spDesde.EditValue = row["n_gramaje_desde"].ToString();
+                    spHasta.EditValue = row["n_gramaje_hasta"].ToString();
+                    txtCodigoCal.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
+        }
 
+        private void btnImportar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (IsEditCalibres == true)
+            {
+                if (FrmPrecioFechas != null)
+                {
+                    FrmPrecioFechas.BuscarCalibres(txtCodigoCal.Text);
+                    Close();
+                }
+            }
         }
     }
 }

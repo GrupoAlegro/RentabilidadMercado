@@ -35,8 +35,8 @@
             this.btnCategorias = new DevExpress.XtraBars.BarButtonItem();
             this.btrnCalibres = new DevExpress.XtraBars.BarButtonItem();
             this.btnTratamiento = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPrecioFecha = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPrecioPais = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -58,8 +58,8 @@
             this.btnCategorias,
             this.btrnCalibres,
             this.btnTratamiento,
-            this.barButtonItem1,
-            this.barButtonItem2});
+            this.btnPrecioFecha,
+            this.btnPrecioPais});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.MaxItemId = 7;
             this.ribbonControl1.Name = "ribbonControl1";
@@ -102,17 +102,18 @@
             this.btnTratamiento.Name = "btnTratamiento";
             this.btnTratamiento.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTratamiento_ItemClick);
             // 
-            // barButtonItem1
+            // btnPrecioFecha
             // 
-            this.barButtonItem1.Caption = "Precio x Categoria";
-            this.barButtonItem1.Id = 5;
-            this.barButtonItem1.Name = "barButtonItem1";
+            this.btnPrecioFecha.Caption = "Precio x Fecha";
+            this.btnPrecioFecha.Id = 5;
+            this.btnPrecioFecha.Name = "btnPrecioFecha";
+            this.btnPrecioFecha.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPrecioFecha_ItemClick);
             // 
-            // barButtonItem2
+            // btnPrecioPais
             // 
-            this.barButtonItem2.Caption = "Precios x Pais";
-            this.barButtonItem2.Id = 6;
-            this.barButtonItem2.Name = "barButtonItem2";
+            this.btnPrecioPais.Caption = "Precios x Pais";
+            this.btnPrecioPais.Id = 6;
+            this.btnPrecioPais.Name = "btnPrecioPais";
             // 
             // ribbonPage1
             // 
@@ -142,8 +143,8 @@
             // ribbonPageGroup2
             // 
             this.ribbonPageGroup2.AllowTextClipping = false;
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem1);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem2);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnPrecioFecha);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnPrecioPais);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.ShowCaptionButton = false;
             this.ribbonPageGroup2.Text = "Precios";
@@ -166,6 +167,7 @@
             // 
             // xtraTabbedMdiManager1
             // 
+            this.xtraTabbedMdiManager1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders;
             this.xtraTabbedMdiManager1.MdiParent = this;
             // 
             // Frm_Principal
@@ -198,8 +200,8 @@
         private DevExpress.XtraBars.BarButtonItem btnCategorias;
         private DevExpress.XtraBars.BarButtonItem btrnCalibres;
         private DevExpress.XtraBars.BarButtonItem btnTratamiento;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem btnPrecioFecha;
+        private DevExpress.XtraBars.BarButtonItem btnPrecioPais;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;

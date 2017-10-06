@@ -332,6 +332,19 @@
             this.dtgValPais.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2});
+            this.dtgValPais.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
+            this.dtgValPais.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.dtgValPais.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
+            this.dtgValPais.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.False;
+            this.dtgValPais.OptionsBehavior.Editable = false;
+            this.dtgValPais.OptionsBehavior.ReadOnly = true;
+            this.dtgValPais.OptionsCustomization.AllowColumnMoving = false;
+            this.dtgValPais.OptionsCustomization.AllowColumnResizing = false;
+            this.dtgValPais.OptionsHint.ShowColumnHeaderHints = false;
+            this.dtgValPais.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.dtgValPais.OptionsSelection.EnableAppearanceHideSelection = false;
+            this.dtgValPais.OptionsSelection.MultiSelect = true;
+            this.dtgValPais.OptionsView.ShowGroupPanel = false;
             this.dtgValPais.GridControl = this.dtgPais;
             this.dtgValPais.Name = "dtgValPais";
             this.dtgValPais.OptionsView.ShowGroupPanel = false;

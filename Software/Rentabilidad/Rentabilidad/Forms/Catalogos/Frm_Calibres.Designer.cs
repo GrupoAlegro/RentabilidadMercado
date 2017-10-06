@@ -37,6 +37,7 @@
             this.btnGuardar = new DevExpress.XtraBars.BarLargeButtonItem();
             this.btnEliminar = new DevExpress.XtraBars.BarLargeButtonItem();
             this.btnSalir = new DevExpress.XtraBars.BarLargeButtonItem();
+            this.btnImportar = new DevExpress.XtraBars.BarLargeButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -78,8 +79,8 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Desde = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Hasta = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -116,9 +117,10 @@
             this.btnLimpiar,
             this.btnGuardar,
             this.btnEliminar,
-            this.btnSalir});
+            this.btnSalir,
+            this.btnImportar});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 5;
+            this.barManager1.MaxItemId = 6;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar2
@@ -133,7 +135,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.btnLimpiar),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnGuardar),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnEliminar),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnSalir)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnSalir),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnImportar)});
             this.bar2.OptionsBar.AllowCollapse = true;
             this.bar2.OptionsBar.AllowDelete = true;
             this.bar2.OptionsBar.MultiLine = true;
@@ -186,6 +189,15 @@
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSalir_ItemClick);
             // 
+            // btnImportar
+            // 
+            this.btnImportar.Caption = "Seleccionar";
+            this.btnImportar.Id = 5;
+            this.btnImportar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnImportar.ImageOptions.Image")));
+            this.btnImportar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnImportar.ImageOptions.LargeImage")));
+            this.btnImportar.Name = "btnImportar";
+            this.btnImportar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnImportar_ItemClick);
+            // 
             // bar3
             // 
             this.bar3.BarName = "Barra de estado";
@@ -204,15 +216,15 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1136, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(1140, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 553);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 561);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1136, 23);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1140, 23);
             // 
             // barDockControlLeft
             // 
@@ -220,24 +232,24 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(62, 553);
+            this.barDockControlLeft.Size = new System.Drawing.Size(79, 561);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1136, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(1140, 0);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 553);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 561);
             // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.groupControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(62, 0);
+            this.panelControl1.Location = new System.Drawing.Point(79, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Padding = new System.Windows.Forms.Padding(10);
-            this.panelControl1.Size = new System.Drawing.Size(1074, 329);
+            this.panelControl1.Size = new System.Drawing.Size(1061, 329);
             this.panelControl1.TabIndex = 4;
             // 
             // groupControl1
@@ -268,7 +280,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(12, 12);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1050, 305);
+            this.groupControl1.Size = new System.Drawing.Size(1037, 305);
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "Calibres";
             // 
@@ -302,7 +314,7 @@
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(21, 241);
+            this.labelControl9.Location = new System.Drawing.Point(21, 243);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(98, 13);
             this.labelControl9.TabIndex = 19;
@@ -310,7 +322,7 @@
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(21, 211);
+            this.labelControl10.Location = new System.Drawing.Point(21, 213);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(94, 13);
             this.labelControl10.TabIndex = 18;
@@ -346,7 +358,7 @@
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(21, 181);
+            this.labelControl7.Location = new System.Drawing.Point(21, 183);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(87, 13);
             this.labelControl7.TabIndex = 14;
@@ -354,7 +366,7 @@
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(21, 151);
+            this.labelControl8.Location = new System.Drawing.Point(21, 153);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(83, 13);
             this.labelControl8.TabIndex = 13;
@@ -398,7 +410,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(245, 272);
+            this.labelControl6.Location = new System.Drawing.Point(245, 274);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(70, 13);
             this.labelControl6.TabIndex = 10;
@@ -406,7 +418,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(22, 271);
+            this.labelControl5.Location = new System.Drawing.Point(22, 273);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(72, 13);
             this.labelControl5.TabIndex = 9;
@@ -442,7 +454,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(21, 122);
+            this.labelControl3.Location = new System.Drawing.Point(21, 124);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(59, 13);
             this.labelControl3.TabIndex = 5;
@@ -450,7 +462,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(21, 93);
+            this.labelControl4.Location = new System.Drawing.Point(21, 95);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(55, 13);
             this.labelControl4.TabIndex = 4;
@@ -476,7 +488,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(21, 64);
+            this.labelControl2.Location = new System.Drawing.Point(21, 66);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(73, 13);
             this.labelControl2.TabIndex = 1;
@@ -484,7 +496,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(21, 35);
+            this.labelControl1.Location = new System.Drawing.Point(21, 37);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(69, 13);
             this.labelControl1.TabIndex = 0;
@@ -494,10 +506,10 @@
             // 
             this.panelControl2.Controls.Add(this.dtgCalibres);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(62, 329);
+            this.panelControl2.Location = new System.Drawing.Point(79, 329);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Padding = new System.Windows.Forms.Padding(10);
-            this.panelControl2.Size = new System.Drawing.Size(1074, 224);
+            this.panelControl2.Size = new System.Drawing.Size(1061, 232);
             this.panelControl2.TabIndex = 5;
             // 
             // dtgCalibres
@@ -507,10 +519,11 @@
             this.dtgCalibres.MainView = this.dtgValCalibres;
             this.dtgCalibres.MenuManager = this.barManager1;
             this.dtgCalibres.Name = "dtgCalibres";
-            this.dtgCalibres.Size = new System.Drawing.Size(1050, 200);
+            this.dtgCalibres.Size = new System.Drawing.Size(1037, 208);
             this.dtgCalibres.TabIndex = 0;
             this.dtgCalibres.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dtgValCalibres});
+            this.dtgCalibres.Click += new System.EventHandler(this.dtgCalibres_Click);
             // 
             // dtgValCalibres
             // 
@@ -523,10 +536,22 @@
             this.gridColumn7,
             this.gridColumn8,
             this.gridColumn9,
-            this.gridColumn10,
-            this.gridColumn1});
+            this.Desde,
+            this.Hasta});
+            this.dtgValCalibres.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.dtgValCalibres.GridControl = this.dtgCalibres;
             this.dtgValCalibres.Name = "dtgValCalibres";
+            this.dtgValCalibres.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.dtgValCalibres.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
+            this.dtgValCalibres.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.False;
+            this.dtgValCalibres.OptionsBehavior.Editable = false;
+            this.dtgValCalibres.OptionsBehavior.ReadOnly = true;
+            this.dtgValCalibres.OptionsCustomization.AllowColumnMoving = false;
+            this.dtgValCalibres.OptionsCustomization.AllowColumnResizing = false;
+            this.dtgValCalibres.OptionsHint.ShowColumnHeaderHints = false;
+            this.dtgValCalibres.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.dtgValCalibres.OptionsSelection.EnableAppearanceHideSelection = false;
+            this.dtgValCalibres.OptionsSelection.MultiSelect = true;
             this.dtgValCalibres.OptionsView.ShowGroupPanel = false;
             // 
             // gridColumn2
@@ -534,6 +559,8 @@
             this.gridColumn2.Caption = "Codigo Calibre";
             this.gridColumn2.FieldName = "c_codigo_cal";
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
+            this.gridColumn2.OptionsColumn.ReadOnly = true;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 0;
             // 
@@ -542,6 +569,8 @@
             this.gridColumn3.Caption = "Nombre Calibre";
             this.gridColumn3.FieldName = "v_nombre_cal";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
+            this.gridColumn3.OptionsColumn.ReadOnly = true;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 1;
             // 
@@ -550,6 +579,8 @@
             this.gridColumn4.Caption = "Codigo Pais";
             this.gridColumn4.FieldName = "c_codigo_pai";
             this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
+            this.gridColumn4.OptionsColumn.ReadOnly = true;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 2;
             // 
@@ -558,6 +589,8 @@
             this.gridColumn5.Caption = "Nombre País";
             this.gridColumn5.FieldName = "v_nombre_pai";
             this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowEdit = false;
+            this.gridColumn5.OptionsColumn.ReadOnly = true;
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 3;
             // 
@@ -566,6 +599,8 @@
             this.gridColumn6.Caption = "Codigo Tratamiento";
             this.gridColumn6.FieldName = "c_codigo_tra";
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
+            this.gridColumn6.OptionsColumn.ReadOnly = true;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 4;
             // 
@@ -574,6 +609,8 @@
             this.gridColumn7.Caption = "Nombre Tratamiento";
             this.gridColumn7.FieldName = "v_nombre_tra";
             this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.OptionsColumn.AllowEdit = false;
+            this.gridColumn7.OptionsColumn.ReadOnly = true;
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 5;
             // 
@@ -582,6 +619,8 @@
             this.gridColumn8.Caption = "Codigo Categoria";
             this.gridColumn8.FieldName = "c_codigo_cat";
             this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.OptionsColumn.AllowEdit = false;
+            this.gridColumn8.OptionsColumn.ReadOnly = true;
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 6;
             // 
@@ -590,30 +629,40 @@
             this.gridColumn9.Caption = "Nombre Categoria";
             this.gridColumn9.FieldName = "v_nombre_cat";
             this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.OptionsColumn.AllowEdit = false;
+            this.gridColumn9.OptionsColumn.ReadOnly = true;
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 7;
             // 
-            // gridColumn10
+            // Desde
             // 
-            this.gridColumn10.Caption = "Desde gr";
-            this.gridColumn10.FieldName = "n_gramaje_desde";
-            this.gridColumn10.Name = "gridColumn10";
-            this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 8;
+            this.Desde.Caption = "Desde kg";
+            this.Desde.DisplayFormat.FormatString = "{0} kg";
+            this.Desde.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.Desde.FieldName = "n_gramaje_desde";
+            this.Desde.Name = "Desde";
+            this.Desde.OptionsColumn.AllowEdit = false;
+            this.Desde.OptionsColumn.ReadOnly = true;
+            this.Desde.Visible = true;
+            this.Desde.VisibleIndex = 8;
             // 
-            // gridColumn1
+            // Hasta
             // 
-            this.gridColumn1.Caption = "Hasta gr";
-            this.gridColumn1.FieldName = "n_gramaje_hasta";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 9;
+            this.Hasta.Caption = "Hasta kg";
+            this.Hasta.DisplayFormat.FormatString = "{0} kg";
+            this.Hasta.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.Hasta.FieldName = "n_gramaje_hasta";
+            this.Hasta.Name = "Hasta";
+            this.Hasta.OptionsColumn.AllowEdit = false;
+            this.Hasta.OptionsColumn.ReadOnly = true;
+            this.Hasta.Visible = true;
+            this.Hasta.VisibleIndex = 9;
             // 
             // Frm_Calibres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1136, 576);
+            this.ClientSize = new System.Drawing.Size(1140, 584);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.barDockControlLeft);
@@ -621,8 +670,8 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "Frm_Calibres";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calibres";
-            this.Load += new System.EventHandler(this.Frm_Calibres_Load);
             this.Shown += new System.EventHandler(this.Frm_Calibres_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
@@ -699,7 +748,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn Desde;
+        private DevExpress.XtraGrid.Columns.GridColumn Hasta;
+        private DevExpress.XtraBars.BarLargeButtonItem btnImportar;
     }
 }

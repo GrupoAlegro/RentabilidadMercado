@@ -43,9 +43,12 @@
     <Reference Include="DevExpress.XtraBars.v17.1" />
     <Reference Include="DevExpress.Sparkline.v17.1.Core" />
     <Reference Include="DevExpress.XtraEditors.v17.1" />
-    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v17.1.Reporting.Extensions, Version=17.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v17.1, Version=17.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v17.1.Core, Version=17.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -80,6 +83,12 @@
     <Compile Include="Conexion\Frm_InstanciaSQL.designer.cs">
       <DependentUpon>Frm_InstanciaSQL.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Catalogos\Frm_BDistribuidores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\Frm_BDistribuidores.designer.cs">
+      <DependentUpon>Frm_BDistribuidores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Catalogos\Frm_Calibres.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,11 +113,11 @@
     <Compile Include="Forms\Catalogos\Frm_Tratamiento.Designer.cs">
       <DependentUpon>Frm_Tratamiento.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Control\Frm_Precios_Calibres.cs">
+    <Compile Include="Forms\Control\Frm_Precios_Fechas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Control\Frm_Precios_Calibres.Designer.cs">
-      <DependentUpon>Frm_Precios_Calibres.cs</DependentUpon>
+    <Compile Include="Forms\Control\Frm_Precios_Fechas.Designer.cs">
+      <DependentUpon>Frm_Precios_Fechas.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Control\Frm_Precios_Pais.cs">
       <SubType>Form</SubType>
@@ -139,6 +148,9 @@
     <EmbeddedResource Include="Conexion\Frm_InstanciaSQL.resx">
       <DependentUpon>Frm_InstanciaSQL.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\Frm_BDistribuidores.resx">
+      <DependentUpon>Frm_BDistribuidores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\Frm_Calibres.resx">
       <DependentUpon>Frm_Calibres.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,8 +163,8 @@
     <EmbeddedResource Include="Forms\Catalogos\Frm_Tratamiento.resx">
       <DependentUpon>Frm_Tratamiento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Control\Frm_Precios_Calibres.resx">
-      <DependentUpon>Frm_Precios_Calibres.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Control\Frm_Precios_Fechas.resx">
+      <DependentUpon>Frm_Precios_Fechas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Control\Frm_Precios_Pais.resx">
       <DependentUpon>Frm_Precios_Pais.cs</DependentUpon>
