@@ -15,8 +15,11 @@ namespace CapaDeDatos
         public decimal n_preciobanda_pre { get; set; }
         public decimal n_precioventa_pre { get; set; }
         public string c_codigo_usu { get; set; }
+        public int Opcion { get; set; }
+        public string d_fecha_preIni { get; set; }
+        public string d_fecha_preFin { get; set; }
 
-        
+
         public void MtdSeleccionar()
         {
             TipoDato _dato = new TipoDato();
@@ -24,8 +27,6 @@ namespace CapaDeDatos
             try
             {
                 _conexion.NombreProcedimiento = "usp_Rent_t_PreciosFecha_select";
-                _dato.CadenaTexto = d_fecha_pre;
-                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "d_fecha_pre");
                 _conexion.EjecutarDataset();
 
                 if (_conexion.Exito)
@@ -57,6 +58,14 @@ namespace CapaDeDatos
                 _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_cal");
                 _dato.CadenaTexto = c_codigo_dis;
                 _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_dis");
+                _dato.CadenaTexto = d_fecha_pre;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "d_fecha_pre");
+                _dato.CadenaTexto = d_fecha_preIni;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "d_fecha_preIni");
+                _dato.CadenaTexto = d_fecha_preFin;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "d_fecha_preFin");
+                _dato.Entero = Opcion;
+                _conexion.agregarParametro(EnumTipoDato.Entero, _dato, "Opcion");
                 _conexion.EjecutarDataset();
 
                 if (_conexion.Exito)

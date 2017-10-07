@@ -57,6 +57,7 @@ namespace Rentabilidad
 
         private void Frm_Precios_Fechas_Shown(object sender, EventArgs e)
         {
+            buscarInicio();
             dtFechaInicio.Enabled = false;
             dtFechaFin.Enabled = false;
             dtFechaUnica.Enabled = true;
@@ -70,6 +71,34 @@ namespace Rentabilidad
             txtPrecioEstimado.Properties.Mask.UseMaskAsDisplayFormat = true;
             PrecioBanda.DisplayFormat.FormatString = "$ ###,###0.00";
             PrecioEstimado.DisplayFormat.FormatString = "$ ###,###0.00";
+        }
+
+        private void buscarInicio()
+        {
+            try
+            {
+                CLS_Precios_Fechas insPre = new CLS_Precios_Fechas();
+                insPre.MtdSeleccionar();
+                if (insPre.Exito)
+                {
+                    if (insPre.Datos.Rows.Count > 0)
+                    {
+                        dtgPrecios.DataSource = insPre.Datos;
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("No existen datos para mostrar");
+                    }
+                }
+                else
+                {
+                    XtraMessageBox.Show(insPre.Mensaje);
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
         }
 
         private List<string> CrearRangoFecha(string FechaInicio , string FechaFin)
@@ -98,6 +127,7 @@ namespace Rentabilidad
             txtNombreTratamiento.Text = string.Empty;
             txtPrecioBanda.Text = string.Empty;
             txtPrecioEstimado.Text = string.Empty;
+            buscarInicio();
             
         }
         private void btnImpCalibre_Click(object sender, EventArgs e)
@@ -136,24 +166,30 @@ namespace Rentabilidad
         {
             if (txtCodigoDis.Text != string.Empty && e.KeyValue == 13)
             {
-                CLS_Distribuidor seldis = new CLS_Distribuidor();
-                seldis.c_codigo_dis = txtCodigoDis.Text;
-                seldis.MtdSeleccionar();
-                if (seldis.Exito)
-                {
-                    if (seldis.Datos.Rows.Count > 0)
-                    {
-                        txtCodigoDis.Text = seldis.Datos.Rows[0][0].ToString();
-                        txtNombreDistribuidor.Text = seldis.Datos.Rows[0][1].ToString();
-                    }
-                    else
-                    {
-                        XtraMessageBox.Show("No se encontraron Registros");
-                    }
-                }
+                BuscarDistribuidor(txtCodigoDis.Text);
                 SiguienteFoco(2);
             }
         }
+
+        private void BuscarDistribuidor(string c_codigo_dis)
+        {
+            CLS_Distribuidor seldis = new CLS_Distribuidor();
+            seldis.c_codigo_dis = c_codigo_dis;
+            seldis.MtdSeleccionar();
+            if (seldis.Exito)
+            {
+                if (seldis.Datos.Rows.Count > 0)
+                {
+                    txtCodigoDis.Text = seldis.Datos.Rows[0][0].ToString();
+                    txtNombreDistribuidor.Text = seldis.Datos.Rows[0][1].ToString();
+                }
+                else
+                {
+                    XtraMessageBox.Show("No se encontraron Registros");
+                }
+            }
+        }
+
         private void txtPrecioBanda_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyValue == 13)
@@ -226,24 +262,40 @@ namespace Rentabilidad
 
         private void btnBuscar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (txtCodigoCal.Text != string.Empty || txtCodigoDis.Text != string.Empty)
+            string vc_codigo_cal = string.Empty;
+            string vc_codigo_dis = string.Empty;
+            string vd_fecha_pre = string.Empty;
+            string vd_fecha_preIni = string.Empty;
+            string vd_fecha_preFin = string.Empty;
+            int vOpcion = 0;
+
+            vc_codigo_cal = txtCodigoCal.Text;
+            vc_codigo_dis = txtCodigoDis.Text;
+            if (rdbFechas.SelectedIndex == 0)
             {
-                CLS_Precios_Fechas selPrecioF = new CLS_Precios_Fechas();
-                selPrecioF.c_codigo_cal = txtCodigoCal.Text;
-                selPrecioF.c_codigo_dis = txtCodigoDis.Text;
-                selPrecioF.MtdSeleccionarCodigoNombre();
-                if (selPrecioF.Exito)
-                {
-                    dtgPrecios.DataSource = selPrecioF.Datos;
-                }
-                else
-                {
-                    XtraMessageBox.Show(selPrecioF.Mensaje);
-                }
+                vd_fecha_pre = dtFechaUnica.DateTime.Year + DosCeros1(dtFechaUnica.DateTime.Month.ToString()) + DosCeros1(dtFechaUnica.DateTime.Day.ToString());
+                vd_fecha_preIni = string.Empty;
+                vd_fecha_preFin = string.Empty;
+                vOpcion = 1;
+                buscar(vc_codigo_cal, vc_codigo_dis, vd_fecha_pre, vd_fecha_preIni, vd_fecha_preFin, vOpcion);
             }
             else
             {
-                XtraMessageBox.Show("No existen parametros de Busqueda");
+                DateTime FechaInicio = Convert.ToDateTime(dtFechaInicio.EditValue.ToString());
+                DateTime FechaFin = Convert.ToDateTime(dtFechaFin.EditValue.ToString());
+                int result = DateTime.Compare(FechaInicio, FechaFin);
+                if (result > 0)
+                {
+                    XtraMessageBox.Show("La fecha de Inicio debe ser menor que la fecha Fin");
+                }
+                else
+                {
+                    vd_fecha_pre = string.Empty;
+                    vd_fecha_preIni = dtFechaInicio.DateTime.Year + DosCeros1(dtFechaInicio.DateTime.Month.ToString()) + DosCeros1(dtFechaInicio.DateTime.Day.ToString());
+                    vd_fecha_preFin = dtFechaFin.DateTime.Year + DosCeros1(dtFechaFin.DateTime.Month.ToString()) + DosCeros1(dtFechaFin.DateTime.Day.ToString());
+                    vOpcion = 2;
+                    buscar(vc_codigo_cal, vc_codigo_dis, vd_fecha_pre, vd_fecha_preIni, vd_fecha_preFin, vOpcion);
+                }
             }
         }
         public string DosCeros1(string sVal)
@@ -312,8 +364,8 @@ namespace Rentabilidad
                     }
                     else
                     {
-                        string FechaIni = dtFechaInicio.DateTime.Year + DosCeros1(dtFechaInicio.DateTime.Month.ToString()) + DosCeros1(dtFechaInicio.DateTime.Day.ToString());
-                        string FechaF = dtFechaFin.DateTime.Year + DosCeros1(dtFechaFin.DateTime.Month.ToString()) + DosCeros1(dtFechaFin.DateTime.Day.ToString());
+                        string FechaIni = dtFechaInicio.DateTime.Year +"-"+ DosCeros1(dtFechaInicio.DateTime.Month.ToString()) + "-" + DosCeros1(dtFechaInicio.DateTime.Day.ToString());
+                        string FechaF = dtFechaFin.DateTime.Year + "-" + DosCeros1(dtFechaFin.DateTime.Month.ToString()) + "-" + DosCeros1(dtFechaFin.DateTime.Day.ToString());
 
                         List<String> Fechas = new List<string>();
                         Fechas = CrearRangoFecha(FechaIni, FechaF);
@@ -364,7 +416,7 @@ namespace Rentabilidad
                         if (Cont == Fechas.Count)
                         {
                             XtraMessageBox.Show("Se han Procesado Todos los Registros");
-                        }
+                         }
                         else
                         {
                             XtraMessageBox.Show("han faltado de Procesar algunos Registros");
@@ -452,6 +504,43 @@ namespace Rentabilidad
             }
             return Valor;
         }
+        private bool buscar(string c_codigo_cal, string c_codigo_dis, string d_fecha_pre, string d_fecha_preIni, string d_fecha_preFin, int Opcion)
+        {
+            bool Valor = true;
+            try
+            {
+                CLS_Precios_Fechas insPre = new CLS_Precios_Fechas();
+                insPre.c_codigo_pre = c_codigo_pre;
+                insPre.c_codigo_cal = c_codigo_cal;
+                insPre.c_codigo_dis = c_codigo_dis;
+                insPre.d_fecha_pre = d_fecha_pre;
+                insPre.d_fecha_preIni = d_fecha_preIni;
+                insPre.d_fecha_preFin = d_fecha_preFin;
+                insPre.Opcion = Opcion;
+                insPre.MtdSeleccionarCodigoNombre();
+                if (insPre.Exito)
+                {
+                    if (insPre.Datos.Rows.Count > 0)
+                    {
+                        dtgPrecios.DataSource = insPre.Datos;
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("No existen datos para mostrar");
+                    }
+                }
+                else
+                {
+                    XtraMessageBox.Show(insPre.Mensaje);
+                }
+            }
+            catch (Exception ex)
+            {
+                Valor = false;
+                XtraMessageBox.Show(ex.Message);
+            }
+            return Valor;
+        }
 
         private void txtCodigoCal_TextChanged(object sender, EventArgs e)
         {
@@ -464,6 +553,35 @@ namespace Rentabilidad
         private void txtCodigoDis_TextChanged(object sender, EventArgs e)
         {
             txtNombreDistribuidor.Text = string.Empty;
+        }
+
+        private void dtgPrecios_Click(object sender, EventArgs e)
+        {
+            MtdSubeDatos();
+        }
+        private void MtdSubeDatos()
+        {
+            try
+            {
+                foreach (int i in this.dtgValPrecios.GetSelectedRows())
+                {
+                    FilaSelect = i;
+                    IsEditPrecios = true;
+                    DataRow row = dtgValPrecios.GetDataRow(i);
+                    txtCodigoCal.Text = row["c_codigo_pai"].ToString();
+                    txtCodigoDis.Text = row["c_codigo_dis"].ToString();
+                    BuscarCalibres(txtCodigoCal.Text);
+                    BuscarDistribuidor(txtCodigoDis.Text);
+                    txtPrecioBanda.Value= Convert.ToDecimal(row["n_preciobanda_pre"].ToString());
+                    txtPrecioEstimado.Value = Convert.ToDecimal(row["n_precioventa_pre"].ToString());
+                    IsEditPrecios = true;
+                    SiguienteFoco(0);
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
         }
     }
 }
