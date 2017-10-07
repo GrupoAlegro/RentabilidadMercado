@@ -24,7 +24,8 @@ namespace CapaDeDatos
             try
             {
                 _conexion.NombreProcedimiento = "usp_Rent_t_PreciosFecha_select";
-
+                _dato.CadenaTexto = d_fecha_pre;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "d_fecha_pre");
                 _conexion.EjecutarDataset();
 
                 if (_conexion.Exito)

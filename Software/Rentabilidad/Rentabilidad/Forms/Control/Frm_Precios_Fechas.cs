@@ -57,7 +57,6 @@ namespace Rentabilidad
 
         private void Frm_Precios_Fechas_Shown(object sender, EventArgs e)
         {
-            //CrearRangoFecha("2017-01-01 00:00:00", "2017-01-10 00:00:00");
             dtFechaInicio.Enabled = false;
             dtFechaFin.Enabled = false;
             dtFechaUnica.Enabled = true;
@@ -266,7 +265,7 @@ namespace Rentabilidad
                     selFecha.c_codigo_cal = txtCodigoCal.Text;
                     selFecha.c_codigo_dis = txtCodigoDis.Text;
                     DateTime FActual = dtFechaUnica.DateTime;
-                    selFecha.d_fecha_pre = FActual.Year + "-" + DosCeros1(FActual.Month.ToString()) + "-" + DosCeros1(FActual.Day.ToString()) + " 00:00:00";
+                    selFecha.d_fecha_pre = FActual.Year + DosCeros1(FActual.Month.ToString()) + DosCeros1(FActual.Day.ToString());
                     selFecha.MtdSeleccionarCalDisFecha();
                     if (selFecha.Exito)
                     {
@@ -274,11 +273,11 @@ namespace Rentabilidad
                         {
                             string vc_codigo_cal = txtCodigoCal.Text;
                             string vc_codigo_dis = txtCodigoDis.Text;
-                            string vd_fecha_pre = FActual.Year + "-" + DosCeros1(FActual.Month.ToString()) + "-" + DosCeros1(FActual.Day.ToString()) + " 00:00:00";
+                            string vd_fecha_pre = FActual.Year + DosCeros1(FActual.Month.ToString()) + DosCeros1(FActual.Day.ToString());
                             decimal vn_preciobanda_pre = Convert.ToDecimal(txtPrecioBanda.Value);
                             decimal vn_precioventa_pre = Convert.ToDecimal(txtPrecioEstimado.Value);
                             string vc_codigo_usu = c_codigo_usu;
-                            if(insertar(vc_codigo_cal, vc_codigo_dis, vd_fecha_pre, vn_preciobanda_pre, vn_precioventa_pre, vc_codigo_usu))
+                            if (insertar(vc_codigo_cal, vc_codigo_dis, vd_fecha_pre, vn_preciobanda_pre, vn_precioventa_pre, vc_codigo_usu))
                             {
                                 XtraMessageBox.Show("Se ha insertado el registro con exito");
                             }
@@ -287,11 +286,11 @@ namespace Rentabilidad
                         {
                             string vc_codigo_cal = txtCodigoCal.Text;
                             string vc_codigo_dis = txtCodigoDis.Text;
-                            string vd_fecha_pre = FActual.Year + "-" + DosCeros1(FActual.Month.ToString()) + "-" + DosCeros1(FActual.Day.ToString()) + " 00:00:00";
+                            string vd_fecha_pre = FActual.Year + DosCeros1(FActual.Month.ToString()) + DosCeros1(FActual.Day.ToString());
                             decimal vn_preciobanda_pre = Convert.ToDecimal(txtPrecioBanda.Value);
                             decimal vn_precioventa_pre = Convert.ToDecimal(txtPrecioEstimado.Value);
                             string vc_codigo_usu = c_codigo_usu;
-                            if(modificar(c_codigo_pre, vc_codigo_cal, vc_codigo_dis, vd_fecha_pre, vn_preciobanda_pre, vn_precioventa_pre, vc_codigo_usu))
+                            if (modificar(c_codigo_pre, vc_codigo_cal, vc_codigo_dis, vd_fecha_pre, vn_preciobanda_pre, vn_precioventa_pre, vc_codigo_usu))
                             {
                                 XtraMessageBox.Show("Se ha modificado el registro con exito");
                             }
@@ -313,8 +312,8 @@ namespace Rentabilidad
                     }
                     else
                     {
-                        string FechaIni = dtFechaInicio.DateTime.Year + "-" + DosCeros1(dtFechaInicio.DateTime.Month.ToString()) + "-" + DosCeros1(dtFechaInicio.DateTime.Day.ToString()) + " 00:00:00";
-                        string FechaF = dtFechaFin.DateTime.Year + "-" + DosCeros1(dtFechaFin.DateTime.Month.ToString()) + "-" + DosCeros1(dtFechaFin.DateTime.Day.ToString()) + " 00:00:00";
+                        string FechaIni = dtFechaInicio.DateTime.Year + DosCeros1(dtFechaInicio.DateTime.Month.ToString()) + DosCeros1(dtFechaInicio.DateTime.Day.ToString());
+                        string FechaF = dtFechaFin.DateTime.Year + DosCeros1(dtFechaFin.DateTime.Month.ToString()) + DosCeros1(dtFechaFin.DateTime.Day.ToString());
 
                         List<String> Fechas = new List<string>();
                         Fechas = CrearRangoFecha(FechaIni, FechaF);
@@ -325,7 +324,7 @@ namespace Rentabilidad
                             selFecha.c_codigo_cal = txtCodigoCal.Text;
                             selFecha.c_codigo_dis = txtCodigoDis.Text;
                             DateTime FActual = Convert.ToDateTime(Fechas[i]);
-                            selFecha.d_fecha_pre = FActual.Year + "-" + DosCeros1(FActual.Month.ToString()) + "-" + DosCeros1(FActual.Day.ToString()) + " 00:00:00";
+                            selFecha.d_fecha_pre = FActual.Year + DosCeros1(FActual.Month.ToString()) + DosCeros1(FActual.Day.ToString());
                             selFecha.MtdSeleccionarCalDisFecha();
                             if (selFecha.Exito)
                             {
@@ -333,24 +332,25 @@ namespace Rentabilidad
                                 {
                                     string vc_codigo_cal = txtCodigoCal.Text;
                                     string vc_codigo_dis = txtCodigoDis.Text;
-                                    string vd_fecha_pre= FActual.Year + "-" + DosCeros1(FActual.Month.ToString()) + "-" + DosCeros1(FActual.Day.ToString()) + " 00:00:00";
+                                    string vd_fecha_pre = FActual.Year + DosCeros1(FActual.Month.ToString()) + DosCeros1(FActual.Day.ToString());
                                     decimal vn_preciobanda_pre = Convert.ToDecimal(txtPrecioBanda.Value);
                                     decimal vn_precioventa_pre = Convert.ToDecimal(txtPrecioEstimado.Value);
                                     string vc_codigo_usu = c_codigo_usu;
-                                    if(insertar(vc_codigo_cal, vc_codigo_dis, vd_fecha_pre, vn_preciobanda_pre, vn_precioventa_pre, vc_codigo_usu))
+                                    if (insertar(vc_codigo_cal, vc_codigo_dis, vd_fecha_pre, vn_preciobanda_pre, vn_precioventa_pre, vc_codigo_usu))
                                     {
                                         Cont++;
                                     }
                                 }
                                 else
                                 {
+                                    c_codigo_pre = Convert.ToInt32(selFecha.Datos.Rows[0][0].ToString());
                                     string vc_codigo_cal = txtCodigoCal.Text;
                                     string vc_codigo_dis = txtCodigoDis.Text;
-                                    string vd_fecha_pre = FActual.Year + "-" + DosCeros1(FActual.Month.ToString()) + "-" + DosCeros1(FActual.Day.ToString()) + " 00:00:00";
+                                    string vd_fecha_pre = FActual.Year + DosCeros1(FActual.Month.ToString()) + DosCeros1(FActual.Day.ToString());
                                     decimal vn_preciobanda_pre = Convert.ToDecimal(txtPrecioBanda.Value);
                                     decimal vn_precioventa_pre = Convert.ToDecimal(txtPrecioEstimado.Value);
                                     string vc_codigo_usu = c_codigo_usu;
-                                    if(modificar(c_codigo_pre, vc_codigo_cal, vc_codigo_dis, vd_fecha_pre, vn_preciobanda_pre, vn_precioventa_pre, vc_codigo_usu))
+                                    if (modificar(c_codigo_pre, vc_codigo_cal, vc_codigo_dis, vd_fecha_pre, vn_preciobanda_pre, vn_precioventa_pre, vc_codigo_usu))
                                     {
                                         Cont++;
                                     }
@@ -361,7 +361,7 @@ namespace Rentabilidad
                                 XtraMessageBox.Show(selFecha.Mensaje);
                             }
                         }
-                        if(Cont== Fechas.Count)
+                        if (Cont == Fechas.Count)
                         {
                             XtraMessageBox.Show("Se han Procesado Todos los Registros");
                         }
