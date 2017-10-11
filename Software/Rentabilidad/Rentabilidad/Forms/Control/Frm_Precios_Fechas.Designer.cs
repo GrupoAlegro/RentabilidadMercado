@@ -83,7 +83,6 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.dtgPrecios = new DevExpress.XtraGrid.GridControl();
             this.dtgValPrecios = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -95,6 +94,8 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -203,6 +204,7 @@
             this.btnSalir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.ImageOptions.Image")));
             this.btnSalir.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSalir.ImageOptions.LargeImage")));
             this.btnSalir.Name = "btnSalir";
+            this.btnSalir.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSalir_ItemClick);
             // 
             // bar3
             // 
@@ -716,7 +718,8 @@
             this.gridColumn8,
             this.gridColumn9,
             this.gridColumn6,
-            this.gridColumn10});
+            this.gridColumn10,
+            this.gridColumn11});
             this.dtgValPrecios.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.dtgValPrecios.GridControl = this.dtgPrecios;
             this.dtgValPrecios.Name = "dtgValPrecios";
@@ -732,14 +735,6 @@
             this.dtgValPrecios.OptionsSelection.EnableAppearanceHideSelection = false;
             this.dtgValPrecios.OptionsSelection.MultiSelect = true;
             this.dtgValPrecios.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "Codigo Calibre";
-            this.gridColumn1.FieldName = "c_codigo_cal";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 1;
             // 
             // gridColumn2
             // 
@@ -779,7 +774,7 @@
             this.gridColumn3.FieldName = "d_fecha_pre";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 0;
+            this.gridColumn3.VisibleIndex = 1;
             // 
             // PrecioBanda
             // 
@@ -787,7 +782,7 @@
             this.PrecioBanda.FieldName = "n_preciobanda_pre";
             this.PrecioBanda.Name = "PrecioBanda";
             this.PrecioBanda.Visible = true;
-            this.PrecioBanda.VisibleIndex = 7;
+            this.PrecioBanda.VisibleIndex = 8;
             this.PrecioBanda.Width = 38;
             // 
             // PrecioEstimado
@@ -796,7 +791,7 @@
             this.PrecioEstimado.FieldName = "n_precioventa_pre";
             this.PrecioEstimado.Name = "PrecioEstimado";
             this.PrecioEstimado.Visible = true;
-            this.PrecioEstimado.VisibleIndex = 8;
+            this.PrecioEstimado.VisibleIndex = 9;
             this.PrecioEstimado.Width = 38;
             // 
             // gridColumn8
@@ -805,7 +800,7 @@
             this.gridColumn8.FieldName = "n_gramaje_desde";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 9;
+            this.gridColumn8.VisibleIndex = 10;
             this.gridColumn8.Width = 38;
             // 
             // gridColumn9
@@ -814,7 +809,7 @@
             this.gridColumn9.FieldName = "n_gramaje_hasta";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 10;
+            this.gridColumn9.VisibleIndex = 11;
             this.gridColumn9.Width = 45;
             // 
             // gridColumn6
@@ -823,7 +818,7 @@
             this.gridColumn6.FieldName = "c_codigo_pre";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 11;
+            this.gridColumn6.VisibleIndex = 12;
             // 
             // gridColumn10
             // 
@@ -831,8 +826,24 @@
             this.gridColumn10.FieldName = "v_nombre_dis";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 6;
+            this.gridColumn10.VisibleIndex = 7;
             this.gridColumn10.Width = 180;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Codigo Calibre";
+            this.gridColumn1.FieldName = "c_codigo_cal";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            // 
+            // gridColumn11
+            // 
+            this.gridColumn11.Caption = "Codigo Distribuidor";
+            this.gridColumn11.FieldName = "c_codigo_dis";
+            this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.Visible = true;
+            this.gridColumn11.VisibleIndex = 6;
             // 
             // Frm_Precios_Fechas
             // 
@@ -926,7 +937,6 @@
         private DevExpress.XtraEditors.PanelControl panelControl4;
         private DevExpress.XtraGrid.GridControl dtgPrecios;
         private DevExpress.XtraGrid.Views.Grid.GridView dtgValPrecios;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn PrecioBanda;
@@ -955,5 +965,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
     }
 }

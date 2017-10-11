@@ -199,7 +199,6 @@ C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rent
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_Pais.resources
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_Tratamiento.resources
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_Precios_Fechas.resources
-C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Forms.Control.Frm_Precios_Pais.resources
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_Principal.resources
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_Login.resources
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Properties.Resources.resources
@@ -405,3 +404,4 @@ C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rent
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\bin\Debug\ru\DevExpress.Xpo.v17.1.resources.dll
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.exe
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.pdb
+C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_Precios_Pais.resources

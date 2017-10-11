@@ -15,6 +15,7 @@ namespace Rentabilidad
     public partial class Frm_Pais : DevExpress.XtraEditors.XtraForm
     {
         public Frm_Calibres FrmCalibre;
+        public Frm_Precios_Pais FrmPreciosPais;
         int FilaSelect = 0;
         Boolean IsEditPais;
         public string c_codigo_usu { get; set; }
@@ -204,9 +205,14 @@ namespace Rentabilidad
         {
             if(IsEditPais==true)
             {
-                if(FrmCalibre!=null)
+                if (FrmCalibre != null)
                 {
                     FrmCalibre.mtdBuscarPais(txtCodigoPai.Text, txtNombrePai.Text);
+                    Close();
+                }
+                else if (FrmPreciosPais != null)
+                {
+                    FrmPreciosPais.mtdBuscarPais(txtCodigoPai.Text, txtNombrePai.Text);
                     Close();
                 }
             }

@@ -43,6 +43,33 @@ namespace CapaDeDatos
                 Exito = false;
             }
         }
+        public void MtdSeleccionarCalibrePais()
+        {
+            TipoDato _dato = new TipoDato();
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "usp_Rent_t_Calibres_Pais_Select";
+                _dato.CadenaTexto = c_codigo_pai;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_pai");
+                _conexion.EjecutarDataset();
+
+                if (_conexion.Exito)
+                {
+                    Datos = _conexion.Datos;
+                }
+                else
+                {
+                    Mensaje = _conexion.Mensaje;
+                    Exito = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Mensaje = e.Message;
+                Exito = false;
+            }
+        }
         public void MtdSeleccionarCodigoNombre()
         {
             TipoDato _dato = new TipoDato();
