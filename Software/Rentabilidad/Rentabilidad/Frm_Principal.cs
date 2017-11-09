@@ -55,5 +55,12 @@ namespace Rentabilidad
             Frm_Precios_Fechas.DefInstance.c_codigo_usu = c_codigo_usu;
             Frm_Precios_Fechas.DefInstance.Show();
         }
+
+        private void btnPrecioPais_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Frm_Precios_Pais.DefInstance.MdiParent = this;
+            Frm_Precios_Pais.DefInstance.c_codigo_usu = c_codigo_usu;
+            Frm_Precios_Pais.DefInstance.Show();
+        }
     }
 }

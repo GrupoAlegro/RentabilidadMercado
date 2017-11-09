@@ -177,5 +177,10 @@ namespace Rentabilidad
                 XtraMessageBox.Show(ex.Message);
             }
         }
+
+        private void Frm_Tratamiento_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

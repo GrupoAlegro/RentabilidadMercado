@@ -106,6 +106,8 @@
             // 
             this.btnPrecioFecha.Caption = "Precio x Fecha";
             this.btnPrecioFecha.Id = 5;
+            this.btnPrecioFecha.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPrecioFecha.ImageOptions.Image")));
+            this.btnPrecioFecha.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPrecioFecha.ImageOptions.LargeImage")));
             this.btnPrecioFecha.Name = "btnPrecioFecha";
             this.btnPrecioFecha.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPrecioFecha_ItemClick);
             // 
@@ -113,7 +115,10 @@
             // 
             this.btnPrecioPais.Caption = "Precios x Pais";
             this.btnPrecioPais.Id = 6;
+            this.btnPrecioPais.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPrecioPais.ImageOptions.Image")));
+            this.btnPrecioPais.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPrecioPais.ImageOptions.LargeImage")));
             this.btnPrecioPais.Name = "btnPrecioPais";
+            this.btnPrecioPais.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPrecioPais_ItemClick);
             // 
             // ribbonPage1
             // 

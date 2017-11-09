@@ -303,6 +303,8 @@
             this.gridColumn1,
             this.gridColumn2});
             this.dtgValTratamiento.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
+            this.dtgValTratamiento.GridControl = this.dtgTratamiento;
+            this.dtgValTratamiento.Name = "dtgValTratamiento";
             this.dtgValTratamiento.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
             this.dtgValTratamiento.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.dtgValTratamiento.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.False;
@@ -314,9 +316,6 @@
             this.dtgValTratamiento.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.dtgValTratamiento.OptionsSelection.EnableAppearanceHideSelection = false;
             this.dtgValTratamiento.OptionsSelection.MultiSelect = true;
-            this.dtgValTratamiento.OptionsView.ShowGroupPanel = false;
-            this.dtgValTratamiento.GridControl = this.dtgTratamiento;
-            this.dtgValTratamiento.Name = "dtgValTratamiento";
             this.dtgValTratamiento.OptionsView.ShowGroupPanel = false;
             // 
             // gridColumn1
@@ -352,6 +351,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.Name = "Frm_Tratamiento";
             this.Text = "Frm_Tratamiento";
+            this.Load += new System.EventHandler(this.Frm_Tratamiento_Load);
             this.Shown += new System.EventHandler(this.Frm_Tratamiento_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

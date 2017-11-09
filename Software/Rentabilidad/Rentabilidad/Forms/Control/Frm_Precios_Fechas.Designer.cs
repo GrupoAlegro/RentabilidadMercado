@@ -83,6 +83,7 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.dtgPrecios = new DevExpress.XtraGrid.GridControl();
             this.dtgValPrecios = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -94,7 +95,6 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -224,15 +224,15 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(928, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(930, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 619);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 624);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(928, 23);
+            this.barDockControlBottom.Size = new System.Drawing.Size(930, 22);
             // 
             // barDockControlLeft
             // 
@@ -240,15 +240,15 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(61, 619);
+            this.barDockControlLeft.Size = new System.Drawing.Size(63, 624);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(928, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(930, 0);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 619);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 624);
             // 
             // btnEliminar
             // 
@@ -263,7 +263,7 @@
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Controls.Add(this.groupControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(61, 0);
+            this.panelControl1.Location = new System.Drawing.Point(63, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Padding = new System.Windows.Forms.Padding(10, 10, 10, 3);
             this.panelControl1.Size = new System.Drawing.Size(867, 363);
@@ -311,9 +311,9 @@
             this.panelControl3.Controls.Add(this.labelControl2);
             this.panelControl3.Controls.Add(this.labelControl1);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(8, 26);
+            this.panelControl3.Location = new System.Drawing.Point(8, 28);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(831, 316);
+            this.panelControl3.Size = new System.Drawing.Size(831, 314);
             this.panelControl3.TabIndex = 0;
             // 
             // btnImpDistribuidor
@@ -504,7 +504,7 @@
             this.panelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl4.Controls.Add(this.groupControl2);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl4.Location = new System.Drawing.Point(0, 206);
+            this.panelControl4.Location = new System.Drawing.Point(0, 204);
             this.panelControl4.Name = "panelControl4";
             this.panelControl4.Padding = new System.Windows.Forms.Padding(5);
             this.panelControl4.Size = new System.Drawing.Size(831, 110);
@@ -685,10 +685,10 @@
             this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl2.Controls.Add(this.dtgPrecios);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(61, 363);
+            this.panelControl2.Location = new System.Drawing.Point(63, 363);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Padding = new System.Windows.Forms.Padding(10, 5, 10, 10);
-            this.panelControl2.Size = new System.Drawing.Size(867, 256);
+            this.panelControl2.Size = new System.Drawing.Size(867, 261);
             this.panelControl2.TabIndex = 5;
             // 
             // dtgPrecios
@@ -698,7 +698,7 @@
             this.dtgPrecios.MainView = this.dtgValPrecios;
             this.dtgPrecios.MenuManager = this.barManager1;
             this.dtgPrecios.Name = "dtgPrecios";
-            this.dtgPrecios.Size = new System.Drawing.Size(847, 241);
+            this.dtgPrecios.Size = new System.Drawing.Size(847, 246);
             this.dtgPrecios.TabIndex = 0;
             this.dtgPrecios.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dtgValPrecios});
@@ -735,6 +735,14 @@
             this.dtgValPrecios.OptionsSelection.EnableAppearanceHideSelection = false;
             this.dtgValPrecios.OptionsSelection.MultiSelect = true;
             this.dtgValPrecios.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Codigo Calibre";
+            this.gridColumn1.FieldName = "c_codigo_cal";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
             // 
             // gridColumn2
             // 
@@ -829,14 +837,6 @@
             this.gridColumn10.VisibleIndex = 7;
             this.gridColumn10.Width = 180;
             // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "Codigo Calibre";
-            this.gridColumn1.FieldName = "c_codigo_cal";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            // 
             // gridColumn11
             // 
             this.gridColumn11.Caption = "Codigo Distribuidor";
@@ -849,7 +849,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(928, 642);
+            this.ClientSize = new System.Drawing.Size(930, 646);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.barDockControlLeft);
