@@ -425,3 +425,8 @@ C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rent
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\bin\Debug\stdole.dll
 C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.Frm_ReportePrecios.resources
+C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\bin\Debug\Rentabilidad.exe.config
+C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\bin\Debug\Rentabilidad.exe.manifest
+C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\bin\Debug\Rentabilidad.application
+C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.exe.manifest
+C:\Users\SKYLINE\Documents\GitHub\RentabilidadMercado\Software\Rentabilidad\Rentabilidad\obj\Debug\Rentabilidad.application

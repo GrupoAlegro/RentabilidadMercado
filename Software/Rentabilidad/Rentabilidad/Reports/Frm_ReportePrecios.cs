@@ -10,16 +10,33 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
+using CapaDeDatos;
 
 namespace Rentabilidad
 {
     public partial class Frm_ReportePrecios : DevExpress.XtraEditors.XtraForm
     {
+        public string c_codigo_usu { get; set; }
         ConnectionInfo oConexInfo = new ConnectionInfo();
         const string NombreProyecto = "Agro_IntelliTrace";
         public Frm_ReportePrecios()
         {
             InitializeComponent();
+        }
+
+        private static Frm_ReportePrecios m_FormDefInstance;
+        public static Frm_ReportePrecios DefInstance
+        {
+            get
+            {
+                if (m_FormDefInstance == null || m_FormDefInstance.IsDisposed)
+                    m_FormDefInstance = new Frm_ReportePrecios();
+                return m_FormDefInstance;
+            }
+            set
+            {
+                m_FormDefInstance = value;
+            }
         }
         private void Parametros_basededatos()
         {
@@ -85,6 +102,120 @@ namespace Rentabilidad
                     MessageBox.Show("Error Descripcion : " + ex.Message);
                 }
             }
+        }
+
+        private void btnImpPais_Click(object sender, EventArgs e)
+        {
+            Frm_Pais aa = new Frm_Pais();
+            aa.c_codigo_usu = c_codigo_usu;
+            aa.FrmReportePrecios = this;
+            aa.Width = 1000;
+            aa.MaximizeBox = true;
+            aa.MinimizeBox = false;
+            aa.Height = 650;
+            aa.Top = (Screen.PrimaryScreen.WorkingArea.Height - aa.Height) / 2;
+            aa.Left = (Screen.PrimaryScreen.WorkingArea.Width - aa.Width) / 2;
+            aa.WindowState = System.Windows.Forms.FormWindowState.Normal;
+            aa.ShowDialog();
+        }
+        public void mtdBuscarPais(string valCodigo, string ValNombre)
+        {
+            CLS_Pais selpais = new CLS_Pais();
+            selpais.c_codigo_pai = valCodigo;
+            selpais.v_nombre_pai = ValNombre;
+            selpais.MtdSeleccionarCodigoNombre();
+            if (selpais.Exito)
+            {
+                if (selpais.Datos.Rows.Count > 0)
+                {
+                    txtCodigoPai.Text = selpais.Datos.Rows[0][0].ToString();
+                    txtNombrePai.Text = selpais.Datos.Rows[0][1].ToString();
+                }
+            }
+            else
+            {
+                XtraMessageBox.Show(selpais.Mensaje);
+            }
+        }
+
+        private void btnImpDis_Click(object sender, EventArgs e)
+        {
+            Frm_BDistribuidores frm = new Frm_BDistribuidores();
+            frm.c_codigo_dis = string.Empty;
+            frm.v_nombre_dis = string.Empty;
+            frm.ShowDialog();
+            txtCodigoDis.Text = frm.c_codigo_dis;
+            txtNombreDistribuidor.Text = frm.v_nombre_dis;
+        }
+
+        private void txtCodigoPai_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                if (txtCodigoPai.Text != string.Empty)
+                {
+                    mtdBuscarPais(txtCodigoPai.Text, txtNombrePai.Text);
+                    txtCodigoDis.Focus();
+                }
+            }
+        }
+
+        private void txtCodigoDis_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                if (txtCodigoPai.Text != string.Empty)
+                {
+                    mtdBuscarDistribuidor(txtCodigoDis.Text);
+                }
+                dtFechaInicio.Focus();
+            }
+        }
+        public void mtdBuscarDistribuidor(string valCodigo)
+        {
+            CLS_Distribuidor seldistribuidor = new CLS_Distribuidor();
+            seldistribuidor.c_codigo_dis = valCodigo;
+            seldistribuidor.MtdSeleccionar();
+            if (seldistribuidor.Exito)
+            {
+                if (seldistribuidor.Datos.Rows.Count > 0)
+                {
+                    txtCodigoDis.Text = seldistribuidor.Datos.Rows[0][0].ToString();
+                    txtNombreDistribuidor.Text = seldistribuidor.Datos.Rows[0][1].ToString();
+                }
+            }
+            else
+            {
+                XtraMessageBox.Show(seldistribuidor.Mensaje);
+            }
+        }
+
+        private void txtCodigoPai_TextChanged(object sender, EventArgs e)
+        {
+            txtNombrePai.Text = string.Empty;
+        }
+
+        private void txtCodigoDis_TextChanged(object sender, EventArgs e)
+        {
+            txtNombreDistribuidor.Text = string.Empty;
+        }
+
+        private void btnLimpiar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void Frm_ReportePrecios_Shown(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void Limpiar()
+        {
+            txtCodigoPai.Text = string.Empty;
+            txtCodigoDis.Text = string.Empty;
+            dtFechaInicio.DateTime = DateTime.Now;
+            dtFechaFin.DateTime = DateTime.Now;
         }
     }
 }

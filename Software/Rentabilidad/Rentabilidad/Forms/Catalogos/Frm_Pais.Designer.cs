@@ -213,15 +213,15 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(765, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(769, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 478);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 486);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(765, 22);
+            this.barDockControlBottom.Size = new System.Drawing.Size(769, 22);
             // 
             // barDockControlLeft
             // 
@@ -229,15 +229,15 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(81, 478);
+            this.barDockControlLeft.Size = new System.Drawing.Size(81, 486);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(765, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(769, 0);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 478);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 486);
             // 
             // panelControl1
             // 
@@ -246,7 +246,7 @@
             this.panelControl1.Location = new System.Drawing.Point(81, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Padding = new System.Windows.Forms.Padding(10);
-            this.panelControl1.Size = new System.Drawing.Size(684, 136);
+            this.panelControl1.Size = new System.Drawing.Size(688, 136);
             this.panelControl1.TabIndex = 4;
             // 
             // groupControl1
@@ -256,7 +256,7 @@
             this.groupControl1.Location = new System.Drawing.Point(13, 13);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Padding = new System.Windows.Forms.Padding(6);
-            this.groupControl1.Size = new System.Drawing.Size(658, 110);
+            this.groupControl1.Size = new System.Drawing.Size(662, 110);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "País";
             // 
@@ -269,7 +269,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(8, 28);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(642, 74);
+            this.panelControl3.Size = new System.Drawing.Size(646, 74);
             this.panelControl3.TabIndex = 0;
             // 
             // txtNombrePai
@@ -311,7 +311,7 @@
             this.panelControl2.Location = new System.Drawing.Point(81, 136);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Padding = new System.Windows.Forms.Padding(10);
-            this.panelControl2.Size = new System.Drawing.Size(684, 342);
+            this.panelControl2.Size = new System.Drawing.Size(688, 350);
             this.panelControl2.TabIndex = 5;
             // 
             // dtgPais
@@ -321,7 +321,7 @@
             this.dtgPais.MainView = this.dtgValPais;
             this.dtgPais.MenuManager = this.barManager1;
             this.dtgPais.Name = "dtgPais";
-            this.dtgPais.Size = new System.Drawing.Size(658, 316);
+            this.dtgPais.Size = new System.Drawing.Size(662, 324);
             this.dtgPais.TabIndex = 0;
             this.dtgPais.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dtgValPais});
@@ -333,6 +333,8 @@
             this.gridColumn1,
             this.gridColumn2});
             this.dtgValPais.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
+            this.dtgValPais.GridControl = this.dtgPais;
+            this.dtgValPais.Name = "dtgValPais";
             this.dtgValPais.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
             this.dtgValPais.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.dtgValPais.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.False;
@@ -344,9 +346,6 @@
             this.dtgValPais.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.dtgValPais.OptionsSelection.EnableAppearanceHideSelection = false;
             this.dtgValPais.OptionsSelection.MultiSelect = true;
-            this.dtgValPais.OptionsView.ShowGroupPanel = false;
-            this.dtgValPais.GridControl = this.dtgPais;
-            this.dtgValPais.Name = "dtgValPais";
             this.dtgValPais.OptionsView.ShowGroupPanel = false;
             // 
             // gridColumn1
@@ -373,7 +372,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(765, 500);
+            this.ClientSize = new System.Drawing.Size(769, 508);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.barDockControlLeft);
@@ -383,6 +382,7 @@
             this.Name = "Frm_Pais";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pais";
+            this.Load += new System.EventHandler(this.Frm_Pais_Load);
             this.Shown += new System.EventHandler(this.Frm_Pais_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();

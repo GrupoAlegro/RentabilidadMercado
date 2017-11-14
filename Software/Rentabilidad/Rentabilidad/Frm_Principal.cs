@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -61,6 +62,24 @@ namespace Rentabilidad
             Frm_Precios_Pais.DefInstance.MdiParent = this;
             Frm_Precios_Pais.DefInstance.c_codigo_usu = c_codigo_usu;
             Frm_Precios_Pais.DefInstance.Show();
+        }
+
+        private void btnPreciosPais_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Frm_ReportePrecios.DefInstance.MdiParent = this;
+            Frm_ReportePrecios.DefInstance.Show();
+        }
+
+        private void Frm_Principal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult = XtraMessageBox.Show("¿Desea salir de la aplicación?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            if (DialogResult == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+            MSRegistro RegIn = new MSRegistro();
+            Crypto EncriptarTexto = new Crypto();
+            RegIn.SaveSetting("ConexionSQL", "Sking", SkinForm.LookAndFeel.SkinName);
         }
     }
 }

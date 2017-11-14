@@ -16,6 +16,7 @@ namespace Rentabilidad
     {
         public Frm_Calibres FrmCalibre;
         public Frm_Precios_Pais FrmPreciosPais;
+        public Frm_ReportePrecios FrmReportePrecios;
         int FilaSelect = 0;
         Boolean IsEditPais;
         public string c_codigo_usu { get; set; }
@@ -40,7 +41,7 @@ namespace Rentabilidad
         private void Frm_Pais_Shown(object sender, EventArgs e)
         {
             CargarGrid();
-            if (FrmCalibre != null)
+            if (FrmCalibre != null || FrmPreciosPais !=null || FrmReportePrecios!=null)
             {
                 this.btnImportar.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
             }
@@ -215,7 +216,17 @@ namespace Rentabilidad
                     FrmPreciosPais.mtdBuscarPais(txtCodigoPai.Text, txtNombrePai.Text);
                     Close();
                 }
+                else if (FrmReportePrecios != null)
+                {
+                    FrmReportePrecios.mtdBuscarPais(txtCodigoPai.Text, txtNombrePai.Text);
+                    Close();
+                }
             }
+        }
+
+        private void Frm_Pais_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

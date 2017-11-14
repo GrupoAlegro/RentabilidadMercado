@@ -99,14 +99,9 @@ namespace Rentabilidad
         
         private void Frm_Login_Load(object sender, EventArgs e)
         {
-            //cERecordarContrasenia.Enabled = habilitado;
-            //if (habilitado == true)
-            //{
-            //    MSRegistro RegOut = new MSRegistro();
-            //    txtUser.Text=RegOut.GetSetting("Agro_IntelliTrace", "Login", "Email");
-            //    cERecordarContrasenia.Checked=true;
-            //}
             txtUser.Focus();
+            MSRegistro RegOut = new MSRegistro();
+            SkinForm.LookAndFeel.SetSkinStyle(RegOut.GetSetting("ConexionSQL", "Sking"));
         }
     }
 }

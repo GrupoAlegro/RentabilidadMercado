@@ -56,6 +56,9 @@ namespace Rentabilidad
             dtgValPrecios.OptionsBehavior.Editable = true;
             dtgValPrecios.OptionsSelection.EnableAppearanceFocusedCell = false;
             dtgValPrecios.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            dtFechaInicio.DateTime = DateTime.Now;
+            dtFechaFin.DateTime = DateTime.Now;
+            dtFechaUnica.DateTime = DateTime.Now;
         }
 
         private void btnBuscar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -74,10 +77,10 @@ namespace Rentabilidad
 
         private void btnGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            int Cont = 0;
-            for (int x = 0; x < dtgValPrecios.DataRowCount; x++)
+            if (ValidaDatos())
             {
-                if (ValidaDatos())
+                int Cont = 0;
+                for (int x = 0; x < dtgValPrecios.DataRowCount; x++)
                 {
                     if (rdbFechas.SelectedIndex == 0)
                     {
@@ -142,7 +145,7 @@ namespace Rentabilidad
                             int vOpcion = 2;
                             List<String> Fechas = new List<string>();
                             Fechas = CrearRangoFecha(FechaIni, FechaF);
-                            
+
                             FechaIni = dtFechaInicio.DateTime.Year + DosCeros1(dtFechaInicio.DateTime.Month.ToString()) + DosCeros1(dtFechaInicio.DateTime.Day.ToString());
                             FechaF = dtFechaFin.DateTime.Year + DosCeros1(dtFechaFin.DateTime.Month.ToString()) + DosCeros1(dtFechaFin.DateTime.Day.ToString());
                             string vc_codigo_cal = dtgValPrecios.GetRowCellValue(x, dtgValPrecios.Columns["c_codigo_cal"]).ToString();
@@ -193,12 +196,12 @@ namespace Rentabilidad
                         }
                     }
                 }
-                else
-                {
-                    XtraMessageBox.Show("Faltan datos por Capturar oalguno de los precios estan en 0");
-                }
+                XtraMessageBox.Show("Se han procesado " + Cont + " Registros");
             }
-            XtraMessageBox.Show("Se han procesado " + Cont + " Registros");
+            else
+            {
+                XtraMessageBox.Show("Faltan datos por Capturar Pais o Distribuidor");
+            }
         }
 
         
