@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Security.Cryptography;
 using Microsoft.Win32;
-using DevExpress.XtraEditors;
+
 
 namespace CapaDeDatos
 {

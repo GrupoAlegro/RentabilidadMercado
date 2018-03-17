@@ -92,7 +92,6 @@ namespace Rentabilidad
                         selFecha.MtdSeleccionarCalDisFecha();
                         if (selFecha.Exito)
                         {
-                            int vOpcion = 1;
                             string vc_codigo_cal = dtgValPrecios.GetRowCellValue(x, dtgValPrecios.Columns["c_codigo_cal"]).ToString();
                             string vc_codigo_dis = txtCodigoDis.Text;
                             string vd_fecha_pre = FActual.Year + DosCeros1(FActual.Month.ToString()) + DosCeros1(FActual.Day.ToString());
@@ -142,7 +141,6 @@ namespace Rentabilidad
                         {
                             string FechaIni = string.Format("{0}-{1}-{2}", dtFechaInicio.DateTime.Year, DosCeros1(dtFechaInicio.DateTime.Month.ToString()), DosCeros1(dtFechaInicio.DateTime.Day.ToString()));
                             string FechaF = string.Format("{0}-{1}-{2}", dtFechaFin.DateTime.Year, DosCeros1(dtFechaFin.DateTime.Month.ToString()), DosCeros1(dtFechaFin.DateTime.Day.ToString()));
-                            int vOpcion = 2;
                             List<String> Fechas = new List<string>();
                             Fechas = CrearRangoFecha(FechaIni, FechaF);
 
@@ -492,6 +490,11 @@ namespace Rentabilidad
                 }
                 SiguienteFoco(1);
             }
+        }
+
+        private void Frm_Precios_Pais_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

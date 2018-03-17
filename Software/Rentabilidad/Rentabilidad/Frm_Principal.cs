@@ -81,5 +81,39 @@ namespace Rentabilidad
             Crypto EncriptarTexto = new Crypto();
             RegIn.SaveSetting("ConexionSQL", "Sking", SkinForm.LookAndFeel.SkinName);
         }
+
+        private void btnAnalisis_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Frm_PedidosMedicion.DefInstance.MdiParent = this;
+            Frm_PedidosMedicion.DefInstance.Show();
+        }
+
+        private void btnEmpacadoras_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Frm_Empleados.DefInstance.MdiParent = this;
+            Frm_Empleados.DefInstance.c_codigo_usu = c_codigo_usu;
+            Frm_Empleados.DefInstance.Show();
+        }
+
+        private void btnEtiquetas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Frm_AsignacionEtiquetas.DefInstance.MdiParent = this;
+            Frm_AsignacionEtiquetas.DefInstance.c_codigo_usu = c_codigo_usu;
+            Frm_AsignacionEtiquetas.DefInstance.Show();
+        }
+
+        private void btnPrecioBanda_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Frm_PrecioBanda.DefInstance.MdiParent = this;
+            Frm_PrecioBanda.DefInstance.c_codigo_usu = c_codigo_usu;
+            Frm_PrecioBanda.DefInstance.Show();
+        }
+
+        private void btn_RP_Acopiadores_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Frm_RPT_Acopiadores.DefInstance.MdiParent = this;
+            Frm_RPT_Acopiadores.DefInstance.c_codigo_usu = c_codigo_usu;
+            Frm_RPT_Acopiadores.DefInstance.Show();
+        }
     }
 }

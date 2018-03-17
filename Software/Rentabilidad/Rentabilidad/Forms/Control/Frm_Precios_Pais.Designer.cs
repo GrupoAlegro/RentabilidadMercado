@@ -193,9 +193,9 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 572);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 571);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1100, 22);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1100, 23);
             // 
             // barDockControlLeft
             // 
@@ -203,7 +203,7 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(63, 572);
+            this.barDockControlLeft.Size = new System.Drawing.Size(59, 571);
             // 
             // barDockControlRight
             // 
@@ -211,7 +211,7 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1100, 0);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 572);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 571);
             // 
             // btnBuscar
             // 
@@ -229,27 +229,26 @@
             this.btnEliminar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.ImageOptions.Image")));
             this.btnEliminar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnEliminar.ImageOptions.LargeImage")));
             this.btnEliminar.Name = "btnEliminar";
-            
             // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.groupControl3);
             this.panelControl1.Controls.Add(this.groupControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(63, 0);
+            this.panelControl1.Location = new System.Drawing.Point(59, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Padding = new System.Windows.Forms.Padding(5);
-            this.panelControl1.Size = new System.Drawing.Size(1037, 278);
+            this.panelControl1.Size = new System.Drawing.Size(1041, 278);
             this.panelControl1.TabIndex = 4;
             // 
             // groupControl3
             // 
             this.groupControl3.Controls.Add(this.panelControl4);
             this.groupControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl3.Location = new System.Drawing.Point(8, 162);
+            this.groupControl3.Location = new System.Drawing.Point(7, 161);
             this.groupControl3.Name = "groupControl3";
             this.groupControl3.Padding = new System.Windows.Forms.Padding(6);
-            this.groupControl3.Size = new System.Drawing.Size(1021, 108);
+            this.groupControl3.Size = new System.Drawing.Size(1027, 110);
             this.groupControl3.TabIndex = 24;
             this.groupControl3.Text = "Fechas";
             // 
@@ -263,9 +262,9 @@
             this.panelControl4.Controls.Add(this.dtFechaInicio);
             this.panelControl4.Controls.Add(this.labelControl6);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl4.Location = new System.Drawing.Point(8, 28);
+            this.panelControl4.Location = new System.Drawing.Point(8, 26);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1005, 72);
+            this.panelControl4.Size = new System.Drawing.Size(1011, 76);
             this.panelControl4.TabIndex = 17;
             // 
             // rdbFechas
@@ -350,10 +349,10 @@
             // 
             this.groupControl1.Controls.Add(this.panelControl3);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl1.Location = new System.Drawing.Point(8, 8);
+            this.groupControl1.Location = new System.Drawing.Point(7, 7);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Padding = new System.Windows.Forms.Padding(6);
-            this.groupControl1.Size = new System.Drawing.Size(1021, 154);
+            this.groupControl1.Size = new System.Drawing.Size(1027, 154);
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "Precios";
             // 
@@ -370,9 +369,9 @@
             this.panelControl3.Controls.Add(this.labelControl2);
             this.panelControl3.Controls.Add(this.labelControl1);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(8, 28);
+            this.panelControl3.Location = new System.Drawing.Point(8, 26);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1005, 118);
+            this.panelControl3.Size = new System.Drawing.Size(1011, 120);
             this.panelControl3.TabIndex = 0;
             // 
             // btnImpDis
@@ -465,20 +464,20 @@
             // 
             this.panelControl2.Controls.Add(this.dtgPrecios);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(63, 278);
+            this.panelControl2.Location = new System.Drawing.Point(59, 278);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Padding = new System.Windows.Forms.Padding(10);
-            this.panelControl2.Size = new System.Drawing.Size(1037, 294);
+            this.panelControl2.Size = new System.Drawing.Size(1041, 293);
             this.panelControl2.TabIndex = 5;
             // 
             // dtgPrecios
             // 
             this.dtgPrecios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgPrecios.Location = new System.Drawing.Point(13, 13);
+            this.dtgPrecios.Location = new System.Drawing.Point(12, 12);
             this.dtgPrecios.MainView = this.dtgValPrecios;
             this.dtgPrecios.MenuManager = this.barManager1;
             this.dtgPrecios.Name = "dtgPrecios";
-            this.dtgPrecios.Size = new System.Drawing.Size(1011, 268);
+            this.dtgPrecios.Size = new System.Drawing.Size(1017, 269);
             this.dtgPrecios.TabIndex = 0;
             this.dtgPrecios.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dtgValPrecios});
@@ -500,7 +499,6 @@
             this.dtgValPrecios.Name = "dtgValPrecios";
             this.dtgValPrecios.OptionsView.GroupDrawMode = DevExpress.XtraGrid.Views.Grid.GroupDrawMode.Standard;
             this.dtgValPrecios.OptionsView.ShowFooter = true;
-            this.dtgValPrecios.OptionsView.ShowGroupPanel = false;
             this.dtgValPrecios.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn6, DevExpress.Data.ColumnSortOrder.Ascending),
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn3, DevExpress.Data.ColumnSortOrder.Ascending),
@@ -616,6 +614,7 @@
             this.Name = "Frm_Precios_Pais";
             this.Text = "Frm_Precios_Pais";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Frm_Precios_Pais_Load);
             this.Shown += new System.EventHandler(this.Frm_Precios_Pais_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

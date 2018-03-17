@@ -1060,7 +1060,8 @@
         </member>
         <member name="F:DevExpress.XtraRichEdit.API.Native.TabLeaderType.Hypens">
             <summary>
-                <para>For internal use.</para>
+                <para>The hyphen is used as a tab leader character.
+</para>
             </summary>
 
 
@@ -1832,9 +1833,12 @@
         </member>
         <member name="P:DevExpress.XtraRichEdit.API.Native.ReadOnlyTableCellBorderProperties.PrefferedWidth">
             <summary>
-                <para>For internal use.</para>
+                <para>Gets the numerical value of the preferred width of a cell related to the current table cell border.
+
+</para>
             </summary>
-            <value> </value>
+            <value>A <see cref="T:System.Single"/> value indicating the table width or <b>null</b> if it's not set.
+</value>
 
 
         </member>
@@ -21661,11 +21665,9 @@ context.
         </member>
         <member name="P:DevExpress.XtraRichEdit.FieldOptions.UpdateHyperlinksOnLoad">
             <summary>
-                <para>Specifies whether to update document hyperlinks after loading the document.
-</para>
+                <para> </para>
             </summary>
-            <value><b>True</b> to update hyperlinks on document load; otherwise, <b>false</b>.
-</value>
+            <value> </value>
 
 
         </member>
@@ -51406,7 +51408,8 @@ Currently not supported.
         </member>
         <member name="F:DevExpress.XtraRichEdit.API.Native.NumberingFormat.DecimalEnclosedParenthses">
             <summary>
-                <para>For internal use.</para>
+                <para>Specifies that the sequence shall consist of decimal numbering enclosed in parentheses.
+</para>
             </summary>
 
 
@@ -53983,11 +53986,10 @@ Currently not supported.
         </member>
         <member name="P:DevExpress.XtraRichEdit.API.Native.TableCell.Style">
             <summary>
-                <para>Gets or sets the style applied to a cell in a table of a Snap application.
-
+                <para>For internal use.
 </para>
             </summary>
-            <value>A <see cref="T:DevExpress.XtraRichEdit.API.Native.TableCellStyle"/> interface which defines a style of table cells in a Snap application.
+            <value>  
 </value>
 
 
@@ -56740,11 +56742,9 @@ Currently not supported.
         </member>
         <member name="P:DevExpress.XtraRichEdit.DocumentVariableCollection.Names">
             <summary>
-                <para>Gets the collection of the document variable names.
-</para>
+                <para> </para>
             </summary>
-            <value>A <see cref="T:System.Collections.Generic.IEnumerable`1[[System.String]]"/> collection of variable names.
-</value>
+            <value> </value>
 
 
         </member>

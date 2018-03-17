@@ -81,26 +81,32 @@
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.BonusSkins.v17.1" />
-    <Reference Include="DevExpress.Data.v17.1" />
-    <Reference Include="DevExpress.Printing.v17.1.Core" />
-    <Reference Include="DevExpress.RichEdit.v17.1.Core, Version=17.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Utils.v17.1" />
-    <Reference Include="DevExpress.XtraBars.v17.1" />
-    <Reference Include="DevExpress.Sparkline.v17.1.Core" />
-    <Reference Include="DevExpress.XtraEditors.v17.1" />
-    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraScheduler.v17.1.Reporting.Extensions, Version=17.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraScheduler.v17.1, Version=17.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraScheduler.v17.1.Core, Version=17.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraTreeList.v17.1, Version=17.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.BonusSkins.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\DevExpress 17.1\Components\Bin\Framework\DevExpress.BonusSkins.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\DevExpress 17.1\Components\Bin\Framework\DevExpress.XtraBars.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\DevExpress 17.1\Components\Bin\Framework\DevExpress.XtraGrid.v17.1.dll</HintPath>
+    </Reference>
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\Aplicacion\Software\AgroTrace\AvoTrace\AvoTrace\bin\Debug\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
@@ -116,6 +122,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\Codigos.cs" />
     <Compile Include="Clases\Crypto.cs" />
     <Compile Include="Clases\GridMarksSelecioncs.cs" />
     <Compile Include="Clases\MSRegistro.cs" />
@@ -137,6 +144,18 @@
     </Compile>
     <Compile Include="Conexion\Frm_InstanciaSQL.designer.cs">
       <DependentUpon>Frm_InstanciaSQL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Acopio\Frm_CalidadAcopio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Acopio\Frm_CalidadAcopio.Designer.cs">
+      <DependentUpon>Frm_CalidadAcopio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Acopio\Frm_RPT_Acopiadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Acopio\Frm_RPT_Acopiadores.Designer.cs">
+      <DependentUpon>Frm_RPT_Acopiadores.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Catalogos\Frm_BDistribuidores.cs">
       <SubType>Form</SubType>
@@ -161,6 +180,36 @@
     </Compile>
     <Compile Include="Forms\Catalogos\Frm_Pais.Designer.cs">
       <DependentUpon>Frm_Pais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Control\Frm_AsignacionEtiquetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Control\Frm_AsignacionEtiquetas.Designer.cs">
+      <DependentUpon>Frm_AsignacionEtiquetas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Control\Frm_PedidosMedicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Control\Frm_PedidosMedicion.Designer.cs">
+      <DependentUpon>Frm_PedidosMedicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Control\Frm_PrecioBanda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Control\Frm_PrecioBanda.Designer.cs">
+      <DependentUpon>Frm_PrecioBanda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Control\Frm_RentabilidadFecha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Control\Frm_RentabilidadFecha.Designer.cs">
+      <DependentUpon>Frm_RentabilidadFecha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Control\Frm_Empleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Control\Frm_Empleados.Designer.cs">
+      <DependentUpon>Frm_Empleados.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\Frm_ReportePrecios.cs">
       <SubType>Form</SubType>
@@ -215,6 +264,12 @@
     <EmbeddedResource Include="Conexion\Frm_InstanciaSQL.resx">
       <DependentUpon>Frm_InstanciaSQL.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Acopio\Frm_CalidadAcopio.resx">
+      <DependentUpon>Frm_CalidadAcopio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Acopio\Frm_RPT_Acopiadores.resx">
+      <DependentUpon>Frm_RPT_Acopiadores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\Frm_BDistribuidores.resx">
       <DependentUpon>Frm_BDistribuidores.cs</DependentUpon>
     </EmbeddedResource>
@@ -226,6 +281,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\Frm_Pais.resx">
       <DependentUpon>Frm_Pais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Control\Frm_AsignacionEtiquetas.resx">
+      <DependentUpon>Frm_AsignacionEtiquetas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Control\Frm_PedidosMedicion.resx">
+      <DependentUpon>Frm_PedidosMedicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Control\Frm_PrecioBanda.resx">
+      <DependentUpon>Frm_PrecioBanda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Control\Frm_RentabilidadFecha.resx">
+      <DependentUpon>Frm_RentabilidadFecha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Control\Frm_Empleados.resx">
+      <DependentUpon>Frm_Empleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Frm_ReportePrecios.resx">
       <DependentUpon>Frm_ReportePrecios.cs</DependentUpon>
@@ -456,16 +526,6 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.BonusSkins.v17.1">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
     <PublishFile Include="DevExpress.Charts.v17.1.Core">
       <Visible>False</Visible>
       <Group>
@@ -477,16 +537,6 @@
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.CodeParser.v17.1">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.Data.v17.1">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -547,46 +597,6 @@
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.PivotGrid.v17.1.Core">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.Printing.v17.1.Core">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.RichEdit.v17.1.Core">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.Sparkline.v17.1.Core">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.Utils.v17.1">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -2117,6 +2127,7 @@
   <ItemGroup>
     <Content Include="comision.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
