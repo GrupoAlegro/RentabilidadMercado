@@ -34,9 +34,19 @@ namespace Rentabilidad
                 m_FormDefInstance = value;
             }
         }
-
+        public string DosCeros1(string sVal)
+        {
+            string str = "";
+            if (sVal.Length == 1)
+            {
+                return (str = "0" + sVal);
+            }
+            return sVal;
+        }
         public string c_codigo_usu { get; internal set; }
         public string Acopiador { get; private set; }
+        public string FechaInicio { get; private set; }
+        public string FechaFin { get; private set; }
 
         private void CargarAcopiadores(int? Valor)
         {
@@ -68,7 +78,21 @@ namespace Rentabilidad
             {
                 if(lkUpAcopiador.EditValue!=null)
                 {
-                    Acopiador = lkUpAcopiador.EditValue.ToString();
+                    CLS_Acopio cortesel = new CLS_Acopio();
+                    Acopiador = lkUpAcopiador.Text;
+                    FechaInicio = dtInicio.DateTime.Year + DosCeros1(dtInicio.DateTime.Month.ToString()) + DosCeros1(dtInicio.DateTime.Day.ToString());
+                    FechaFin = dtFin.DateTime.Year + DosCeros1(dtFin.DateTime.Month.ToString()) + DosCeros1(dtFin.DateTime.Day.ToString());
+                    cortesel.Acopiador = Acopiador;
+                    cortesel.FechaInicio = FechaInicio;
+                    cortesel.FechaFin = FechaFin;
+                    cortesel.MtdSeleccionarCortesAcopiadores();
+                    if (cortesel.Exito)
+                    {
+                        if (cortesel.Datos.Rows.Count > 0)
+                        {
+
+                        }
+                    }
                 }
             }
         }
