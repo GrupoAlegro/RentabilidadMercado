@@ -30,22 +30,22 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_BonosAcopio));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.dtgGrupoPago = new DevExpress.XtraGrid.GridControl();
             this.dtgValGrupoPago = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ColGrupoPagoPorcentaje = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.dtgPagoCamion = new DevExpress.XtraGrid.GridControl();
             this.dtgValPagoCamion = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ColTipoCamionPorcentaje = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ColTipoCamionPago = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
@@ -64,23 +64,24 @@
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.simpleButton1);
+            this.panelControl1.Controls.Add(this.btnGuardar);
             this.panelControl1.Controls.Add(this.groupControl2);
             this.panelControl1.Controls.Add(this.groupControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(839, 344);
+            this.panelControl1.Size = new System.Drawing.Size(839, 337);
             this.panelControl1.TabIndex = 0;
             // 
-            // simpleButton1
+            // btnGuardar
             // 
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(20, 274);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(95, 47);
-            this.simpleButton1.TabIndex = 2;
-            this.simpleButton1.Text = "Guardar";
+            this.btnGuardar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.ImageOptions.Image")));
+            this.btnGuardar.Location = new System.Drawing.Point(20, 274);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(95, 47);
+            this.btnGuardar.TabIndex = 2;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // groupControl2
             // 
@@ -117,9 +118,10 @@
             this.dtgValGrupoPago.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn5,
             this.gridColumn6,
-            this.gridColumn7});
+            this.ColGrupoPagoPorcentaje});
             this.dtgValGrupoPago.GridControl = this.dtgGrupoPago;
             this.dtgValGrupoPago.Name = "dtgValGrupoPago";
+            this.dtgValGrupoPago.OptionsView.ShowFooter = true;
             this.dtgValGrupoPago.OptionsView.ShowGroupPanel = false;
             // 
             // gridColumn5
@@ -127,6 +129,7 @@
             this.gridColumn5.Caption = "Codigo";
             this.gridColumn5.FieldName = "c_codigo_gru";
             this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 0;
             // 
@@ -135,16 +138,17 @@
             this.gridColumn6.Caption = "Grupo Pago";
             this.gridColumn6.FieldName = "v_grupopago";
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 1;
             // 
-            // gridColumn7
+            // ColGrupoPagoPorcentaje
             // 
-            this.gridColumn7.Caption = "Porcentaje";
-            this.gridColumn7.FieldName = "n_porcentaje";
-            this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 2;
+            this.ColGrupoPagoPorcentaje.Caption = "Porcentaje";
+            this.ColGrupoPagoPorcentaje.FieldName = "n_porcentaje";
+            this.ColGrupoPagoPorcentaje.Name = "ColGrupoPagoPorcentaje";
+            this.ColGrupoPagoPorcentaje.Visible = true;
+            this.ColGrupoPagoPorcentaje.VisibleIndex = 2;
             // 
             // groupControl1
             // 
@@ -181,11 +185,13 @@
             this.dtgValPagoCamion.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
-            this.gridColumn3,
-            this.gridColumn4});
+            this.ColTipoCamionPorcentaje,
+            this.ColTipoCamionPago});
             this.dtgValPagoCamion.GridControl = this.dtgPagoCamion;
             this.dtgValPagoCamion.Name = "dtgValPagoCamion";
+            this.dtgValPagoCamion.OptionsView.ShowFooter = true;
             this.dtgValPagoCamion.OptionsView.ShowGroupPanel = false;
+            this.dtgValPagoCamion.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.dtgValPagoCamion_CellValueChanged);
             // 
             // gridColumn1
             // 
@@ -205,29 +211,33 @@
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
             // 
-            // gridColumn3
+            // ColTipoCamionPorcentaje
             // 
-            this.gridColumn3.Caption = "Porcentaje Pago";
-            this.gridColumn3.FieldName = "n_porcentaje_pago";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
+            this.ColTipoCamionPorcentaje.Caption = "Porcentaje Pago";
+            this.ColTipoCamionPorcentaje.FieldName = "n_porcentaje_pago";
+            this.ColTipoCamionPorcentaje.Name = "ColTipoCamionPorcentaje";
+            this.ColTipoCamionPorcentaje.Visible = true;
+            this.ColTipoCamionPorcentaje.VisibleIndex = 2;
             // 
-            // gridColumn4
+            // ColTipoCamionPago
             // 
-            this.gridColumn4.Caption = "Monto Pago";
-            this.gridColumn4.FieldName = "n_monto_pago";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
+            this.ColTipoCamionPago.Caption = "Monto Pago";
+            this.ColTipoCamionPago.FieldName = "n_monto_pago";
+            this.ColTipoCamionPago.Name = "ColTipoCamionPago";
+            this.ColTipoCamionPago.Visible = true;
+            this.ColTipoCamionPago.VisibleIndex = 3;
             // 
             // Frm_BonosAcopio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 344);
+            this.ClientSize = new System.Drawing.Size(839, 337);
             this.Controls.Add(this.panelControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Frm_BonosAcopio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_BonosAcopio";
             this.Shown += new System.EventHandler(this.Frm_BonosAcopio_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
@@ -253,19 +263,19 @@
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnGuardar;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraGrid.GridControl dtgGrupoPago;
         private DevExpress.XtraGrid.Views.Grid.GridView dtgValGrupoPago;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraGrid.Columns.GridColumn ColGrupoPagoPorcentaje;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraGrid.GridControl dtgPagoCamion;
         private DevExpress.XtraGrid.Views.Grid.GridView dtgValPagoCamion;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn ColTipoCamionPorcentaje;
+        private DevExpress.XtraGrid.Columns.GridColumn ColTipoCamionPago;
     }
 }

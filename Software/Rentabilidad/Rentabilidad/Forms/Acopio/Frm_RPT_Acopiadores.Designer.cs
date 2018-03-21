@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_RPT_Acopiadores));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.btnLimpiar = new DevExpress.XtraEditors.SimpleButton();
             this.lkUpAcopiador = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -47,7 +48,7 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.RPT_Viewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.btnLimpiar = new DevExpress.XtraEditors.SimpleButton();
+            this.btnBonos = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -77,6 +78,7 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.btnBonos);
             this.groupControl1.Controls.Add(this.btnLimpiar);
             this.groupControl1.Controls.Add(this.lkUpAcopiador);
             this.groupControl1.Controls.Add(this.labelControl4);
@@ -95,6 +97,15 @@
             this.groupControl1.Size = new System.Drawing.Size(1039, 156);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Parametros - Fecha de Corte";
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.ImageOptions.Image")));
+            this.btnLimpiar.Location = new System.Drawing.Point(478, 90);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(102, 45);
+            this.btnLimpiar.TabIndex = 12;
+            this.btnLimpiar.Text = "Limpiar";
             // 
             // lkUpAcopiador
             // 
@@ -260,14 +271,15 @@
             this.RPT_Viewer.TabIndex = 0;
             this.RPT_Viewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
-            // btnLimpiar
+            // btnBonos
             // 
-            this.btnLimpiar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnLimpiar.Location = new System.Drawing.Point(478, 90);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(102, 45);
-            this.btnLimpiar.TabIndex = 12;
-            this.btnLimpiar.Text = "Limpiar";
+            this.btnBonos.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnBonos.Location = new System.Drawing.Point(586, 39);
+            this.btnBonos.Name = "btnBonos";
+            this.btnBonos.Size = new System.Drawing.Size(102, 45);
+            this.btnBonos.TabIndex = 13;
+            this.btnBonos.Text = "Bonos";
+            this.btnBonos.Click += new System.EventHandler(this.btnBonos_Click);
             // 
             // Frm_RPT_Acopiadores
             // 
@@ -320,5 +332,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraEditors.SimpleButton btnLimpiar;
+        private DevExpress.XtraEditors.SimpleButton btnBonos;
     }
 }

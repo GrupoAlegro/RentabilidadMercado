@@ -96,5 +96,11 @@ namespace Rentabilidad
                 }
             }
         }
+
+        private void btnBonos_Click(object sender, EventArgs e)
+        {
+            Frm_BonosAcopio frmb = new Frm_BonosAcopio();
+            frmb.ShowDialog();
+        }
     }
 }
