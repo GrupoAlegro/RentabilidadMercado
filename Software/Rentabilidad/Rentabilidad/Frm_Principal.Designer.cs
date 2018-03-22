@@ -249,18 +249,21 @@
             this.barButtonItem6.Caption = "Acopio";
             this.barButtonItem6.Id = 18;
             this.barButtonItem6.Name = "barButtonItem6";
+            this.barButtonItem6.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // barButtonItem7
             // 
             this.barButtonItem7.Caption = "Acopio Recepcion";
             this.barButtonItem7.Id = 19;
             this.barButtonItem7.Name = "barButtonItem7";
+            this.barButtonItem7.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // A
             // 
             this.A.Caption = "Acopio Calidad Recepcion";
             this.A.Id = 20;
             this.A.Name = "A";
+            this.A.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // btn_RP_Acopiadores
             // 
@@ -365,6 +368,7 @@
             this.ribbonPageGroup8.ItemLinks.Add(this.barButtonItem2);
             this.ribbonPageGroup8.Name = "ribbonPageGroup8";
             this.ribbonPageGroup8.Text = "Catalogos";
+            this.ribbonPageGroup8.Visible = false;
             // 
             // ribbonPageGroup9
             // 
@@ -373,6 +377,7 @@
             this.ribbonPageGroup9.ItemLinks.Add(this.barButtonItem5);
             this.ribbonPageGroup9.Name = "ribbonPageGroup9";
             this.ribbonPageGroup9.Text = "Captura";
+            this.ribbonPageGroup9.Visible = false;
             // 
             // ribbonPageGroup10
             // 

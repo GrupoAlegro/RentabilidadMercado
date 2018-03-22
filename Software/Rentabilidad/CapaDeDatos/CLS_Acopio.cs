@@ -17,6 +17,34 @@ namespace CapaDeDatos
         public decimal? n_porcentaje_pago { get; set; }
         public string v_tipo_camion { get; set; }
         public decimal? n_monto_pago { get; set; }
+        public string OrdenCorte { get;  set; }
+        public string v_nombre_hue { get;  set; }
+        public decimal? n_cajas_estimadas { get;  set; }
+        public decimal? n_cajas_recibidas { get;  set; }
+        public decimal? n_bono_completo { get;  set; }
+        public decimal? n_importe { get;  set; }
+        public decimal? n_32_est { get;  set; }
+        public decimal? n_36_est { get;  set; }
+        public decimal? n_40_est { get;  set; }
+        public decimal? n_48_est { get;  set; }
+        public decimal? n_60_est { get;  set; }
+        public decimal? n_70_est { get;  set; }
+        public decimal? n_84_est { get;  set; }
+        public decimal? n_96_est { get;  set; }
+        public decimal? n_32_pro { get;  set; }
+        public decimal? n_36_pro { get;  set; }
+        public decimal? n_40_pro { get;  set; }
+        public decimal? n_48_pro { get;  set; }
+        public decimal? n_60_pro { get;  set; }
+        public decimal? n_70_pro { get;  set; }
+        public decimal? n_84_pro { get;  set; }
+        public decimal? n_96_pro { get;  set; }
+        public decimal? n_cat1_est { get; private set; }
+        public decimal? n_cat2_est { get; private set; }
+        public decimal? n_Nac_est { get; private set; }
+        public decimal? n_cat1_pro { get; private set; }
+        public decimal? n_cat2_pro { get; private set; }
+        public decimal? n_Nac_pro { get; private set; }
 
         public void MtdSeleccionarAcopiadores()
         {
@@ -170,6 +198,247 @@ namespace CapaDeDatos
                 _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_monto_pago");
                 _conexion.EjecutarDataset();
 
+                if (_conexion.Exito)
+                {
+                    Datos = _conexion.Datos;
+                }
+                else
+                {
+                    Mensaje = _conexion.Mensaje;
+                    Exito = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Mensaje = e.Message;
+                Exito = false;
+            }
+        }
+        public void MtdEliminarBonificaciones()
+        {
+            TipoDato _dato = new TipoDato();
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "usp_Rent_Acp_Bonificaciones_Delete";
+                _conexion.EjecutarDataset();
+
+                if (_conexion.Exito)
+                {
+                    Datos = _conexion.Datos;
+                }
+                else
+                {
+                    Mensaje = _conexion.Mensaje;
+                    Exito = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Mensaje = e.Message;
+                Exito = false;
+            }
+        }
+        public void MtdInsertarBonificacionVolumen()
+        {
+            TipoDato _dato = new TipoDato();
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "usp_Rent_Acp_BonificacionVolumen_Insert";
+
+                _dato.CadenaTexto = OrdenCorte;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "OrdenCorte");
+                _dato.CadenaTexto = Acopiador;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "Acopiador");
+                _dato.CadenaTexto = v_nombre_hue;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "v_nombre_hue");
+                _dato.DecimalValor = n_cajas_estimadas;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_cajas_estimadas");
+                _dato.DecimalValor = n_cajas_recibidas;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_cajas_recibidas");
+                _dato.DecimalValor = n_porcentaje;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_porcentaje");
+                _dato.DecimalValor = n_bono_completo;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_bono_completo");
+                _dato.DecimalValor = n_importe;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_importe");
+                _conexion.EjecutarDataset();
+
+                if (_conexion.Exito)
+                {
+                    Datos = _conexion.Datos;
+                }
+                else
+                {
+                    Mensaje = _conexion.Mensaje;
+                    Exito = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Mensaje = e.Message;
+                Exito = false;
+            }
+        }
+        public void MtdInsertarBonificacionCalibre()
+        {
+            TipoDato _dato = new TipoDato();
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "usp_Rent_Acp_BonificacionCalibres_Insert";
+
+                _dato.CadenaTexto = OrdenCorte;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "OrdenCorte");
+                _dato.CadenaTexto = Acopiador;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "Acopiador");
+                _dato.CadenaTexto = v_nombre_hue;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "v_nombre_hue");
+                _dato.DecimalValor = n_32_est;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_32_est");
+                _dato.DecimalValor = n_36_est;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_36_est");
+                _dato.DecimalValor = n_40_est;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_40_est");
+                _dato.DecimalValor = n_48_est;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_48_est");
+                _dato.DecimalValor = n_60_est;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_60_est");
+                _dato.DecimalValor = n_70_est;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_70_est");
+                _dato.DecimalValor = n_84_est;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_84_est");
+                _dato.DecimalValor = n_96_est;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_96_est");
+                _dato.DecimalValor = n_32_pro;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_32_pro");
+                _dato.DecimalValor = n_36_pro;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_36_pro");
+                _dato.DecimalValor = n_40_pro;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_40_pro");
+                _dato.DecimalValor = n_48_pro;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_48_pro");
+                _dato.DecimalValor = n_60_pro;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_60_pro");
+                _dato.DecimalValor = n_70_pro;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_70_est");
+                _dato.DecimalValor = n_84_pro;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_84_est");
+                _dato.DecimalValor = n_96_pro;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_96_est");
+                _dato.DecimalValor = n_porcentaje;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_porcentaje");
+                _dato.DecimalValor = n_bono_completo;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_bono_completo");
+                _dato.DecimalValor = n_importe;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_importe");
+                _conexion.EjecutarDataset();
+
+                if (_conexion.Exito)
+                {
+                    Datos = _conexion.Datos;
+                }
+                else
+                {
+                    Mensaje = _conexion.Mensaje;
+                    Exito = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Mensaje = e.Message;
+                Exito = false;
+            }
+        }
+        public void MtdInsertarBonificacionCalidad()
+        {
+            TipoDato _dato = new TipoDato();
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "usp_Rent_Acp_BonificacionCalidad_Insert";
+
+                _dato.CadenaTexto = OrdenCorte;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "OrdenCorte");
+                _dato.CadenaTexto = Acopiador;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "Acopiador");
+                _dato.CadenaTexto = v_nombre_hue;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "v_nombre_hue");
+                _dato.DecimalValor = n_cajas_estimadas;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "n_cajas_estimadas");
+                _dato.DecimalValor = n_cat1_est;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "n_cat1_est");
+                _dato.DecimalValor = n_cat2_est;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_cat2_est");
+                _dato.DecimalValor = n_Nac_est;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_Nac_est");
+                _dato.DecimalValor = n_cat1_pro;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "n_cat1_pro");
+                _dato.DecimalValor = n_cat2_pro;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_cat2_pro");
+                _dato.DecimalValor = n_Nac_pro;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_Nac_pro");
+                _dato.DecimalValor = n_porcentaje;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_porcentaje");
+                _dato.DecimalValor = n_bono_completo;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_bono_completo");
+                _dato.DecimalValor = n_importe;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_importe");
+                _conexion.EjecutarDataset();
+
+                if (_conexion.Exito)
+                {
+                    Datos = _conexion.Datos;
+                }
+                else
+                {
+                    Mensaje = _conexion.Mensaje;
+                    Exito = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Mensaje = e.Message;
+                Exito = false;
+            }
+        }
+        public void MtdSeleccionarPagoCamionBono()
+        {
+            TipoDato _dato = new TipoDato();
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "usp_Acp_MontoCamion_Select";
+                _dato.CadenaTexto = v_tipo_camion;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "v_tipo_camion");
+                _conexion.EjecutarDataset();
+                if (_conexion.Exito)
+                {
+                    Datos = _conexion.Datos;
+                }
+                else
+                {
+                    Mensaje = _conexion.Mensaje;
+                    Exito = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Mensaje = e.Message;
+                Exito = false;
+            }
+        }
+        public void MtdSeleccionarGrupoPagoBono()
+        {
+            TipoDato _dato = new TipoDato();
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "usp_Rent_Acp_PorcentajeGrupo_Select";
+                _dato.CadenaTexto = c_codigo_gru;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_gru");
+                _conexion.EjecutarDataset();
                 if (_conexion.Exito)
                 {
                     Datos = _conexion.Datos;

@@ -106,6 +106,7 @@
             this.btnLimpiar.Size = new System.Drawing.Size(102, 45);
             this.btnLimpiar.TabIndex = 12;
             this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // lkUpAcopiador
             // 

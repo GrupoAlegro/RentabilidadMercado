@@ -74,26 +74,197 @@ namespace Rentabilidad
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            if(chkTodos.Checked==false)
+            if (ValidaDatos())
             {
-                if(lkUpAcopiador.EditValue!=null)
+                CLS_Acopio cortesel = new CLS_Acopio();
+                if (lkUpAcopiador.EditValue == null)
                 {
-                    CLS_Acopio cortesel = new CLS_Acopio();
+                    Acopiador = string.Empty;
+                }
+                else
+                {
                     Acopiador = lkUpAcopiador.Text;
-                    FechaInicio = dtInicio.DateTime.Year + DosCeros1(dtInicio.DateTime.Month.ToString()) + DosCeros1(dtInicio.DateTime.Day.ToString());
-                    FechaFin = dtFin.DateTime.Year + DosCeros1(dtFin.DateTime.Month.ToString()) + DosCeros1(dtFin.DateTime.Day.ToString());
-                    cortesel.Acopiador = Acopiador;
-                    cortesel.FechaInicio = FechaInicio;
-                    cortesel.FechaFin = FechaFin;
-                    cortesel.MtdSeleccionarCortesAcopiadores();
-                    if (cortesel.Exito)
+                }
+                FechaInicio = dtInicio.DateTime.Year + DosCeros1(dtInicio.DateTime.Month.ToString()) + DosCeros1(dtInicio.DateTime.Day.ToString());
+                FechaFin = dtFin.DateTime.Year + DosCeros1(dtFin.DateTime.Month.ToString()) + DosCeros1(dtFin.DateTime.Day.ToString());
+                cortesel.Acopiador = Acopiador;
+                cortesel.FechaInicio = FechaInicio;
+                cortesel.FechaFin = FechaFin;
+                cortesel.MtdSeleccionarCortesAcopiadores();
+                if (cortesel.Exito)
+                {
+                    if (cortesel.Datos.Rows.Count > 0)
                     {
-                        if (cortesel.Datos.Rows.Count > 0)
-                        {
-
-                        }
+                        BorrarBonificaciones();
+                        InsertarBonificacionVolumen(cortesel.Datos);
+                        //InsertarBonificacionCalidad(cortesel.Datos);
+                        //InsertarBonificacionCalibre(cortesel.Datos);
                     }
                 }
+            }
+            else
+            {
+                XtraMessageBox.Show("Seleccione un Acopiador");
+            }
+        }
+
+        private bool ValidaDatos()
+        {
+            bool Valor = true;
+            if (chkTodos.Checked == false)
+            {
+                if (lkUpAcopiador.EditValue != null)
+                {
+                    Valor = true;
+                }
+                else
+                {
+                    Valor = false;
+                }
+            }
+            else
+            {
+                Valor = true;
+            }
+            return Valor;
+        }
+
+        private void InsertarBonificacionCalibre(DataTable datos)
+        {
+            for (int i = 0; i < datos.Rows.Count; i++)
+            {
+
+            }
+        }
+
+        private void InsertarBonificacionCalidad(DataTable datos)
+        {
+            for (int i = 0; i < datos.Rows.Count; i++)
+            {
+
+            }
+        }
+
+        private void InsertarBonificacionVolumen(DataTable datos)
+        {
+            string vOrdenCorte = string.Empty;
+            string vAcopiador = string.Empty;
+            string vv_nombre_hue = string.Empty;
+            decimal vn_cajas_estimadas = 0;
+            decimal vn_cajas_recibidas = 0;
+            decimal vn_porcentaje = 0;
+            decimal vn_bono_completo = 0;
+            decimal vn_importe = 0;
+            decimal vn_porcentajeGrupo = 0;
+
+            for (int i = 0; i < datos.Rows.Count; i++)
+            {
+                vOrdenCorte = datos.Rows[i]["OrderCorte"].ToString();
+                vAcopiador= datos.Rows[i]["Acopiador"].ToString();
+                vv_nombre_hue= datos.Rows[i]["Huerta"].ToString();
+                vn_cajas_estimadas = Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString());
+                vn_cajas_recibidas = Convert.ToDecimal(datos.Rows[i]["RecibCajas"].ToString());
+                if(Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString())>0)
+                {
+                    vn_porcentaje = Convert.ToDecimal(datos.Rows[i]["RecibCajas"].ToString()) / Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString());
+                    if ((vn_porcentaje*100) >= 50)
+                    {
+                        vn_porcentajeGrupo = PorcentajeGrupo("01");
+                        vn_bono_completo = MontoCompletoCamion(Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()));
+                        vn_importe = (vn_bono_completo * vn_porcentajeGrupo) * vn_porcentaje;
+                    }
+                    else
+                    {
+                        vn_bono_completo = MontoCompletoCamion(Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()));
+                        vn_importe = 0;
+                    }
+                }
+                else
+                {
+                    vn_bono_completo = MontoCompletoCamion(Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()));
+                    vn_importe = 0;
+                }
+                try
+                {
+                    CLS_Acopio insDatos = new CLS_Acopio();
+                    insDatos.OrdenCorte = vOrdenCorte;
+                    insDatos.Acopiador = vAcopiador;
+                    insDatos.v_nombre_hue = vv_nombre_hue;
+                    insDatos.n_cajas_estimadas = vn_cajas_estimadas;
+                    insDatos.n_cajas_recibidas = vn_cajas_recibidas;
+                    insDatos.n_porcentaje = vn_porcentaje;
+                    insDatos.n_bono_completo = vn_bono_completo;
+                    insDatos.n_importe = vn_importe;
+                    insDatos.MtdInsertarBonificacionVolumen();
+                    if(!insDatos.Exito)
+                    {
+                        XtraMessageBox.Show(insDatos.Mensaje);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message);
+                }
+                
+
+            }
+        }
+
+        private decimal MontoCompletoCamion(decimal v)
+        {
+            decimal Valor = 0;
+            CLS_Acopio selMCompleto = new CLS_Acopio();
+            selMCompleto.v_tipo_camion = v.ToString();
+            selMCompleto.MtdSeleccionarPagoCamionBono();
+            if(selMCompleto.Exito)
+            {
+                if(selMCompleto.Datos.Rows.Count>0)
+                {
+                    Valor = Convert.ToDecimal(selMCompleto.Datos.Rows[0]["n_monto_pago"].ToString());
+                }
+                else
+                {
+                    Valor = 0;
+                }
+            }
+            else
+            {
+                XtraMessageBox.Show(selMCompleto.Mensaje);
+            }
+            return Valor;
+        }
+
+        private decimal PorcentajeGrupo(string v)
+        {
+            decimal Valor = 0;
+            CLS_Acopio selGrupo = new CLS_Acopio();
+            selGrupo.c_codigo_gru = v.ToString();
+            selGrupo.MtdSeleccionarGrupoPagoBono();
+            if (selGrupo.Exito)
+            {
+                if (selGrupo.Datos.Rows.Count > 0)
+                {
+                    Valor = Convert.ToDecimal(selGrupo.Datos.Rows[0]["n_porcentaje"].ToString());
+                }
+                else
+                {
+                    XtraMessageBox.Show("No se encontraron Registro para este Grupo");
+                }
+            }
+            else
+            {
+                XtraMessageBox.Show(selGrupo.Mensaje);
+            }
+            return Valor;
+        }
+
+        private void BorrarBonificaciones()
+        {
+            CLS_Acopio boniDel = new CLS_Acopio();
+            boniDel.MtdEliminarBonificaciones();
+            if(!boniDel.Exito)
+            {
+                XtraMessageBox.Show(boniDel.Mensaje);
             }
         }
 
@@ -101,6 +272,11 @@ namespace Rentabilidad
         {
             Frm_BonosAcopio frmb = new Frm_BonosAcopio();
             frmb.ShowDialog();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
