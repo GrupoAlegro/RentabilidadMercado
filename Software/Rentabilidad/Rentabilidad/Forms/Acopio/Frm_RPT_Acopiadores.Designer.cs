@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_RPT_Acopiadores));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.btnBonos = new DevExpress.XtraEditors.SimpleButton();
             this.btnLimpiar = new DevExpress.XtraEditors.SimpleButton();
             this.lkUpAcopiador = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -48,7 +49,6 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.RPT_Viewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.btnBonos = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -73,7 +73,7 @@
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Padding = new System.Windows.Forms.Padding(5);
-            this.panelControl1.Size = new System.Drawing.Size(1053, 170);
+            this.panelControl1.Size = new System.Drawing.Size(1055, 170);
             this.panelControl1.TabIndex = 0;
             // 
             // groupControl1
@@ -92,16 +92,26 @@
             this.groupControl1.Controls.Add(this.chkTodos);
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(7, 7);
+            this.groupControl1.Location = new System.Drawing.Point(8, 8);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1039, 156);
+            this.groupControl1.Size = new System.Drawing.Size(1039, 154);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Parametros - Fecha de Corte";
+            // 
+            // btnBonos
+            // 
+            this.btnBonos.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBonos.ImageOptions.Image")));
+            this.btnBonos.Location = new System.Drawing.Point(586, 39);
+            this.btnBonos.Name = "btnBonos";
+            this.btnBonos.Size = new System.Drawing.Size(102, 45);
+            this.btnBonos.TabIndex = 13;
+            this.btnBonos.Text = "Bonos";
+            this.btnBonos.Click += new System.EventHandler(this.btnBonos_Click);
             // 
             // btnLimpiar
             // 
             this.btnLimpiar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.ImageOptions.Image")));
-            this.btnLimpiar.Location = new System.Drawing.Point(478, 90);
+            this.btnLimpiar.Location = new System.Drawing.Point(694, 39);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(102, 45);
             this.btnLimpiar.TabIndex = 12;
@@ -251,7 +261,7 @@
             this.panelControl2.Location = new System.Drawing.Point(0, 170);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Padding = new System.Windows.Forms.Padding(5);
-            this.panelControl2.Size = new System.Drawing.Size(1053, 266);
+            this.panelControl2.Size = new System.Drawing.Size(1055, 270);
             this.panelControl2.TabIndex = 1;
             // 
             // RPT_Viewer
@@ -260,7 +270,7 @@
             this.RPT_Viewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RPT_Viewer.Cursor = System.Windows.Forms.Cursors.Default;
             this.RPT_Viewer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RPT_Viewer.Location = new System.Drawing.Point(7, 7);
+            this.RPT_Viewer.Location = new System.Drawing.Point(8, 8);
             this.RPT_Viewer.Name = "RPT_Viewer";
             this.RPT_Viewer.ShowCloseButton = false;
             this.RPT_Viewer.ShowCopyButton = false;
@@ -268,25 +278,15 @@
             this.RPT_Viewer.ShowLogo = false;
             this.RPT_Viewer.ShowParameterPanelButton = false;
             this.RPT_Viewer.ShowTextSearchButton = false;
-            this.RPT_Viewer.Size = new System.Drawing.Size(1039, 252);
+            this.RPT_Viewer.Size = new System.Drawing.Size(1039, 254);
             this.RPT_Viewer.TabIndex = 0;
             this.RPT_Viewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
-            // 
-            // btnBonos
-            // 
-            this.btnBonos.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnBonos.Location = new System.Drawing.Point(586, 39);
-            this.btnBonos.Name = "btnBonos";
-            this.btnBonos.Size = new System.Drawing.Size(102, 45);
-            this.btnBonos.TabIndex = 13;
-            this.btnBonos.Text = "Bonos";
-            this.btnBonos.Click += new System.EventHandler(this.btnBonos_Click);
             // 
             // Frm_RPT_Acopiadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1053, 436);
+            this.ClientSize = new System.Drawing.Size(1055, 440);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.Name = "Frm_RPT_Acopiadores";

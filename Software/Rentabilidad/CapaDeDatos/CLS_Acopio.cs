@@ -17,34 +17,36 @@ namespace CapaDeDatos
         public decimal? n_porcentaje_pago { get; set; }
         public string v_tipo_camion { get; set; }
         public decimal? n_monto_pago { get; set; }
-        public string OrdenCorte { get;  set; }
-        public string v_nombre_hue { get;  set; }
-        public decimal? n_cajas_estimadas { get;  set; }
-        public decimal? n_cajas_recibidas { get;  set; }
-        public decimal? n_bono_completo { get;  set; }
-        public decimal? n_importe { get;  set; }
-        public decimal? n_32_est { get;  set; }
-        public decimal? n_36_est { get;  set; }
-        public decimal? n_40_est { get;  set; }
-        public decimal? n_48_est { get;  set; }
-        public decimal? n_60_est { get;  set; }
-        public decimal? n_70_est { get;  set; }
-        public decimal? n_84_est { get;  set; }
-        public decimal? n_96_est { get;  set; }
-        public decimal? n_32_pro { get;  set; }
-        public decimal? n_36_pro { get;  set; }
-        public decimal? n_40_pro { get;  set; }
-        public decimal? n_48_pro { get;  set; }
-        public decimal? n_60_pro { get;  set; }
-        public decimal? n_70_pro { get;  set; }
-        public decimal? n_84_pro { get;  set; }
-        public decimal? n_96_pro { get;  set; }
-        public decimal? n_cat1_est { get; private set; }
-        public decimal? n_cat2_est { get; private set; }
-        public decimal? n_Nac_est { get; private set; }
-        public decimal? n_cat1_pro { get; private set; }
-        public decimal? n_cat2_pro { get; private set; }
-        public decimal? n_Nac_pro { get; private set; }
+        public string OrdenCorte { get; set; }
+        public string v_nombre_hue { get; set; }
+        public decimal? n_cajas_estimadas { get; set; }
+        public decimal? n_cajas_recibidas { get; set; }
+        public decimal? n_bono_completo { get; set; }
+        public decimal? n_importe { get; set; }
+        public decimal? n_32_est { get; set; }
+        public decimal? n_36_est { get; set; }
+        public decimal? n_40_est { get; set; }
+        public decimal? n_48_est { get; set; }
+        public decimal? n_60_est { get; set; }
+        public decimal? n_70_est { get; set; }
+        public decimal? n_84_est { get; set; }
+        public decimal? n_96_est { get; set; }
+        public decimal? n_32_pro { get; set; }
+        public decimal? n_36_pro { get; set; }
+        public decimal? n_40_pro { get; set; }
+        public decimal? n_48_pro { get; set; }
+        public decimal? n_60_pro { get; set; }
+        public decimal? n_70_pro { get; set; }
+        public decimal? n_84_pro { get; set; }
+        public decimal? n_96_pro { get; set; }
+        public decimal? n_cat1_est { get; set; }
+        public decimal? n_cat2_est { get; set; }
+        public decimal? n_Nac_est { get; set; }
+        public decimal? n_cat1_pro { get; set; }
+        public decimal? n_cat2_pro { get; set; }
+        public decimal? n_Nac_pro { get; set; }
+        public decimal n_porcentajeVolumen { get; set; }
+        public string d_fecha_OrdenCorte { get; set; }
 
         public void MtdSeleccionarAcopiadores()
         {
@@ -249,6 +251,8 @@ namespace CapaDeDatos
 
                 _dato.CadenaTexto = OrdenCorte;
                 _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "OrdenCorte");
+                _dato.CadenaTexto = d_fecha_OrdenCorte;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "d_fecha_OrdenCorte");
                 _dato.CadenaTexto = Acopiador;
                 _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "Acopiador");
                 _dato.CadenaTexto = v_nombre_hue;
@@ -291,10 +295,14 @@ namespace CapaDeDatos
 
                 _dato.CadenaTexto = OrdenCorte;
                 _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "OrdenCorte");
+                _dato.CadenaTexto = d_fecha_OrdenCorte;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "d_fecha_OrdenCorte");
                 _dato.CadenaTexto = Acopiador;
                 _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "Acopiador");
                 _dato.CadenaTexto = v_nombre_hue;
                 _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "v_nombre_hue");
+                _dato.DecimalValor = n_cajas_estimadas;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_cajas_estimadas");
                 _dato.DecimalValor = n_32_est;
                 _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_32_est");
                 _dato.DecimalValor = n_36_est;
@@ -322,13 +330,15 @@ namespace CapaDeDatos
                 _dato.DecimalValor = n_60_pro;
                 _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_60_pro");
                 _dato.DecimalValor = n_70_pro;
-                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_70_est");
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_70_pro");
                 _dato.DecimalValor = n_84_pro;
-                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_84_est");
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_84_pro");
                 _dato.DecimalValor = n_96_pro;
-                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_96_est");
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_96_pro");
                 _dato.DecimalValor = n_porcentaje;
                 _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_porcentaje");
+                _dato.DecimalValor = n_porcentajeVolumen;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_porcentajeVolumen");
                 _dato.DecimalValor = n_bono_completo;
                 _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_bono_completo");
                 _dato.DecimalValor = n_importe;
@@ -366,21 +376,23 @@ namespace CapaDeDatos
                 _dato.CadenaTexto = v_nombre_hue;
                 _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "v_nombre_hue");
                 _dato.DecimalValor = n_cajas_estimadas;
-                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "n_cajas_estimadas");
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_cajas_estimadas");
                 _dato.DecimalValor = n_cat1_est;
-                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "n_cat1_est");
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_cat1_est");
                 _dato.DecimalValor = n_cat2_est;
                 _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_cat2_est");
                 _dato.DecimalValor = n_Nac_est;
                 _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_Nac_est");
                 _dato.DecimalValor = n_cat1_pro;
-                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "n_cat1_pro");
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_cat1_pro");
                 _dato.DecimalValor = n_cat2_pro;
                 _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_cat2_pro");
                 _dato.DecimalValor = n_Nac_pro;
                 _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_Nac_pro");
                 _dato.DecimalValor = n_porcentaje;
                 _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_porcentaje");
+                _dato.DecimalValor = n_porcentajeVolumen;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_porcentajeVolumen");
                 _dato.DecimalValor = n_bono_completo;
                 _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_bono_completo");
                 _dato.DecimalValor = n_importe;
