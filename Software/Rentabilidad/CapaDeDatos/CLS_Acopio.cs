@@ -72,6 +72,34 @@ namespace CapaDeDatos
                 Exito = false;
             }
         }
+        public void MtdSeleccionarCapturasPendientes()
+        {
+            TipoDato _dato = new TipoDato();
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "usp_Acp_BonificacionCapturasPendientes_Select";
+                _dato.CadenaTexto = FechaInicio;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "FechaInicio");
+                _dato.CadenaTexto = FechaFin;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "FechaFin");
+                _conexion.EjecutarDataset();
+                if (_conexion.Exito)
+                {
+                    Datos = _conexion.Datos;
+                }
+                else
+                {
+                    Mensaje = _conexion.Mensaje;
+                    Exito = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Mensaje = e.Message;
+                Exito = false;
+            }
+        }
         public void MtdSeleccionarCortesAcopiadores()
         {
             TipoDato _dato = new TipoDato();
@@ -368,9 +396,10 @@ namespace CapaDeDatos
             try
             {
                 _conexion.NombreProcedimiento = "usp_Rent_Acp_BonificacionCalidad_Insert";
-
                 _dato.CadenaTexto = OrdenCorte;
                 _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "OrdenCorte");
+                _dato.CadenaTexto = d_fecha_OrdenCorte;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "d_fecha_OrdenCorte");
                 _dato.CadenaTexto = Acopiador;
                 _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "Acopiador");
                 _dato.CadenaTexto = v_nombre_hue;

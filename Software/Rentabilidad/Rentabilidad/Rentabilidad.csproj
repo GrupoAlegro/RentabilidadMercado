@@ -103,7 +103,9 @@
       <HintPath>..\..\..\..\Aplicacion\Software\AgroTrace\AvoTrace\AvoTrace\bin\Debug\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -255,6 +257,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\rpt_Bonificacion_Acopiadores_Concentrado.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_Bonificacion_Acopiadores_Concentrado.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\rpt_Bonificacion_Acopiadores_Detallado.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -271,6 +279,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rpt_Bonificacion_Calidad_Detallado.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rpt_Bonificacion_NoCapturados.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_Bonificacion_NoCapturados.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\rpt_Bonificacion_Volumen_Detallado.cs">
@@ -365,6 +379,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\rpt_Bonificacion_Acopiadores_Concentrado.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_Bonificacion_Acopiadores_Concentrado.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\rpt_Bonificacion_Acopiadores_Detallado.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rpt_Bonificacion_Acopiadores_Detallado.cs</LastGenOutput>
@@ -376,6 +394,10 @@
     <EmbeddedResource Include="Reports\rpt_Bonificacion_Calidad_Detallado.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rpt_Bonificacion_Calidad_Detallado.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rpt_Bonificacion_NoCapturados.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_Bonificacion_NoCapturados.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rpt_Bonificacion_Volumen_Detallado.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

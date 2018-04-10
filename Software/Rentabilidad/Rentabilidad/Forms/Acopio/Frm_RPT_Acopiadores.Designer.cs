@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_RPT_Acopiadores));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.btnBonos = new DevExpress.XtraEditors.SimpleButton();
-            this.btnLimpiar = new DevExpress.XtraEditors.SimpleButton();
             this.lkUpAcopiador = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -44,11 +44,13 @@
             this.dtFin = new DevExpress.XtraEditors.DateEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.dtInicio = new DevExpress.XtraEditors.DateEdit();
-            this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
+            this.orbTipoReporte = new DevExpress.XtraEditors.RadioGroup();
             this.chkTodos = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.RPT_Viewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.hyperlinkLabelControl1 = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -60,10 +62,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtFin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtInicio.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtInicio.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orbTipoReporte.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkTodos.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -78,8 +81,8 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.hyperlinkLabelControl1);
             this.groupControl1.Controls.Add(this.btnBonos);
-            this.groupControl1.Controls.Add(this.btnLimpiar);
             this.groupControl1.Controls.Add(this.lkUpAcopiador);
             this.groupControl1.Controls.Add(this.labelControl4);
             this.groupControl1.Controls.Add(this.ProgressB);
@@ -88,35 +91,25 @@
             this.groupControl1.Controls.Add(this.dtFin);
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.dtInicio);
-            this.groupControl1.Controls.Add(this.radioGroup1);
+            this.groupControl1.Controls.Add(this.orbTipoReporte);
             this.groupControl1.Controls.Add(this.chkTodos);
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(8, 8);
+            this.groupControl1.Location = new System.Drawing.Point(7, 7);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1039, 154);
+            this.groupControl1.Size = new System.Drawing.Size(1041, 156);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Parametros - Fecha de Corte";
             // 
             // btnBonos
             // 
             this.btnBonos.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBonos.ImageOptions.Image")));
-            this.btnBonos.Location = new System.Drawing.Point(586, 39);
+            this.btnBonos.Location = new System.Drawing.Point(607, 39);
             this.btnBonos.Name = "btnBonos";
             this.btnBonos.Size = new System.Drawing.Size(102, 45);
             this.btnBonos.TabIndex = 13;
             this.btnBonos.Text = "Bonos";
             this.btnBonos.Click += new System.EventHandler(this.btnBonos_Click);
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.ImageOptions.Image")));
-            this.btnLimpiar.Location = new System.Drawing.Point(694, 39);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(102, 45);
-            this.btnLimpiar.TabIndex = 12;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // lkUpAcopiador
             // 
@@ -158,7 +151,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(59, 122);
+            this.labelControl4.Location = new System.Drawing.Point(59, 138);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(43, 13);
             this.labelControl4.TabIndex = 10;
@@ -166,11 +159,14 @@
             // 
             // ProgressB
             // 
-            this.ProgressB.EditValue = 50;
-            this.ProgressB.Location = new System.Drawing.Point(121, 119);
+            this.ProgressB.EditValue = 30;
+            this.ProgressB.Location = new System.Drawing.Point(121, 135);
             this.ProgressB.Name = "ProgressB";
+            this.ProgressB.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
             this.ProgressB.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.ProgressB.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.ProgressB.Properties.ShowTitle = true;
+            this.ProgressB.Properties.TextOrientation = DevExpress.Utils.Drawing.TextOrientation.Horizontal;
             this.ProgressB.Size = new System.Drawing.Size(325, 18);
             this.ProgressB.TabIndex = 9;
             // 
@@ -186,7 +182,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(72, 97);
+            this.labelControl3.Location = new System.Drawing.Point(72, 104);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(28, 13);
             this.labelControl3.TabIndex = 7;
@@ -195,7 +191,7 @@
             // dtFin
             // 
             this.dtFin.EditValue = new System.DateTime(2018, 3, 12, 10, 20, 50, 0);
-            this.dtFin.Location = new System.Drawing.Point(121, 93);
+            this.dtFin.Location = new System.Drawing.Point(121, 100);
             this.dtFin.Name = "dtFin";
             this.dtFin.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -206,7 +202,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(72, 71);
+            this.labelControl2.Location = new System.Drawing.Point(72, 78);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(30, 13);
             this.labelControl2.TabIndex = 5;
@@ -215,7 +211,7 @@
             // dtInicio
             // 
             this.dtInicio.EditValue = new System.DateTime(2018, 3, 12, 10, 20, 45, 0);
-            this.dtInicio.Location = new System.Drawing.Point(121, 67);
+            this.dtInicio.Location = new System.Drawing.Point(121, 74);
             this.dtInicio.Name = "dtInicio";
             this.dtInicio.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -224,19 +220,20 @@
             this.dtInicio.Size = new System.Drawing.Size(100, 20);
             this.dtInicio.TabIndex = 4;
             // 
-            // radioGroup1
+            // orbTipoReporte
             // 
-            this.radioGroup1.Location = new System.Drawing.Point(350, 67);
-            this.radioGroup1.Name = "radioGroup1";
-            this.radioGroup1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.radioGroup1.Properties.Appearance.Options.UseBackColor = true;
-            this.radioGroup1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.radioGroup1.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            this.orbTipoReporte.Location = new System.Drawing.Point(350, 67);
+            this.orbTipoReporte.Name = "orbTipoReporte";
+            this.orbTipoReporte.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.orbTipoReporte.Properties.Appearance.Options.UseBackColor = true;
+            this.orbTipoReporte.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.orbTipoReporte.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
+            this.orbTipoReporte.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Concetrado"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Detallado")});
-            this.radioGroup1.Size = new System.Drawing.Size(96, 46);
-            this.radioGroup1.TabIndex = 3;
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Detallado"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "No Capturado")});
+            this.orbTipoReporte.Size = new System.Drawing.Size(96, 70);
+            this.orbTipoReporte.TabIndex = 3;
             // 
             // chkTodos
             // 
@@ -245,6 +242,7 @@
             this.chkTodos.Properties.Caption = "Todos";
             this.chkTodos.Size = new System.Drawing.Size(75, 19);
             this.chkTodos.TabIndex = 2;
+            this.chkTodos.CheckedChanged += new System.EventHandler(this.chkTodos_CheckedChanged);
             // 
             // labelControl1
             // 
@@ -270,7 +268,7 @@
             this.RPT_Viewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RPT_Viewer.Cursor = System.Windows.Forms.Cursors.Default;
             this.RPT_Viewer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RPT_Viewer.Location = new System.Drawing.Point(8, 8);
+            this.RPT_Viewer.Location = new System.Drawing.Point(7, 7);
             this.RPT_Viewer.Name = "RPT_Viewer";
             this.RPT_Viewer.ShowCloseButton = false;
             this.RPT_Viewer.ShowCopyButton = false;
@@ -278,9 +276,29 @@
             this.RPT_Viewer.ShowLogo = false;
             this.RPT_Viewer.ShowParameterPanelButton = false;
             this.RPT_Viewer.ShowTextSearchButton = false;
-            this.RPT_Viewer.Size = new System.Drawing.Size(1039, 254);
+            this.RPT_Viewer.Size = new System.Drawing.Size(1041, 256);
             this.RPT_Viewer.TabIndex = 0;
             this.RPT_Viewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            // 
+            // hyperlinkLabelControl1
+            // 
+            this.hyperlinkLabelControl1.Appearance.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.hyperlinkLabelControl1.Appearance.ForeColor = System.Drawing.Color.Maroon;
+            this.hyperlinkLabelControl1.Appearance.Options.UseFont = true;
+            this.hyperlinkLabelControl1.Appearance.Options.UseForeColor = true;
+            this.hyperlinkLabelControl1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.hyperlinkLabelControl1.LineColor = System.Drawing.Color.Maroon;
+            this.hyperlinkLabelControl1.LineLocation = DevExpress.XtraEditors.LineLocation.Bottom;
+            this.hyperlinkLabelControl1.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Horizontal;
+            this.hyperlinkLabelControl1.LineVisible = true;
+            this.hyperlinkLabelControl1.Location = new System.Drawing.Point(478, 100);
+            this.hyperlinkLabelControl1.Name = "hyperlinkLabelControl1";
+            this.hyperlinkLabelControl1.Size = new System.Drawing.Size(231, 16);
+            this.hyperlinkLabelControl1.TabIndex = 14;
+            this.hyperlinkLabelControl1.Text = "Capturas Pendientes \r\nConsultar Click Aqui";
+            this.hyperlinkLabelControl1.UseMnemonic = false;
+            this.hyperlinkLabelControl1.Visible = false;
+            this.hyperlinkLabelControl1.Click += new System.EventHandler(this.hyperlinkLabelControl1_Click);
             // 
             // Frm_RPT_Acopiadores
             // 
@@ -291,6 +309,7 @@
             this.Controls.Add(this.panelControl1);
             this.Name = "Frm_RPT_Acopiadores";
             this.Text = "Reporte Acopiadores";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Shown += new System.EventHandler(this.Frm_RPT_Acopiadores_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -304,10 +323,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtFin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtInicio.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtInicio.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orbTipoReporte.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkTodos.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -321,7 +341,7 @@
         private DevExpress.XtraEditors.DateEdit dtFin;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.DateEdit dtInicio;
-        private DevExpress.XtraEditors.RadioGroup radioGroup1;
+        private DevExpress.XtraEditors.RadioGroup orbTipoReporte;
         private DevExpress.XtraEditors.CheckEdit chkTodos;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl4;
@@ -332,7 +352,8 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
-        private DevExpress.XtraEditors.SimpleButton btnLimpiar;
         private DevExpress.XtraEditors.SimpleButton btnBonos;
+        private DevExpress.XtraEditors.HyperlinkLabelControl hyperlinkLabelControl1;
+        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
     }
 }

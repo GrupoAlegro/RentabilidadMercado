@@ -16,14 +16,14 @@ namespace Rentabilidad.Reports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rpt_Bonificacion_Acopiadores_Detallado : ReportClass {
+    public class rpt_Bonificacion_NoCapturados : ReportClass {
         
-        public rpt_Bonificacion_Acopiadores_Detallado() {
+        public rpt_Bonificacion_NoCapturados() {
         }
         
         public override string ResourceName {
             get {
-                return "rpt_Bonificacion_Acopiadores_Detallado.rpt";
+                return "rpt_Bonificacion_NoCapturados.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Rentabilidad.Reports {
         
         public override string FullResourceName {
             get {
-                return "Rentabilidad.Reports.rpt_Bonificacion_Acopiadores_Detallado.rpt";
+                return "Rentabilidad.Reports.rpt_Bonificacion_NoCapturados.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace Rentabilidad.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace Rentabilidad.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,49 +82,17 @@ namespace Rentabilidad.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section DetailSection1 {
-            get {
-                return this.ReportDefinition.Sections[4];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section DetailSection2 {
-            get {
-                return this.ReportDefinition.Sections[5];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection1 {
-            get {
-                return this.ReportDefinition.Sections[6];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
-            get {
-                return this.ReportDefinition.Sections[7];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
-                return this.ReportDefinition.Sections[8];
+                return this.ReportDefinition.Sections[4];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class Cachedrpt_Bonificacion_Acopiadores_Detallado : Component, ICachedReport {
+    public class Cachedrpt_Bonificacion_NoCapturados : Component, ICachedReport {
         
-        public Cachedrpt_Bonificacion_Acopiadores_Detallado() {
+        public Cachedrpt_Bonificacion_NoCapturados() {
         }
         
         [Browsable(false)]
@@ -161,7 +129,7 @@ namespace Rentabilidad.Reports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rpt_Bonificacion_Acopiadores_Detallado rpt = new rpt_Bonificacion_Acopiadores_Detallado();
+            rpt_Bonificacion_NoCapturados rpt = new rpt_Bonificacion_NoCapturados();
             rpt.Site = this.Site;
             return rpt;
         }

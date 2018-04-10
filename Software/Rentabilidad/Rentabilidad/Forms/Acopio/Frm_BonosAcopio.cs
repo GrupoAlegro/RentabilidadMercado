@@ -73,7 +73,6 @@ namespace Rentabilidad
         }
         private void ActualizarDatosPagoCamion()
         {
-            int x = 1;
             for (int i = 0; i < dtgValPagoCamion.RowCount; i++)
             {
                 CLS_Acopio artprecio = new CLS_Acopio();

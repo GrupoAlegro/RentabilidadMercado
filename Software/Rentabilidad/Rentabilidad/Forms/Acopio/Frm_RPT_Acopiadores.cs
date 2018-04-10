@@ -23,7 +23,6 @@ namespace Rentabilidad
             InitializeComponent();
         }
         private static Frm_RPT_Acopiadores m_FormDefInstance;
-        private int FilaSelect;
 
         public static Frm_RPT_Acopiadores DefInstance
         {
@@ -74,12 +73,15 @@ namespace Rentabilidad
             CargarAcopiadores(null);
             dtInicio.EditValue = DateTime.Now;
             dtFin.EditValue = DateTime.Now;
+            ProgressB.EditValue = 0;
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
+            hyperlinkLabelControl1.Visible = false;
             if (ValidaDatos())
             {
+                ConsultaNoCaturados();
                 CLS_Acopio cortesel = new CLS_Acopio();
                 if (lkUpAcopiador.EditValue == null)
                 {
@@ -100,10 +102,22 @@ namespace Rentabilidad
                     if (cortesel.Datos.Rows.Count > 0)
                     {
                         BorrarBonificaciones();
+                        ProgressB.Position = 0;
+                        Application.DoEvents();
                         InsertarBonificacionVolumen(cortesel.Datos);
+                        ProgressB.Position = 30;
+                        Application.DoEvents();
                         InsertarBonificacionCalidad(cortesel.Datos);
+                        ProgressB.Position = 60;
+                        Application.DoEvents();
                         InsertarBonificacionCalibre(cortesel.Datos);
+                        ProgressB.Position = 100;
+                        Application.DoEvents();
                         MostrarReporte();
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("No existen datos para mostrar");
                     }
                 }
             }
@@ -113,20 +127,76 @@ namespace Rentabilidad
             }
         }
 
+        private void ConsultaNoCaturados()
+        {
+            CLS_Acopio corteseln = new CLS_Acopio();
+            FechaInicio = dtInicio.DateTime.Year + DosCeros1(dtInicio.DateTime.Month.ToString()) + DosCeros1(dtInicio.DateTime.Day.ToString());
+            FechaFin = dtFin.DateTime.Year + DosCeros1(dtFin.DateTime.Month.ToString()) + DosCeros1(dtFin.DateTime.Day.ToString());
+            corteseln.FechaInicio = FechaInicio;
+            corteseln.FechaFin = FechaFin;
+            corteseln.MtdSeleccionarCapturasPendientes();
+            if (corteseln.Exito)
+            {
+                if (corteseln.Datos.Rows.Count > 0)
+                {
+                    hyperlinkLabelControl1.Visible = true;
+                }
+            }
+
+        }
+
         private void MostrarReporte()
         {
-            Parametros_basededatos();
-            Reports.rpt_Bonificacion_Acopiadores_Detallado RCatalogoP = new Reports.rpt_Bonificacion_Acopiadores_Detallado();
-            Tables RPTTablas = RCatalogoP.Database.Tables;
-
-            foreach (Table oTabla in RPTTablas)
+            if (orbTipoReporte.SelectedIndex==1)
             {
-                TableLogOnInfo oTablaConexInfo = oTabla.LogOnInfo;
-                oTablaConexInfo.ConnectionInfo = oConexInfo;
-                oTabla.ApplyLogOnInfo(oTablaConexInfo);
+                Parametros_basededatos();
+                Reports.rpt_Bonificacion_Acopiadores_Detallado RCatalogoP = new Reports.rpt_Bonificacion_Acopiadores_Detallado();
+                Tables RPTTablas = RCatalogoP.Database.Tables;
+
+                foreach (Table oTabla in RPTTablas)
+                {
+                    TableLogOnInfo oTablaConexInfo = oTabla.LogOnInfo;
+                    oTablaConexInfo.ConnectionInfo = oConexInfo;
+                    oTabla.ApplyLogOnInfo(oTablaConexInfo);
+                }
+                RCatalogoP.Refresh();
+                RCatalogoP.DataDefinition.FormulaFields["Fecha_Inicio"].Text = string.Format("'{0}'", dtInicio.EditValue);
+                RCatalogoP.DataDefinition.FormulaFields["Fecha_Fin"].Text = string.Format("'{0}'", dtFin.EditValue);
+                RPT_Viewer.ReportSource = RCatalogoP;
             }
-            RCatalogoP.Refresh();
-            RPT_Viewer.ReportSource = RCatalogoP;
+            else if (orbTipoReporte.SelectedIndex == 0)
+            {
+                Parametros_basededatos();
+                Reports.rpt_Bonificacion_Acopiadores_Concentrado RCatalogoP = new Reports.rpt_Bonificacion_Acopiadores_Concentrado();
+                Tables RPTTablas = RCatalogoP.Database.Tables;
+
+                foreach (Table oTabla in RPTTablas)
+                {
+                    TableLogOnInfo oTablaConexInfo = oTabla.LogOnInfo;
+                    oTablaConexInfo.ConnectionInfo = oConexInfo;
+                    oTabla.ApplyLogOnInfo(oTablaConexInfo);
+                }
+                RCatalogoP.Refresh();
+                RCatalogoP.DataDefinition.FormulaFields["Fecha_Inicio"].Text = string.Format("'{0}'", dtInicio.EditValue);
+                RCatalogoP.DataDefinition.FormulaFields["Fecha_Fin"].Text = string.Format("'{0}'", dtFin.EditValue);
+                RPT_Viewer.ReportSource = RCatalogoP;
+            }
+            else if(orbTipoReporte.SelectedIndex == 2)
+            {
+                ConsultaNoCaturados();
+                Parametros_basededatos();
+                Reports.rpt_Bonificacion_NoCapturados RCatalogoP = new Reports.rpt_Bonificacion_NoCapturados();
+                Tables RPTTablas = RCatalogoP.Database.Tables;
+
+                foreach (Table oTabla in RPTTablas)
+                {
+                    TableLogOnInfo oTablaConexInfo = oTabla.LogOnInfo;
+                    oTablaConexInfo.ConnectionInfo = oConexInfo;
+                    oTabla.ApplyLogOnInfo(oTablaConexInfo);
+                }
+                RCatalogoP.Refresh();
+                RPT_Viewer.ReportSource = RCatalogoP;
+            }
         }
 
         private bool ValidaDatos()
@@ -232,136 +302,151 @@ namespace Rentabilidad
 
                 if (Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()) > 0)
                 {
-                    vn_porcentajeVolumen = Convert.ToDecimal(datos.Rows[i]["RecibCajas"].ToString()) / Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString())*100;
-                    if ((vn_porcentajeVolumen) >= 50)
+                    vn_porcentajeVolumen = Convert.ToDecimal(datos.Rows[i]["RecibCajas"].ToString()) / Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()) * 100;
+
+                    if (Convert.ToDecimal(datos.Rows[i]["Est32"].ToString()) > 0)
                     {
-                        if (Convert.ToDecimal(datos.Rows[i]["Est32"].ToString()) > 0)
+                        if ((100 - (((Convert.ToDecimal(datos.Rows[i]["Pro32"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est32"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est32"].ToString()) / 100) > 0)
                         {
-                            if ((100 - (((Convert.ToDecimal(datos.Rows[i]["Pro32"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est32"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est32"].ToString()) / 100) > 0)
-                            {
-                                vn_porcentaje32 = Math.Abs(100 - (((Convert.ToDecimal(datos.Rows[i]["Pro32"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est32"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est32"].ToString()) / 100);
-                            }
-                            else
-                            {
-                                vn_porcentaje32 = 0;
-                            }
+                            vn_porcentaje32 = Math.Abs(100 - (((Convert.ToDecimal(datos.Rows[i]["Pro32"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est32"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est32"].ToString()) / 100);
                         }
                         else
                         {
                             vn_porcentaje32 = 0;
                         }
+                    }
+                    else
+                    {
+                        vn_porcentaje32 = 0;
+                    }
 
-                        if (Convert.ToDecimal(datos.Rows[i]["Est36"].ToString()) > 0)
+                    if (Convert.ToDecimal(datos.Rows[i]["Est36"].ToString()) > 0)
+                    {
+                        if ((100 - (((Convert.ToDecimal(datos.Rows[i]["Pro36"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est36"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est36"].ToString()) / 100) > 0)
                         {
-                            if ((100 - (((Convert.ToDecimal(datos.Rows[i]["Pro36"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est36"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est36"].ToString()) / 100) > 0)
-                            {
-                                vn_porcentaje36 = Math.Abs(100 - (((Convert.ToDecimal(datos.Rows[i]["Pro36"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est36"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est36"].ToString()) / 100);
-                            }
-                            else
-                            {
-                                vn_porcentaje36 = 0;
-                            }
+                            vn_porcentaje36 = Math.Abs(100 - (((Convert.ToDecimal(datos.Rows[i]["Pro36"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est36"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est36"].ToString()) / 100);
                         }
                         else
                         {
                             vn_porcentaje36 = 0;
                         }
+                    }
+                    else
+                    {
+                        vn_porcentaje36 = 0;
+                    }
 
-                        if (Convert.ToDecimal(datos.Rows[i]["Est40"].ToString()) > 0)
+                    if (Convert.ToDecimal(datos.Rows[i]["Est40"].ToString()) > 0)
+                    {
+                        if ((100 - (((Convert.ToDecimal(datos.Rows[i]["Pro40"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est40"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est40"].ToString()) / 100) > 0)
                         {
-                            if ((100 - (((Convert.ToDecimal(datos.Rows[i]["Pro40"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est40"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est40"].ToString()) / 100) > 0)
-                            {
-                                vn_porcentaje40 = Math.Abs(100 - (((Convert.ToDecimal(datos.Rows[i]["Pro40"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est40"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est40"].ToString()) / 100);
-                            }
-                            else
-                            {
-                                vn_porcentaje40 = 0;
-                            }
+                            vn_porcentaje40 = Math.Abs(100 - (((Convert.ToDecimal(datos.Rows[i]["Pro40"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est40"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est40"].ToString()) / 100);
                         }
                         else
                         {
                             vn_porcentaje40 = 0;
                         }
+                    }
+                    else
+                    {
+                        vn_porcentaje40 = 0;
+                    }
 
-                        if (Convert.ToDecimal(datos.Rows[i]["Est48"].ToString()) > 0)
+                    if (Convert.ToDecimal(datos.Rows[i]["Est48"].ToString()) > 0)
+                    {
+                        if ((100 - (((Convert.ToDecimal(datos.Rows[i]["Pro48"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est48"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est48"].ToString()) / 100) > 0)
                         {
-                            if ((100 - (((Convert.ToDecimal(datos.Rows[i]["Pro48"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est48"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est48"].ToString()) / 100) > 0)
-                            {
-                                vn_porcentaje48 = Math.Abs(100 - (((Convert.ToDecimal(datos.Rows[i]["Pro48"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est48"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est48"].ToString()) / 100);
-                            }
-                            else
-                            {
-                                vn_porcentaje48 = 0;
-                            }
+                            vn_porcentaje48 = Math.Abs(100 - (((Convert.ToDecimal(datos.Rows[i]["Pro48"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est48"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est48"].ToString()) / 100);
                         }
                         else
                         {
                             vn_porcentaje48 = 0;
                         }
+                    }
+                    else
+                    {
+                        vn_porcentaje48 = 0;
+                    }
 
-                        if (Convert.ToDecimal(datos.Rows[i]["Est60"].ToString()) > 0)
+                    if (Convert.ToDecimal(datos.Rows[i]["Est60"].ToString()) > 0)
+                    {
+                        if ((100 - (((Convert.ToDecimal(datos.Rows[i]["Pro60"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est60"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est60"].ToString()) / 100) > 0)
                         {
-                            if ((100 - (((Convert.ToDecimal(datos.Rows[i]["Pro60"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est60"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est60"].ToString()) / 100) > 0)
-                            {
-                                vn_porcentaje60 = Math.Abs(100 - (((Convert.ToDecimal(datos.Rows[i]["Pro60"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est60"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est60"].ToString()) / 100);
-                            }
-                            else
-                            {
-                                vn_porcentaje60 = 0;
-                            }
+                            vn_porcentaje60 = Math.Abs(100 - (((Convert.ToDecimal(datos.Rows[i]["Pro60"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est60"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est60"].ToString()) / 100);
                         }
                         else
                         {
                             vn_porcentaje60 = 0;
                         }
+                    }
+                    else
+                    {
+                        vn_porcentaje60 = 0;
+                    }
 
-                        if (Convert.ToDecimal(datos.Rows[i]["Est84"].ToString()) > 0)
+                    if (Convert.ToDecimal(datos.Rows[i]["Est70"].ToString()) > 0)
+                    {
+                        if ((100 - (((Convert.ToDecimal(datos.Rows[i]["Pro70"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est70"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est70"].ToString()) / 100) > 0)
                         {
-                            if ((100 - (((Convert.ToDecimal(datos.Rows[i]["Pro84"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est84"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est84"].ToString()) / 100) > 0)
-                            {
-                                vn_porcentaje84 = Math.Abs(100 - (((Convert.ToDecimal(datos.Rows[i]["Pro84"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est84"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est84"].ToString()) / 100);
-                            }
-                            else
-                            {
-                                vn_porcentaje84 = 0;
-                            }
+                            vn_porcentaje70 = Math.Abs(100 - (((Convert.ToDecimal(datos.Rows[i]["Pro70"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est70"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est70"].ToString()) / 100);
+                        }
+                        else
+                        {
+                            vn_porcentaje70 = 0;
+                        }
+                    }
+                    else
+                    {
+                        vn_porcentaje70 = 0;
+                    }
+
+                    if (Convert.ToDecimal(datos.Rows[i]["Est84"].ToString()) > 0)
+                    {
+                        if ((100 - (((Convert.ToDecimal(datos.Rows[i]["Pro84"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est84"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est84"].ToString()) / 100) > 0)
+                        {
+                            vn_porcentaje84 = Math.Abs(100 - (((Convert.ToDecimal(datos.Rows[i]["Pro84"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est84"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est84"].ToString()) / 100);
                         }
                         else
                         {
                             vn_porcentaje84 = 0;
                         }
+                    }
+                    else
+                    {
+                        vn_porcentaje84 = 0;
+                    }
 
-                        if (Convert.ToDecimal(datos.Rows[i]["Est96"].ToString()) > 0)
+                    if (Convert.ToDecimal(datos.Rows[i]["Est96"].ToString()) > 0)
+                    {
+                        if ((100 - (((Convert.ToDecimal(datos.Rows[i]["Pro96"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est96"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est96"].ToString()) / 100) > 0)
                         {
-                            if ((100 - (((Convert.ToDecimal(datos.Rows[i]["Pro96"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est96"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est96"].ToString()) / 100) > 0)
-                            {
-                                vn_porcentaje96 = Math.Abs(100 - (((Convert.ToDecimal(datos.Rows[i]["Pro96"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est96"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est96"].ToString()) / 100);
-                            }
-                            else
-                            {
-                                vn_porcentaje96 = 0;
-                            }
+                            vn_porcentaje96 = Math.Abs(100 - (((Convert.ToDecimal(datos.Rows[i]["Pro96"].ToString()) / Convert.ToDecimal(datos.Rows[i]["Est96"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["Est96"].ToString()) / 100);
                         }
                         else
                         {
                             vn_porcentaje96 = 0;
                         }
-
-                        vn_porcentaje = vn_porcentaje32 + vn_porcentaje36 + vn_porcentaje40 + vn_porcentaje48 + vn_porcentaje60 + vn_porcentaje70 + vn_porcentaje84 + vn_porcentaje96;
-
-                        if (vn_porcentaje <= 20)
-                        {
-                            vn_porcentajeGrupo = PorcentajeGrupo("03");
-                            vn_bono_completo = MontoCompletoCamion(Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()));
-                            vn_importe = (vn_bono_completo * vn_porcentajeGrupo) * (100 - (vn_porcentaje * 4)) / 100;
-                        }
-                        else
-                        {
-                            vn_bono_completo = MontoCompletoCamion(Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()));
-                            vn_importe = 0;
-                        }
                     }
                     else
+                    {
+                        vn_porcentaje96 = 0;
+                    }
+
+                    vn_porcentaje = vn_porcentaje32 + vn_porcentaje36 + vn_porcentaje40 + vn_porcentaje48 + vn_porcentaje60 + vn_porcentaje70 + vn_porcentaje84 + vn_porcentaje96;
+
+                    if (vn_porcentaje <= 20)
+                    {
+                        vn_porcentajeGrupo = PorcentajeGrupo("03");
+                        vn_bono_completo = MontoCompletoCamion(Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()));
+                        vn_importe = (vn_bono_completo * vn_porcentajeGrupo) * (100 - (vn_porcentaje * 4)) / 100;
+                    }
+                    else
+                    {
+                        vn_bono_completo = MontoCompletoCamion(Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()));
+                        vn_importe = 0;
+                    }
+
+                    if ((vn_porcentajeVolumen) < 50)
                     {
                         vn_bono_completo = MontoCompletoCamion(Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()));
                         vn_importe = 0;
@@ -399,6 +484,9 @@ namespace Rentabilidad
                     insCalibre.n_porcentajeVolumen = vn_porcentajeVolumen;
                     insCalibre.n_bono_completo = vn_bono_completo;
                     insCalibre.n_importe = vn_importe;
+                    DateTime vFechaCorte = Convert.ToDateTime(datos.Rows[i]["FechaCorte"].ToString());
+                    FechaInicio = vFechaCorte.Year + DosCeros1(vFechaCorte.Month.ToString()) + DosCeros1(vFechaCorte.Day.ToString());
+                    insCalibre.d_fecha_OrdenCorte = FechaInicio;
                     insCalibre.MtdInsertarBonificacionCalibre();
                     if (!insCalibre.Exito)
                     {
@@ -450,69 +538,67 @@ namespace Rentabilidad
                 vn_Nac_pro = Convert.ToDecimal(datos.Rows[i]["ProNal"].ToString());
                 if (Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()) > 0)
                 {
-                    vn_porcentajeVolumen = Convert.ToDecimal(datos.Rows[i]["RecibCajas"].ToString()) / Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString())*100;
-                    if ((vn_porcentajeVolumen) >= 50)
+                    vn_porcentajeVolumen = Convert.ToDecimal(datos.Rows[i]["RecibCajas"].ToString()) / Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()) * 100;
+
+                    if (Convert.ToDecimal(datos.Rows[i]["EstCat1"].ToString()) > 0)
                     {
-                        if (Convert.ToDecimal(datos.Rows[i]["EstCat1"].ToString()) > 0)
+                        if ((100 - (((Convert.ToDecimal(datos.Rows[i]["ProCat1"].ToString()) / Convert.ToDecimal(datos.Rows[i]["EstCat1"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["EstCat1"].ToString()) / 100) > 0)
                         {
-                            if ((100 - (((Convert.ToDecimal(datos.Rows[i]["ProCat1"].ToString()) / Convert.ToDecimal(datos.Rows[i]["EstCat1"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["EstCat1"].ToString()) / 100) > 0)
-                            {
-                                vn_porcentajeCat1 = Math.Abs(100 - (((Convert.ToDecimal(datos.Rows[i]["ProCat1"].ToString()) / Convert.ToDecimal(datos.Rows[i]["EstCat1"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["EstCat1"].ToString()) / 100);
-                            }
-                            else
-                            {
-                                vn_porcentajeCat1 = 0;
-                            }
+                            vn_porcentajeCat1 = Math.Abs(100 - (((Convert.ToDecimal(datos.Rows[i]["ProCat1"].ToString()) / Convert.ToDecimal(datos.Rows[i]["EstCat1"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["EstCat1"].ToString()) / 100);
                         }
                         else
                         {
                             vn_porcentajeCat1 = 0;
                         }
-                        if (Convert.ToDecimal(datos.Rows[i]["EstCat2"].ToString()) > 0)
+                    }
+                    else
+                    {
+                        vn_porcentajeCat1 = 0;
+                    }
+                    if (Convert.ToDecimal(datos.Rows[i]["EstCat2"].ToString()) > 0)
+                    {
+                        if ((100 - (((Convert.ToDecimal(datos.Rows[i]["ProCat2"].ToString()) / Convert.ToDecimal(datos.Rows[i]["EstCat2"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["EstCat2"].ToString()) / 100) > 0)
                         {
-                            if ((100 - (((Convert.ToDecimal(datos.Rows[i]["ProCat2"].ToString()) / Convert.ToDecimal(datos.Rows[i]["EstCat2"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["EstCat2"].ToString()) / 100) > 0)
-                            {
-                                vn_porcentajeCat2 = Math.Abs(100 - (((Convert.ToDecimal(datos.Rows[i]["ProCat2"].ToString()) / Convert.ToDecimal(datos.Rows[i]["EstCat2"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["EstCat2"].ToString()) / 100);
-                            }
-                            else
-                            {
-                                vn_porcentajeCat2 = 0;
-                            }
+                            vn_porcentajeCat2 = Math.Abs(100 - (((Convert.ToDecimal(datos.Rows[i]["ProCat2"].ToString()) / Convert.ToDecimal(datos.Rows[i]["EstCat2"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["EstCat2"].ToString()) / 100);
                         }
                         else
                         {
                             vn_porcentajeCat2 = 0;
                         }
-                        if (Convert.ToDecimal(datos.Rows[i]["EstNal"].ToString()) > 0)
+                    }
+                    else
+                    {
+                        vn_porcentajeCat2 = 0;
+                    }
+                    if (Convert.ToDecimal(datos.Rows[i]["EstNal"].ToString()) > 0)
+                    {
+                        if ((100 - (((Convert.ToDecimal(datos.Rows[i]["ProNal"].ToString()) / Convert.ToDecimal(datos.Rows[i]["EstNal"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["EstNal"].ToString()) / 100) > 0)
                         {
-                            if ((100 - (((Convert.ToDecimal(datos.Rows[i]["ProNal"].ToString()) / Convert.ToDecimal(datos.Rows[i]["EstNal"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["EstNal"].ToString()) / 100) > 0)
-                            {
-                                vn_porcentajeNal = Math.Abs(100 - (((Convert.ToDecimal(datos.Rows[i]["ProNal"].ToString()) / Convert.ToDecimal(datos.Rows[i]["EstNal"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["EstNal"].ToString()) / 100);
-                            }
-                            else
-                            {
-                                vn_porcentajeNal = 0;
-                            }
+                            vn_porcentajeNal = Math.Abs(100 - (((Convert.ToDecimal(datos.Rows[i]["ProNal"].ToString()) / Convert.ToDecimal(datos.Rows[i]["EstNal"].ToString())) * 100))) * (Convert.ToDecimal(datos.Rows[i]["EstNal"].ToString()) / 100);
                         }
                         else
                         {
                             vn_porcentajeNal = 0;
                         }
-                        vn_porcentaje = vn_porcentajeCat1 + vn_porcentajeCat2 + vn_porcentajeNal;
-
-                        if (vn_porcentaje <= 10)
-                        {
-                            vn_porcentajeGrupo = PorcentajeGrupo("02");
-                            vn_bono_completo = MontoCompletoCamion(Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()));
-                            vn_importe = (vn_bono_completo * vn_porcentajeGrupo) * (100 - (vn_porcentaje * 5)) / 100;
-                        }
-                        else
-                        {
-                            vn_bono_completo = MontoCompletoCamion(Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()));
-                            vn_importe = 0;
-                        }
                     }
                     else
+                    {
+                        vn_porcentajeNal = 0;
+                    }
+                    vn_porcentaje = vn_porcentajeCat1 + vn_porcentajeCat2 + vn_porcentajeNal;
+
+                    if (vn_porcentaje <= 10)
+                    {
+                        vn_porcentajeGrupo = PorcentajeGrupo("02");
+                        vn_bono_completo = MontoCompletoCamion(Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()));
+                        vn_importe = (vn_bono_completo * vn_porcentajeGrupo) * (100 - (vn_porcentaje * 5)) / 100;
+                    }
+                    else
+                    {
+                        vn_bono_completo = MontoCompletoCamion(Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()));
+                        vn_importe = 0;
+                    }
+                    if ((vn_porcentajeVolumen) < 50)
                     {
                         vn_bono_completo = MontoCompletoCamion(Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()));
                         vn_importe = 0;
@@ -540,6 +626,9 @@ namespace Rentabilidad
                     insCalibre.n_porcentajeVolumen = vn_porcentajeVolumen;
                     insCalibre.n_bono_completo = vn_bono_completo;
                     insCalibre.n_importe = vn_importe;
+                    DateTime vFechaCorte = Convert.ToDateTime(datos.Rows[i]["FechaCorte"].ToString());
+                    FechaInicio = vFechaCorte.Year + DosCeros1(vFechaCorte.Month.ToString()) + DosCeros1(vFechaCorte.Day.ToString());
+                    insCalibre.d_fecha_OrdenCorte = FechaInicio;
                     insCalibre.MtdInsertarBonificacionCalidad();
                     if (!insCalibre.Exito)
                     {
@@ -578,6 +667,10 @@ namespace Rentabilidad
                     vn_porcentaje = Convert.ToDecimal(datos.Rows[i]["RecibCajas"].ToString()) / Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString());
                     if ((vn_porcentaje*100) >= 50)
                     {
+                        if(vn_porcentaje>1)
+                        {
+                            vn_porcentaje = 1;
+                        }
                         vn_porcentajeGrupo = PorcentajeGrupo("01");
                         vn_bono_completo = MontoCompletoCamion(Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()));
                         vn_importe = (vn_bono_completo * vn_porcentajeGrupo) * vn_porcentaje;
@@ -604,6 +697,9 @@ namespace Rentabilidad
                     insDatos.n_porcentaje = vn_porcentaje;
                     insDatos.n_bono_completo = vn_bono_completo;
                     insDatos.n_importe = vn_importe;
+                    DateTime vFechaCorte = Convert.ToDateTime(datos.Rows[i]["FechaCorte"].ToString());
+                    FechaInicio = vFechaCorte.Year + DosCeros1(vFechaCorte.Month.ToString()) + DosCeros1(vFechaCorte.Day.ToString());
+                    insDatos.d_fecha_OrdenCorte = FechaInicio;
                     insDatos.MtdInsertarBonificacionVolumen();
                     if(!insDatos.Exito)
                     {
@@ -678,10 +774,35 @@ namespace Rentabilidad
             Frm_BonosAcopio frmb = new Frm_BonosAcopio();
             frmb.ShowDialog();
         }
-
-        private void btnLimpiar_Click(object sender, EventArgs e)
+        private void chkTodos_CheckedChanged(object sender, EventArgs e)
         {
+            if(chkTodos.Checked==true)
+            {
+                lkUpAcopiador.EditValue = null;
+                lkUpAcopiador.Enabled = false;
+            }
+            else
+            {
+                lkUpAcopiador.Enabled = true;
+            }
+        }
 
+        private void hyperlinkLabelControl1_Click(object sender, EventArgs e)
+        {
+            Parametros_basededatos();
+            Reports.rpt_Bonificacion_NoCapturados RCatalogoP = new Reports.rpt_Bonificacion_NoCapturados();
+            Tables RPTTablas = RCatalogoP.Database.Tables;
+
+            foreach (Table oTabla in RPTTablas)
+            {
+                TableLogOnInfo oTablaConexInfo = oTabla.LogOnInfo;
+                oTablaConexInfo.ConnectionInfo = oConexInfo;
+                oTabla.ApplyLogOnInfo(oTablaConexInfo);
+            }
+            RCatalogoP.Refresh();
+            RCatalogoP.DataDefinition.FormulaFields["Fecha_Inicio"].Text = string.Format("'{0}'", dtInicio.EditValue);
+            RCatalogoP.DataDefinition.FormulaFields["Fecha_Fin"].Text = string.Format("'{0}'", dtFin.EditValue);
+            RPT_Viewer.ReportSource = RCatalogoP;
         }
     }
 }
