@@ -804,5 +804,11 @@ namespace Rentabilidad
             RCatalogoP.DataDefinition.FormulaFields["Fecha_Fin"].Text = string.Format("'{0}'", dtFin.EditValue);
             RPT_Viewer.ReportSource = RCatalogoP;
         }
+
+        private void btnPenalizacion_Click(object sender, EventArgs e)
+        {
+            Frm_PenalizacionAcopio frmb = new Frm_PenalizacionAcopio();
+            frmb.ShowDialog();
+        }
     }
 }

@@ -147,6 +147,12 @@
     <Compile Include="Conexion\Frm_InstanciaSQL.designer.cs">
       <DependentUpon>Frm_InstanciaSQL.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Acopio\Frm_PenalizacionAcopio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Acopio\Frm_PenalizacionAcopio.Designer.cs">
+      <DependentUpon>Frm_PenalizacionAcopio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Acopio\Frm_BonosAcopio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -313,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Conexion\Frm_InstanciaSQL.resx">
       <DependentUpon>Frm_InstanciaSQL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Acopio\Frm_PenalizacionAcopio.resx">
+      <DependentUpon>Frm_PenalizacionAcopio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Acopio\Frm_BonosAcopio.resx">
       <DependentUpon>Frm_BonosAcopio.cs</DependentUpon>

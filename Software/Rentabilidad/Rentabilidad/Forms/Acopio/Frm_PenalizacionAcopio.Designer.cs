@@ -1,6 +1,6 @@
 ﻿namespace Rentabilidad
 {
-    partial class Frm_BonosAcopio
+    partial class Frm_PenalizacionAcopio
     {
         /// <summary>
         /// Required designer variable.
@@ -28,38 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_BonosAcopio));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_PenalizacionAcopio));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.dtgGrupoPago = new DevExpress.XtraGrid.GridControl();
-            this.dtgValGrupoPago = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dtgPenalizacionCalibres = new DevExpress.XtraGrid.GridControl();
+            this.dtgValPenalizacionCalibres = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.ColGrupoPagoPorcentaje = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ColCalibresPorcentaje = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.dtgPagoCamion = new DevExpress.XtraGrid.GridControl();
-            this.dtgValPagoCamion = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dtgPenalizacionCalidad = new DevExpress.XtraGrid.GridControl();
+            this.dtgValPenalizacionCalidad = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.ColTipoCamionPorcentaje = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.ColTipoCamionPago = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ColCalidadPorcentaje = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgGrupoPago)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgValGrupoPago)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgPenalizacionCalibres)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgValPenalizacionCalibres)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgPagoCamion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgValPagoCamion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgPenalizacionCalidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgValPenalizacionCalidad)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -91,43 +90,43 @@
             this.groupControl2.Padding = new System.Windows.Forms.Padding(6);
             this.groupControl2.Size = new System.Drawing.Size(383, 247);
             this.groupControl2.TabIndex = 1;
-            this.groupControl2.Text = "Grupos de Pago";
+            this.groupControl2.Text = "Penalizacion Calibres";
             // 
             // panelControl3
             // 
-            this.panelControl3.Controls.Add(this.dtgGrupoPago);
+            this.panelControl3.Controls.Add(this.dtgPenalizacionCalibres);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(8, 26);
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(367, 213);
             this.panelControl3.TabIndex = 1;
             // 
-            // dtgGrupoPago
+            // dtgPenalizacionCalibres
             // 
-            this.dtgGrupoPago.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgGrupoPago.Location = new System.Drawing.Point(2, 2);
-            this.dtgGrupoPago.MainView = this.dtgValGrupoPago;
-            this.dtgGrupoPago.Name = "dtgGrupoPago";
-            this.dtgGrupoPago.Size = new System.Drawing.Size(363, 209);
-            this.dtgGrupoPago.TabIndex = 1;
-            this.dtgGrupoPago.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.dtgValGrupoPago});
+            this.dtgPenalizacionCalibres.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgPenalizacionCalibres.Location = new System.Drawing.Point(2, 2);
+            this.dtgPenalizacionCalibres.MainView = this.dtgValPenalizacionCalibres;
+            this.dtgPenalizacionCalibres.Name = "dtgPenalizacionCalibres";
+            this.dtgPenalizacionCalibres.Size = new System.Drawing.Size(363, 209);
+            this.dtgPenalizacionCalibres.TabIndex = 1;
+            this.dtgPenalizacionCalibres.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.dtgValPenalizacionCalibres});
             // 
-            // dtgValGrupoPago
+            // dtgValPenalizacionCalibres
             // 
-            this.dtgValGrupoPago.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.dtgValPenalizacionCalibres.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn5,
             this.gridColumn6,
-            this.ColGrupoPagoPorcentaje});
-            this.dtgValGrupoPago.GridControl = this.dtgGrupoPago;
-            this.dtgValGrupoPago.Name = "dtgValGrupoPago";
-            this.dtgValGrupoPago.OptionsView.ShowFooter = true;
-            this.dtgValGrupoPago.OptionsView.ShowGroupPanel = false;
+            this.ColCalibresPorcentaje});
+            this.dtgValPenalizacionCalibres.GridControl = this.dtgPenalizacionCalibres;
+            this.dtgValPenalizacionCalibres.Name = "dtgValPenalizacionCalibres";
+            this.dtgValPenalizacionCalibres.OptionsView.ShowFooter = true;
+            this.dtgValPenalizacionCalibres.OptionsView.ShowGroupPanel = false;
             // 
             // gridColumn5
             // 
             this.gridColumn5.Caption = "Codigo";
-            this.gridColumn5.FieldName = "c_codigo_gru";
+            this.gridColumn5.FieldName = "c_codigo_pcali";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
@@ -135,20 +134,20 @@
             // 
             // gridColumn6
             // 
-            this.gridColumn6.Caption = "Grupo Pago";
-            this.gridColumn6.FieldName = "v_grupopago";
+            this.gridColumn6.Caption = "Calibre";
+            this.gridColumn6.FieldName = "v_penalizacion_pcali";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 1;
             // 
-            // ColGrupoPagoPorcentaje
+            // ColCalibresPorcentaje
             // 
-            this.ColGrupoPagoPorcentaje.Caption = "Porcentaje";
-            this.ColGrupoPagoPorcentaje.FieldName = "n_porcentaje";
-            this.ColGrupoPagoPorcentaje.Name = "ColGrupoPagoPorcentaje";
-            this.ColGrupoPagoPorcentaje.Visible = true;
-            this.ColGrupoPagoPorcentaje.VisibleIndex = 2;
+            this.ColCalibresPorcentaje.Caption = "Porcentaje Mayor a";
+            this.ColCalibresPorcentaje.FieldName = "n_porcentaje";
+            this.ColCalibresPorcentaje.Name = "ColCalibresPorcentaje";
+            this.ColCalibresPorcentaje.Visible = true;
+            this.ColCalibresPorcentaje.VisibleIndex = 2;
             // 
             // groupControl1
             // 
@@ -158,45 +157,43 @@
             this.groupControl1.Padding = new System.Windows.Forms.Padding(6);
             this.groupControl1.Size = new System.Drawing.Size(426, 247);
             this.groupControl1.TabIndex = 0;
-            this.groupControl1.Text = "Pago por Tipo Camion";
+            this.groupControl1.Text = "Penalizacion Calidad";
             // 
             // panelControl2
             // 
-            this.panelControl2.Controls.Add(this.dtgPagoCamion);
+            this.panelControl2.Controls.Add(this.dtgPenalizacionCalidad);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(8, 26);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(410, 213);
             this.panelControl2.TabIndex = 0;
             // 
-            // dtgPagoCamion
+            // dtgPenalizacionCalidad
             // 
-            this.dtgPagoCamion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgPagoCamion.Location = new System.Drawing.Point(2, 2);
-            this.dtgPagoCamion.MainView = this.dtgValPagoCamion;
-            this.dtgPagoCamion.Name = "dtgPagoCamion";
-            this.dtgPagoCamion.Size = new System.Drawing.Size(406, 209);
-            this.dtgPagoCamion.TabIndex = 0;
-            this.dtgPagoCamion.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.dtgValPagoCamion});
+            this.dtgPenalizacionCalidad.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgPenalizacionCalidad.Location = new System.Drawing.Point(2, 2);
+            this.dtgPenalizacionCalidad.MainView = this.dtgValPenalizacionCalidad;
+            this.dtgPenalizacionCalidad.Name = "dtgPenalizacionCalidad";
+            this.dtgPenalizacionCalidad.Size = new System.Drawing.Size(406, 209);
+            this.dtgPenalizacionCalidad.TabIndex = 2;
+            this.dtgPenalizacionCalidad.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.dtgValPenalizacionCalidad});
             // 
-            // dtgValPagoCamion
+            // dtgValPenalizacionCalidad
             // 
-            this.dtgValPagoCamion.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.dtgValPenalizacionCalidad.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
-            this.ColTipoCamionPorcentaje,
-            this.ColTipoCamionPago});
-            this.dtgValPagoCamion.GridControl = this.dtgPagoCamion;
-            this.dtgValPagoCamion.Name = "dtgValPagoCamion";
-            this.dtgValPagoCamion.OptionsView.ShowFooter = true;
-            this.dtgValPagoCamion.OptionsView.ShowGroupPanel = false;
-            this.dtgValPagoCamion.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.dtgValPagoCamion_CellValueChanged);
+            this.ColCalidadPorcentaje});
+            this.dtgValPenalizacionCalidad.GridControl = this.dtgPenalizacionCalidad;
+            this.dtgValPenalizacionCalidad.Name = "dtgValPenalizacionCalidad";
+            this.dtgValPenalizacionCalidad.OptionsView.ShowFooter = true;
+            this.dtgValPenalizacionCalidad.OptionsView.ShowGroupPanel = false;
             // 
             // gridColumn1
             // 
             this.gridColumn1.Caption = "Codigo";
-            this.gridColumn1.FieldName = "c_pago_camion";
+            this.gridColumn1.FieldName = "c_codigo_pcal";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
@@ -204,31 +201,22 @@
             // 
             // gridColumn2
             // 
-            this.gridColumn2.Caption = "Tipo Cambio";
-            this.gridColumn2.FieldName = "v_tipo_camion";
+            this.gridColumn2.Caption = "Calidad";
+            this.gridColumn2.FieldName = "v_penalizacion_pcal";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
             // 
-            // ColTipoCamionPorcentaje
+            // ColCalidadPorcentaje
             // 
-            this.ColTipoCamionPorcentaje.Caption = "Porcentaje Pago";
-            this.ColTipoCamionPorcentaje.FieldName = "n_porcentaje_pago";
-            this.ColTipoCamionPorcentaje.Name = "ColTipoCamionPorcentaje";
-            this.ColTipoCamionPorcentaje.Visible = true;
-            this.ColTipoCamionPorcentaje.VisibleIndex = 2;
+            this.ColCalidadPorcentaje.Caption = "Porcentaje Mayor a";
+            this.ColCalidadPorcentaje.FieldName = "n_porcentaje";
+            this.ColCalidadPorcentaje.Name = "ColCalidadPorcentaje";
+            this.ColCalidadPorcentaje.Visible = true;
+            this.ColCalidadPorcentaje.VisibleIndex = 2;
             // 
-            // ColTipoCamionPago
-            // 
-            this.ColTipoCamionPago.Caption = "Monto Pago";
-            this.ColTipoCamionPago.FieldName = "n_monto_pago";
-            this.ColTipoCamionPago.Name = "ColTipoCamionPago";
-            this.ColTipoCamionPago.OptionsColumn.AllowEdit = false;
-            this.ColTipoCamionPago.Visible = true;
-            this.ColTipoCamionPago.VisibleIndex = 3;
-            // 
-            // Frm_BonosAcopio
+            // Frm_PenalizacionAcopio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -237,9 +225,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Frm_BonosAcopio";
+            this.Name = "Frm_PenalizacionAcopio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Frm_BonosAcopio";
+            this.Text = "Penalizacion Acopio";
             this.Shown += new System.EventHandler(this.Frm_BonosAcopio_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -247,14 +235,14 @@
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgGrupoPago)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgValGrupoPago)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgPenalizacionCalibres)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgValPenalizacionCalibres)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgPagoCamion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgValPagoCamion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgPenalizacionCalidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgValPenalizacionCalidad)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -266,17 +254,16 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.SimpleButton btnGuardar;
         private DevExpress.XtraEditors.PanelControl panelControl3;
-        private DevExpress.XtraGrid.GridControl dtgGrupoPago;
-        private DevExpress.XtraGrid.Views.Grid.GridView dtgValGrupoPago;
+        private DevExpress.XtraGrid.GridControl dtgPenalizacionCalibres;
+        private DevExpress.XtraGrid.Views.Grid.GridView dtgValPenalizacionCalibres;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
-        private DevExpress.XtraGrid.Columns.GridColumn ColGrupoPagoPorcentaje;
+        private DevExpress.XtraGrid.Columns.GridColumn ColCalibresPorcentaje;
         private DevExpress.XtraEditors.PanelControl panelControl2;
-        private DevExpress.XtraGrid.GridControl dtgPagoCamion;
-        private DevExpress.XtraGrid.Views.Grid.GridView dtgValPagoCamion;
+        private DevExpress.XtraGrid.GridControl dtgPenalizacionCalidad;
+        private DevExpress.XtraGrid.Views.Grid.GridView dtgValPenalizacionCalidad;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn ColTipoCamionPorcentaje;
-        private DevExpress.XtraGrid.Columns.GridColumn ColTipoCamionPago;
+        private DevExpress.XtraGrid.Columns.GridColumn ColCalidadPorcentaje;
     }
 }

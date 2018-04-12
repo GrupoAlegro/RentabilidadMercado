@@ -47,6 +47,10 @@ namespace CapaDeDatos
         public decimal? n_Nac_pro { get; set; }
         public decimal n_porcentajeVolumen { get; set; }
         public string d_fecha_OrdenCorte { get; set; }
+        public string c_codigo_pcal { get; set; }
+        public string v_penalizacion_pcal { get; set; }
+        public string c_codigo_pcali { get; set; }
+        public string v_penalizacion_pcali { get; set; }
 
         public void MtdSeleccionarAcopiadores()
         {
@@ -178,6 +182,54 @@ namespace CapaDeDatos
                 Exito = false;
             }
         }
+        public void MtdSeleccionarPenalizacionCalidad()
+        {
+            TipoDato _dato = new TipoDato();
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "usp_Rent_Acp_Penalizacion_Calidad_Select";
+                _conexion.EjecutarDataset();
+                if (_conexion.Exito)
+                {
+                    Datos = _conexion.Datos;
+                }
+                else
+                {
+                    Mensaje = _conexion.Mensaje;
+                    Exito = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Mensaje = e.Message;
+                Exito = false;
+            }
+        }
+        public void MtdSeleccionarPenalizacionCalibres()
+        {
+            TipoDato _dato = new TipoDato();
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "usp_Rent_Acp_Penalizacion_Calibres_Select";
+                _conexion.EjecutarDataset();
+                if (_conexion.Exito)
+                {
+                    Datos = _conexion.Datos;
+                }
+                else
+                {
+                    Mensaje = _conexion.Mensaje;
+                    Exito = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Mensaje = e.Message;
+                Exito = false;
+            }
+        }
         public void MtdActualizarGrupoPago()
         {
             TipoDato _dato = new TipoDato();
@@ -226,6 +278,70 @@ namespace CapaDeDatos
                 _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_porcentaje_pago");
                 _dato.DecimalValor = n_monto_pago;
                 _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_monto_pago");
+                _conexion.EjecutarDataset();
+
+                if (_conexion.Exito)
+                {
+                    Datos = _conexion.Datos;
+                }
+                else
+                {
+                    Mensaje = _conexion.Mensaje;
+                    Exito = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Mensaje = e.Message;
+                Exito = false;
+            }
+        }
+        public void MtdActualizarPenalizacionCalidad()
+        {
+            TipoDato _dato = new TipoDato();
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "usp_Rent_Acp_Penalizacion_Calidad_Update";
+
+                _dato.CadenaTexto = c_codigo_pcal;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_pcal");
+                _dato.CadenaTexto = v_penalizacion_pcal;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "v_penalizacion_pcal");
+                _dato.DecimalValor = n_porcentaje;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_porcentaje");
+                _conexion.EjecutarDataset();
+
+                if (_conexion.Exito)
+                {
+                    Datos = _conexion.Datos;
+                }
+                else
+                {
+                    Mensaje = _conexion.Mensaje;
+                    Exito = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Mensaje = e.Message;
+                Exito = false;
+            }
+        }
+        public void MtdActualizarPenalizacionCalibres()
+        {
+            TipoDato _dato = new TipoDato();
+            Exito = true;
+            try
+            {
+                _conexion.NombreProcedimiento = "usp_Rent_Acp_Penalizacion_Calibres_Update";
+
+                _dato.CadenaTexto = c_codigo_pcali;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "c_codigo_pcali");
+                _dato.CadenaTexto = v_penalizacion_pcali;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "v_penalizacion_pcali");
+                _dato.DecimalValor = n_porcentaje;
+                _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_porcentaje");
                 _conexion.EjecutarDataset();
 
                 if (_conexion.Exito)

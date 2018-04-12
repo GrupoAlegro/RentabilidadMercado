@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_RPT_Acopiadores));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.hyperlinkLabelControl1 = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.btnBonos = new DevExpress.XtraEditors.SimpleButton();
             this.lkUpAcopiador = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -49,8 +50,8 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.RPT_Viewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.hyperlinkLabelControl1 = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.btnPenalizacion = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -81,6 +82,7 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.btnPenalizacion);
             this.groupControl1.Controls.Add(this.hyperlinkLabelControl1);
             this.groupControl1.Controls.Add(this.btnBonos);
             this.groupControl1.Controls.Add(this.lkUpAcopiador);
@@ -101,10 +103,30 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Parametros - Fecha de Corte";
             // 
+            // hyperlinkLabelControl1
+            // 
+            this.hyperlinkLabelControl1.Appearance.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.hyperlinkLabelControl1.Appearance.ForeColor = System.Drawing.Color.Maroon;
+            this.hyperlinkLabelControl1.Appearance.Options.UseFont = true;
+            this.hyperlinkLabelControl1.Appearance.Options.UseForeColor = true;
+            this.hyperlinkLabelControl1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hyperlinkLabelControl1.LineColor = System.Drawing.Color.Maroon;
+            this.hyperlinkLabelControl1.LineLocation = DevExpress.XtraEditors.LineLocation.Bottom;
+            this.hyperlinkLabelControl1.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Horizontal;
+            this.hyperlinkLabelControl1.LineVisible = true;
+            this.hyperlinkLabelControl1.Location = new System.Drawing.Point(521, 100);
+            this.hyperlinkLabelControl1.Name = "hyperlinkLabelControl1";
+            this.hyperlinkLabelControl1.Size = new System.Drawing.Size(231, 16);
+            this.hyperlinkLabelControl1.TabIndex = 14;
+            this.hyperlinkLabelControl1.Text = "Capturas Pendientes \r\nConsultar Click Aqui";
+            this.hyperlinkLabelControl1.UseMnemonic = false;
+            this.hyperlinkLabelControl1.Visible = false;
+            this.hyperlinkLabelControl1.Click += new System.EventHandler(this.hyperlinkLabelControl1_Click);
+            // 
             // btnBonos
             // 
             this.btnBonos.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBonos.ImageOptions.Image")));
-            this.btnBonos.Location = new System.Drawing.Point(607, 39);
+            this.btnBonos.Location = new System.Drawing.Point(586, 39);
             this.btnBonos.Name = "btnBonos";
             this.btnBonos.Size = new System.Drawing.Size(102, 45);
             this.btnBonos.TabIndex = 13;
@@ -280,25 +302,15 @@
             this.RPT_Viewer.TabIndex = 0;
             this.RPT_Viewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
-            // hyperlinkLabelControl1
+            // btnPenalizacion
             // 
-            this.hyperlinkLabelControl1.Appearance.FontStyleDelta = System.Drawing.FontStyle.Bold;
-            this.hyperlinkLabelControl1.Appearance.ForeColor = System.Drawing.Color.Maroon;
-            this.hyperlinkLabelControl1.Appearance.Options.UseFont = true;
-            this.hyperlinkLabelControl1.Appearance.Options.UseForeColor = true;
-            this.hyperlinkLabelControl1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.hyperlinkLabelControl1.LineColor = System.Drawing.Color.Maroon;
-            this.hyperlinkLabelControl1.LineLocation = DevExpress.XtraEditors.LineLocation.Bottom;
-            this.hyperlinkLabelControl1.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Horizontal;
-            this.hyperlinkLabelControl1.LineVisible = true;
-            this.hyperlinkLabelControl1.Location = new System.Drawing.Point(478, 100);
-            this.hyperlinkLabelControl1.Name = "hyperlinkLabelControl1";
-            this.hyperlinkLabelControl1.Size = new System.Drawing.Size(231, 16);
-            this.hyperlinkLabelControl1.TabIndex = 14;
-            this.hyperlinkLabelControl1.Text = "Capturas Pendientes \r\nConsultar Click Aqui";
-            this.hyperlinkLabelControl1.UseMnemonic = false;
-            this.hyperlinkLabelControl1.Visible = false;
-            this.hyperlinkLabelControl1.Click += new System.EventHandler(this.hyperlinkLabelControl1_Click);
+            this.btnPenalizacion.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnPenalizacion.Location = new System.Drawing.Point(694, 39);
+            this.btnPenalizacion.Name = "btnPenalizacion";
+            this.btnPenalizacion.Size = new System.Drawing.Size(102, 45);
+            this.btnPenalizacion.TabIndex = 15;
+            this.btnPenalizacion.Text = "Penalización";
+            this.btnPenalizacion.Click += new System.EventHandler(this.btnPenalizacion_Click);
             // 
             // Frm_RPT_Acopiadores
             // 
@@ -355,5 +367,6 @@
         private DevExpress.XtraEditors.SimpleButton btnBonos;
         private DevExpress.XtraEditors.HyperlinkLabelControl hyperlinkLabelControl1;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
+        private DevExpress.XtraEditors.SimpleButton btnPenalizacion;
     }
 }
