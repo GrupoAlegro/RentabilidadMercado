@@ -45,6 +45,7 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ColCalidadPorcentaje = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
@@ -63,19 +64,20 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.labelControl1);
             this.panelControl1.Controls.Add(this.btnGuardar);
             this.panelControl1.Controls.Add(this.groupControl2);
             this.panelControl1.Controls.Add(this.groupControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(839, 337);
+            this.panelControl1.Size = new System.Drawing.Size(839, 348);
             this.panelControl1.TabIndex = 0;
             // 
             // btnGuardar
             // 
             this.btnGuardar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.ImageOptions.Image")));
-            this.btnGuardar.Location = new System.Drawing.Point(20, 274);
+            this.btnGuardar.Location = new System.Drawing.Point(22, 289);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(95, 47);
             this.btnGuardar.TabIndex = 2;
@@ -88,7 +90,7 @@
             this.groupControl2.Location = new System.Drawing.Point(444, 12);
             this.groupControl2.Name = "groupControl2";
             this.groupControl2.Padding = new System.Windows.Forms.Padding(6);
-            this.groupControl2.Size = new System.Drawing.Size(383, 247);
+            this.groupControl2.Size = new System.Drawing.Size(383, 271);
             this.groupControl2.TabIndex = 1;
             this.groupControl2.Text = "Penalizacion Calibres";
             // 
@@ -98,7 +100,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(8, 26);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(367, 213);
+            this.panelControl3.Size = new System.Drawing.Size(367, 237);
             this.panelControl3.TabIndex = 1;
             // 
             // dtgPenalizacionCalibres
@@ -107,7 +109,7 @@
             this.dtgPenalizacionCalibres.Location = new System.Drawing.Point(2, 2);
             this.dtgPenalizacionCalibres.MainView = this.dtgValPenalizacionCalibres;
             this.dtgPenalizacionCalibres.Name = "dtgPenalizacionCalibres";
-            this.dtgPenalizacionCalibres.Size = new System.Drawing.Size(363, 209);
+            this.dtgPenalizacionCalibres.Size = new System.Drawing.Size(363, 233);
             this.dtgPenalizacionCalibres.TabIndex = 1;
             this.dtgPenalizacionCalibres.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dtgValPenalizacionCalibres});
@@ -155,7 +157,7 @@
             this.groupControl1.Location = new System.Drawing.Point(12, 12);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Padding = new System.Windows.Forms.Padding(6);
-            this.groupControl1.Size = new System.Drawing.Size(426, 247);
+            this.groupControl1.Size = new System.Drawing.Size(426, 271);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Penalizacion Calidad";
             // 
@@ -165,7 +167,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(8, 26);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(410, 213);
+            this.panelControl2.Size = new System.Drawing.Size(410, 237);
             this.panelControl2.TabIndex = 0;
             // 
             // dtgPenalizacionCalidad
@@ -174,7 +176,7 @@
             this.dtgPenalizacionCalidad.Location = new System.Drawing.Point(2, 2);
             this.dtgPenalizacionCalidad.MainView = this.dtgValPenalizacionCalidad;
             this.dtgPenalizacionCalidad.Name = "dtgPenalizacionCalidad";
-            this.dtgPenalizacionCalidad.Size = new System.Drawing.Size(406, 209);
+            this.dtgPenalizacionCalidad.Size = new System.Drawing.Size(406, 233);
             this.dtgPenalizacionCalidad.TabIndex = 2;
             this.dtgPenalizacionCalidad.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dtgValPenalizacionCalidad});
@@ -216,11 +218,24 @@
             this.ColCalidadPorcentaje.Visible = true;
             this.ColCalidadPorcentaje.VisibleIndex = 2;
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Appearance.Options.UseForeColor = true;
+            this.labelControl1.Location = new System.Drawing.Point(150, 307);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(623, 16);
+            this.labelControl1.TabIndex = 3;
+            this.labelControl1.Text = "Nota: Los porcentajes que se  encuentren en 0.00% no se tomaran en cuenta para pe" +
+    "nalización";
+            // 
             // Frm_PenalizacionAcopio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 337);
+            this.ClientSize = new System.Drawing.Size(839, 348);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -231,6 +246,7 @@
             this.Shown += new System.EventHandler(this.Frm_BonosAcopio_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
@@ -265,5 +281,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn ColCalidadPorcentaje;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

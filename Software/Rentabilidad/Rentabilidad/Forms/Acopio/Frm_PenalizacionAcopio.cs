@@ -29,24 +29,24 @@ namespace Rentabilidad
             ColCalidadPorcentaje.DisplayFormat.FormatString = "###0.00 %";
             ColCalibresPorcentaje.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             ColCalibresPorcentaje.DisplayFormat.FormatString = "###0.00 %";
-            CargarPagoCamion();
-            CargarGrupoPago();
+            CargarPenalizacionCalidad();
+            CargarPenalizacionCalibres();
         }
 
-        private void CargarGrupoPago()
+        private void CargarPenalizacionCalibres()
         {
             CLS_Acopio selGrupo = new CLS_Acopio();
-            selGrupo.MtdSeleccionarGrupoPago();
+            selGrupo.MtdSeleccionarPenalizacionCalibres();
             if (selGrupo.Exito)
             {
                 dtgPenalizacionCalibres.DataSource = selGrupo.Datos;
             }
         }
 
-        private void CargarPagoCamion()
+        private void CargarPenalizacionCalidad()
         {
             CLS_Acopio selCamion = new CLS_Acopio();
-            selCamion.MtdSeleccionarPagoCamion();
+            selCamion.MtdSeleccionarPenalizacionCalidad();
             if (selCamion.Exito)
             {
                 dtgPenalizacionCalidad.DataSource = selCamion.Datos;
@@ -76,7 +76,7 @@ namespace Rentabilidad
                 CLS_Acopio artprecio = new CLS_Acopio();
                 artprecio.c_codigo_pcal = dtgValPenalizacionCalidad.GetRowCellValue(i, dtgValPenalizacionCalidad.Columns["c_codigo_pcal"]).ToString();
                 artprecio.v_penalizacion_pcal = dtgValPenalizacionCalidad.GetRowCellValue(i, dtgValPenalizacionCalidad.Columns["v_penalizacion_pcal"]).ToString();
-                artprecio.n_porcentaje_pago = Convert.ToDecimal(dtgValPenalizacionCalidad.GetRowCellValue(i, dtgValPenalizacionCalidad.Columns["n_porcentaje"]).ToString());
+                artprecio.n_porcentaje = Convert.ToDecimal(dtgValPenalizacionCalidad.GetRowCellValue(i, dtgValPenalizacionCalidad.Columns["n_porcentaje"]).ToString());
                 artprecio.MtdActualizarPenalizacionCalidad();
                 if (!artprecio.Exito)
                 {
@@ -100,7 +100,6 @@ namespace Rentabilidad
                     XtraMessageBox.Show(artprecio.Mensaje);
                 }
             }
-
         }
     }
 }
