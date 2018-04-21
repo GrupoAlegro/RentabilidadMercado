@@ -272,6 +272,7 @@ namespace Rentabilidad
             decimal vn_porcentaje70 = 0;
             decimal vn_porcentaje84 = 0;
             decimal vn_porcentaje96 = 0;
+            string vTipoCorte = string.Empty;
 
             decimal vn_porcentajeGrupo = 0;
             for (int i = 0; i < datos.Rows.Count; i++)
@@ -299,6 +300,8 @@ namespace Rentabilidad
                 vn_70_pro = Convert.ToDecimal(datos.Rows[i]["Pro70"].ToString());
                 vn_84_pro = Convert.ToDecimal(datos.Rows[i]["Pro84"].ToString());
                 vn_96_pro = Convert.ToDecimal(datos.Rows[i]["Pro96"].ToString());
+
+                vTipoCorte = datos.Rows[i]["Tipocorte"].ToString();
 
                 if (Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()) > 0)
                 {
@@ -469,56 +472,56 @@ namespace Rentabilidad
 
                             if (selporc.Datos.Rows[x]["v_penalizacion_pcali"].ToString() == "32" && Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) > 0)
                             {
-                                if (Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) <= Convert.ToDecimal(datos.Rows[i]["Pro32"].ToString()))
+                                if (Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) * 100 <= Convert.ToDecimal(datos.Rows[i]["Pro32"].ToString()))
                                 {
                                     vn_importe = 0;
                                 }
                             }
                             else if (selporc.Datos.Rows[x]["v_penalizacion_pcali"].ToString() == "36" && Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) > 0)
                             {
-                                if (Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) <= Convert.ToDecimal(datos.Rows[i]["Pro36"].ToString()))
+                                if (Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) * 100 <= Convert.ToDecimal(datos.Rows[i]["Pro36"].ToString()))
                                 {
                                     vn_importe = 0;
                                 }
                             }
                             else if (selporc.Datos.Rows[x]["v_penalizacion_pcali"].ToString() == "40" && Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) > 0)
                             {
-                                if (Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) <= Convert.ToDecimal(datos.Rows[i]["Pro40"].ToString()))
+                                if (Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) * 100 <= Convert.ToDecimal(datos.Rows[i]["Pro40"].ToString()))
                                 {
                                     vn_importe = 0;
                                 }
                             }
                             else if (selporc.Datos.Rows[x]["v_penalizacion_pcali"].ToString() == "48" && Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) > 0)
                             {
-                                if (Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) <= Convert.ToDecimal(datos.Rows[i]["Pro48"].ToString()))
+                                if (Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) * 100 <= Convert.ToDecimal(datos.Rows[i]["Pro48"].ToString()))
                                 {
                                     vn_importe = 0;
                                 }
                             }
                             else if (selporc.Datos.Rows[x]["v_penalizacion_pcali"].ToString() == "60" && Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) > 0)
                             {
-                                if (Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) <= Convert.ToDecimal(datos.Rows[i]["Pro60"].ToString()))
+                                if (Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) * 100 <= Convert.ToDecimal(datos.Rows[i]["Pro60"].ToString()))
                                 {
                                     vn_importe = 0;
                                 }
                             }
                             else if (selporc.Datos.Rows[x]["v_penalizacion_pcali"].ToString() == "70" && Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) > 0)
                             {
-                                if (Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) <= Convert.ToDecimal(datos.Rows[i]["Pro70"].ToString()))
+                                if (Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) * 100 <= Convert.ToDecimal(datos.Rows[i]["Pro70"].ToString()))
                                 {
                                     vn_importe = 0;
                                 }
                             }
                             else if (selporc.Datos.Rows[x]["v_penalizacion_pcali"].ToString() == "84" && Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) > 0)
                             {
-                                if (Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) <= Convert.ToDecimal(datos.Rows[i]["Pro84"].ToString()))
+                                if (Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) * 100 <= Convert.ToDecimal(datos.Rows[i]["Pro84"].ToString()))
                                 {
                                     vn_importe = 0;
                                 }
                             }
                             else if (selporc.Datos.Rows[x]["v_penalizacion_pcali"].ToString() == "96" && Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) > 0)
                             {
-                                if (Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) <= Convert.ToDecimal(datos.Rows[i]["Pro96"].ToString()))
+                                if (Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) * 100 <= Convert.ToDecimal(datos.Rows[i]["Pro96"].ToString()))
                                 {
                                     vn_importe = 0;
                                 }
@@ -550,6 +553,7 @@ namespace Rentabilidad
                     insCalibre.n_porcentajeVolumen = vn_porcentajeVolumen;
                     insCalibre.n_bono_completo = vn_bono_completo;
                     insCalibre.n_importe = vn_importe;
+                    insCalibre.v_tipocorte = vTipoCorte;
                     DateTime vFechaCorte = Convert.ToDateTime(datos.Rows[i]["FechaCorte"].ToString());
                     FechaInicio = vFechaCorte.Year + DosCeros1(vFechaCorte.Month.ToString()) + DosCeros1(vFechaCorte.Day.ToString());
                     insCalibre.d_fecha_OrdenCorte = FechaInicio;
@@ -588,6 +592,7 @@ namespace Rentabilidad
             decimal vn_porcentajeCat2 = 0;
             decimal vn_porcentajeNal = 0;
             decimal vn_porcentajeGrupo = 0;
+            string vTipoCorte = string.Empty;
 
             for (int i = 0; i < datos.Rows.Count; i++)
             {
@@ -602,6 +607,7 @@ namespace Rentabilidad
                 vn_cat1_pro = Convert.ToDecimal(datos.Rows[i]["ProCat1"].ToString());
                 vn_cat2_pro = Convert.ToDecimal(datos.Rows[i]["ProCat2"].ToString());
                 vn_Nac_pro = Convert.ToDecimal(datos.Rows[i]["ProNal"].ToString());
+                vTipoCorte = datos.Rows[i]["Tipocorte"].ToString();
                 if (Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()) > 0)
                 {
                     vn_porcentajeVolumen = Convert.ToDecimal(datos.Rows[i]["RecibCajas"].ToString()) / Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()) * 100;
@@ -685,21 +691,21 @@ namespace Rentabilidad
                         {
                             if (selporc.Datos.Rows[x]["v_penalizacion_pcal"].ToString() == "Cat1" && Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) > 0)
                             {
-                                if (Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) <= Convert.ToDecimal(datos.Rows[i]["ProCat1"].ToString()))
+                                if (Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString())*100 <= Convert.ToDecimal(datos.Rows[i]["ProCat1"].ToString()))
                                 {
                                     vn_importe = 0;
                                 }
                             }
                             else if (selporc.Datos.Rows[x]["v_penalizacion_pcal"].ToString() == "Cat2" && Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) > 0)
                             {
-                                if (Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) <= Convert.ToDecimal(datos.Rows[i]["ProCat2"].ToString()))
+                                if (Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString())*100 <= Convert.ToDecimal(datos.Rows[i]["ProCat2"].ToString()))
                                 {
                                     vn_importe = 0;
                                 }
                             }
                             else if (selporc.Datos.Rows[x]["v_penalizacion_pcal"].ToString() == "Nacional" && Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) > 0)
                             {
-                                if (Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString()) <= Convert.ToDecimal(datos.Rows[i]["ProNal"].ToString()))
+                                if (Convert.ToDecimal(selporc.Datos.Rows[x]["n_porcentaje"].ToString())* 100 <= Convert.ToDecimal(datos.Rows[i]["ProNal"].ToString()))
                                 {
                                     vn_importe = 0;
                                 }
@@ -721,9 +727,11 @@ namespace Rentabilidad
                     insCalibre.n_porcentajeVolumen = vn_porcentajeVolumen;
                     insCalibre.n_bono_completo = vn_bono_completo;
                     insCalibre.n_importe = vn_importe;
+                    insCalibre.v_tipocorte = vTipoCorte;
                     DateTime vFechaCorte = Convert.ToDateTime(datos.Rows[i]["FechaCorte"].ToString());
                     FechaInicio = vFechaCorte.Year + DosCeros1(vFechaCorte.Month.ToString()) + DosCeros1(vFechaCorte.Day.ToString());
                     insCalibre.d_fecha_OrdenCorte = FechaInicio;
+
                     insCalibre.MtdInsertarBonificacionCalidad();
                     if (!insCalibre.Exito)
                     {

@@ -51,6 +51,7 @@ namespace CapaDeDatos
         public string v_penalizacion_pcal { get; set; }
         public string c_codigo_pcali { get; set; }
         public string v_penalizacion_pcali { get; set; }
+        public string v_tipocorte { get; set; }
 
         public void MtdSeleccionarAcopiadores()
         {
@@ -202,6 +203,7 @@ namespace CapaDeDatos
             }
             catch (Exception e)
             {
+
                 Mensaje = e.Message;
                 Exito = false;
             }
@@ -487,6 +489,8 @@ namespace CapaDeDatos
                 _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_bono_completo");
                 _dato.DecimalValor = n_importe;
                 _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_importe");
+                _dato.CadenaTexto = v_tipocorte;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "v_tipocorte");
                 _conexion.EjecutarDataset();
 
                 if (_conexion.Exito)
@@ -542,6 +546,8 @@ namespace CapaDeDatos
                 _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_bono_completo");
                 _dato.DecimalValor = n_importe;
                 _conexion.agregarParametro(EnumTipoDato.Tipodecimal, _dato, "n_importe");
+                _dato.CadenaTexto = v_tipocorte;
+                _conexion.agregarParametro(EnumTipoDato.CadenaTexto, _dato, "v_tipocorte");
                 _conexion.EjecutarDataset();
 
                 if (_conexion.Exito)
