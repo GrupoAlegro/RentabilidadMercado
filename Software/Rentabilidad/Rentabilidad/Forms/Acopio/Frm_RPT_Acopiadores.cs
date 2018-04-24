@@ -302,7 +302,7 @@ namespace Rentabilidad
                 vn_96_pro = Convert.ToDecimal(datos.Rows[i]["Pro96"].ToString());
 
                 vTipoCorte = datos.Rows[i]["Tipocorte"].ToString();
-
+                vn_porcentajeGrupo = PorcentajeGrupo("03");
                 if (Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()) > 0)
                 {
                     vn_porcentajeVolumen = Convert.ToDecimal(datos.Rows[i]["RecibCajas"].ToString()) / Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()) * 100;
@@ -439,7 +439,7 @@ namespace Rentabilidad
                    
                     if (vn_porcentaje <= 20)
                     {
-                        vn_porcentajeGrupo = PorcentajeGrupo("03");
+                        
                         vn_bono_completo = MontoCompletoCamion(Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()));
                         
                         vn_importe = (vn_bono_completo * vn_porcentajeGrupo) * (100 - (vn_porcentaje * 4)) / 100;
@@ -551,7 +551,7 @@ namespace Rentabilidad
                     insCalibre.n_96_pro = vn_96_pro;
                     insCalibre.n_porcentaje = vn_porcentaje;
                     insCalibre.n_porcentajeVolumen = vn_porcentajeVolumen;
-                    insCalibre.n_bono_completo = vn_bono_completo;
+                    insCalibre.n_bono_completo = vn_bono_completo * vn_porcentajeGrupo;
                     insCalibre.n_importe = vn_importe;
                     insCalibre.v_tipocorte = vTipoCorte;
                     DateTime vFechaCorte = Convert.ToDateTime(datos.Rows[i]["FechaCorte"].ToString());
@@ -593,7 +593,7 @@ namespace Rentabilidad
             decimal vn_porcentajeNal = 0;
             decimal vn_porcentajeGrupo = 0;
             string vTipoCorte = string.Empty;
-
+            
             for (int i = 0; i < datos.Rows.Count; i++)
             {
                 vOrdenCorte = datos.Rows[i]["OrderCorte"].ToString();
@@ -608,6 +608,7 @@ namespace Rentabilidad
                 vn_cat2_pro = Convert.ToDecimal(datos.Rows[i]["ProCat2"].ToString());
                 vn_Nac_pro = Convert.ToDecimal(datos.Rows[i]["ProNal"].ToString());
                 vTipoCorte = datos.Rows[i]["Tipocorte"].ToString();
+                vn_porcentajeGrupo = PorcentajeGrupo("02");
                 if (Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()) > 0)
                 {
                     vn_porcentajeVolumen = Convert.ToDecimal(datos.Rows[i]["RecibCajas"].ToString()) / Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()) * 100;
@@ -661,7 +662,7 @@ namespace Rentabilidad
 
                     if (vn_porcentaje <= 10)
                     {
-                        vn_porcentajeGrupo = PorcentajeGrupo("02");
+                        
                         vn_bono_completo = MontoCompletoCamion(Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()));
                         vn_importe = (vn_bono_completo * vn_porcentajeGrupo) * (100 - (vn_porcentaje * 5)) / 100;
                     }
@@ -725,7 +726,7 @@ namespace Rentabilidad
                     insCalibre.n_Nac_pro = vn_Nac_pro;
                     insCalibre.n_porcentaje = vn_porcentaje;
                     insCalibre.n_porcentajeVolumen = vn_porcentajeVolumen;
-                    insCalibre.n_bono_completo = vn_bono_completo;
+                    insCalibre.n_bono_completo = vn_bono_completo * vn_porcentajeGrupo;
                     insCalibre.n_importe = vn_importe;
                     insCalibre.v_tipocorte = vTipoCorte;
                     DateTime vFechaCorte = Convert.ToDateTime(datos.Rows[i]["FechaCorte"].ToString());
@@ -765,7 +766,8 @@ namespace Rentabilidad
                 vv_nombre_hue= datos.Rows[i]["Huerta"].ToString();
                 vn_cajas_estimadas = Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString());
                 vn_cajas_recibidas = Convert.ToDecimal(datos.Rows[i]["RecibCajas"].ToString());
-                if(Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString())>0)
+                vn_porcentajeGrupo = PorcentajeGrupo("01");
+                if (Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString())>0)
                 {
                     vn_porcentaje = Convert.ToDecimal(datos.Rows[i]["RecibCajas"].ToString()) / Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString());
                     if ((vn_porcentaje*100) >= 50)
@@ -774,7 +776,7 @@ namespace Rentabilidad
                         {
                             vn_porcentaje = 1;
                         }
-                        vn_porcentajeGrupo = PorcentajeGrupo("01");
+                        
                         vn_bono_completo = MontoCompletoCamion(Convert.ToDecimal(datos.Rows[i]["n_cajas_pcd"].ToString()));
                         vn_importe = (vn_bono_completo * vn_porcentajeGrupo) * vn_porcentaje;
                     }
@@ -798,7 +800,7 @@ namespace Rentabilidad
                     insDatos.n_cajas_estimadas = vn_cajas_estimadas;
                     insDatos.n_cajas_recibidas = vn_cajas_recibidas;
                     insDatos.n_porcentaje = vn_porcentaje;
-                    insDatos.n_bono_completo = vn_bono_completo;
+                    insDatos.n_bono_completo = vn_bono_completo* vn_porcentajeGrupo;
                     insDatos.n_importe = vn_importe;
                     DateTime vFechaCorte = Convert.ToDateTime(datos.Rows[i]["FechaCorte"].ToString());
                     FechaInicio = vFechaCorte.Year + DosCeros1(vFechaCorte.Month.ToString()) + DosCeros1(vFechaCorte.Day.ToString());
