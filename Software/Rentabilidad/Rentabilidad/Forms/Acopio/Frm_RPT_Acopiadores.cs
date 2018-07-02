@@ -160,8 +160,10 @@ namespace Rentabilidad
                     oTabla.ApplyLogOnInfo(oTablaConexInfo);
                 }
                 RCatalogoP.Refresh();
-                RCatalogoP.DataDefinition.FormulaFields["Fecha_Inicio"].Text = string.Format("'{0}'", dtInicio.EditValue);
-                RCatalogoP.DataDefinition.FormulaFields["Fecha_Fin"].Text = string.Format("'{0}'", dtFin.EditValue);
+                FechaInicio = string.Format("{0}/{1}/{2}", DosCeros1(dtInicio.DateTime.Day.ToString()), DosCeros1(dtInicio.DateTime.Month.ToString()), dtInicio.DateTime.Year);
+                FechaFin = string.Format("{0}/{1}/{2}", DosCeros1(dtFin.DateTime.Day.ToString()), DosCeros1(dtFin.DateTime.Month.ToString()), dtFin.DateTime.Year);
+                RCatalogoP.DataDefinition.FormulaFields["Fecha_Inicio"].Text = string.Format("'{0}'", FechaInicio);
+                RCatalogoP.DataDefinition.FormulaFields["Fecha_Fin"].Text = string.Format("'{0}'", FechaFin);
                 RPT_Viewer.ReportSource = RCatalogoP;
             }
             else if (orbTipoReporte.SelectedIndex == 0)
@@ -177,8 +179,10 @@ namespace Rentabilidad
                     oTabla.ApplyLogOnInfo(oTablaConexInfo);
                 }
                 RCatalogoP.Refresh();
-                RCatalogoP.DataDefinition.FormulaFields["Fecha_Inicio"].Text = string.Format("'{0}'", dtInicio.EditValue);
-                RCatalogoP.DataDefinition.FormulaFields["Fecha_Fin"].Text = string.Format("'{0}'", dtFin.EditValue);
+                FechaInicio = string.Format("{0}/{1}/{2}", DosCeros1(dtInicio.DateTime.Day.ToString()), DosCeros1(dtInicio.DateTime.Month.ToString()), dtInicio.DateTime.Year);
+                FechaFin = string.Format("{0}/{1}/{2}", DosCeros1(dtFin.DateTime.Day.ToString()), DosCeros1(dtFin.DateTime.Month.ToString()), dtFin.DateTime.Year);
+                RCatalogoP.DataDefinition.FormulaFields["Fecha_Inicio"].Text = string.Format("'{0}'", FechaInicio);
+                RCatalogoP.DataDefinition.FormulaFields["Fecha_Fin"].Text = string.Format("'{0}'", FechaFin);
                 RPT_Viewer.ReportSource = RCatalogoP;
             }
             else if(orbTipoReporte.SelectedIndex == 2)
@@ -195,6 +199,34 @@ namespace Rentabilidad
                     oTabla.ApplyLogOnInfo(oTablaConexInfo);
                 }
                 RCatalogoP.Refresh();
+                FechaInicio = string.Format("{0}/{1}/{2}", DosCeros1(dtInicio.DateTime.Day.ToString()), DosCeros1(dtInicio.DateTime.Month.ToString()), dtInicio.DateTime.Year);
+                FechaFin = string.Format("{0}/{1}/{2}", DosCeros1(dtFin.DateTime.Day.ToString()), DosCeros1(dtFin.DateTime.Month.ToString()), dtFin.DateTime.Year);
+                RCatalogoP.DataDefinition.FormulaFields["Fecha_Inicio"].Text = string.Format("'{0}'", FechaInicio);
+                RCatalogoP.DataDefinition.FormulaFields["Fecha_Fin"].Text = string.Format("'{0}'", FechaFin);
+                RPT_Viewer.ReportSource = RCatalogoP;
+            }
+            else if (orbTipoReporte.SelectedIndex == 3)
+            {
+                ConsultaNoCaturados();
+                Parametros_basededatos();
+                Reports.rpt_Bonificacion_OCanceladas RCatalogoP = new Reports.rpt_Bonificacion_OCanceladas();
+                Tables RPTTablas = RCatalogoP.Database.Tables;
+
+                foreach (Table oTabla in RPTTablas)
+                {
+                    TableLogOnInfo oTablaConexInfo = oTabla.LogOnInfo;
+                    oTablaConexInfo.ConnectionInfo = oConexInfo;
+                    oTabla.ApplyLogOnInfo(oTablaConexInfo);
+                }
+                RCatalogoP.Refresh();
+                FechaInicio = string.Format("{0}/{1}/{2}", DosCeros1(dtInicio.DateTime.Day.ToString()), DosCeros1(dtInicio.DateTime.Month.ToString()), dtInicio.DateTime.Year);
+                FechaFin = string.Format("{0}/{1}/{2}", DosCeros1(dtFin.DateTime.Day.ToString()), DosCeros1(dtFin.DateTime.Month.ToString()), dtFin.DateTime.Year);
+                RCatalogoP.DataDefinition.FormulaFields["Fecha_Inicio"].Text = string.Format("'{0}'", FechaInicio);
+                RCatalogoP.DataDefinition.FormulaFields["Fecha_Fin"].Text = string.Format("'{0}'", FechaFin);
+                FechaInicio = dtInicio.DateTime.Year + DosCeros1(dtInicio.DateTime.Month.ToString()) + DosCeros1(dtInicio.DateTime.Day.ToString());
+                FechaFin = dtFin.DateTime.Year + DosCeros1(dtFin.DateTime.Month.ToString()) + DosCeros1(dtFin.DateTime.Day.ToString());
+                RCatalogoP.SetParameterValue("@FechaInicio", FechaInicio);
+                RCatalogoP.SetParameterValue("@FechaFin", FechaFin);
                 RPT_Viewer.ReportSource = RCatalogoP;
             }
         }

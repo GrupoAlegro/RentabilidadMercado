@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_RPT_Acopiadores));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.btnPenalizacion = new DevExpress.XtraEditors.SimpleButton();
             this.hyperlinkLabelControl1 = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.btnBonos = new DevExpress.XtraEditors.SimpleButton();
             this.lkUpAcopiador = new DevExpress.XtraEditors.GridLookUpEdit();
@@ -51,7 +52,6 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.RPT_Viewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
-            this.btnPenalizacion = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -102,6 +102,16 @@
             this.groupControl1.Size = new System.Drawing.Size(1041, 156);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Parametros - Fecha de Corte";
+            // 
+            // btnPenalizacion
+            // 
+            this.btnPenalizacion.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPenalizacion.ImageOptions.Image")));
+            this.btnPenalizacion.Location = new System.Drawing.Point(694, 39);
+            this.btnPenalizacion.Name = "btnPenalizacion";
+            this.btnPenalizacion.Size = new System.Drawing.Size(102, 45);
+            this.btnPenalizacion.TabIndex = 15;
+            this.btnPenalizacion.Text = "Penalización";
+            this.btnPenalizacion.Click += new System.EventHandler(this.btnPenalizacion_Click);
             // 
             // hyperlinkLabelControl1
             // 
@@ -244,17 +254,19 @@
             // 
             // orbTipoReporte
             // 
-            this.orbTipoReporte.Location = new System.Drawing.Point(350, 67);
+            this.orbTipoReporte.Location = new System.Drawing.Point(227, 72);
             this.orbTipoReporte.Name = "orbTipoReporte";
             this.orbTipoReporte.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.orbTipoReporte.Properties.Appearance.Options.UseBackColor = true;
             this.orbTipoReporte.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.orbTipoReporte.Properties.Columns = 2;
             this.orbTipoReporte.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
             this.orbTipoReporte.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Concetrado"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Detallado"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "No Capturado")});
-            this.orbTipoReporte.Size = new System.Drawing.Size(96, 70);
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "No Capturado"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Ordenes Canceladas")});
+            this.orbTipoReporte.Size = new System.Drawing.Size(245, 56);
             this.orbTipoReporte.TabIndex = 3;
             // 
             // chkTodos
@@ -301,16 +313,6 @@
             this.RPT_Viewer.Size = new System.Drawing.Size(1041, 256);
             this.RPT_Viewer.TabIndex = 0;
             this.RPT_Viewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
-            // 
-            // btnPenalizacion
-            // 
-            this.btnPenalizacion.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnPenalizacion.Location = new System.Drawing.Point(694, 39);
-            this.btnPenalizacion.Name = "btnPenalizacion";
-            this.btnPenalizacion.Size = new System.Drawing.Size(102, 45);
-            this.btnPenalizacion.TabIndex = 15;
-            this.btnPenalizacion.Text = "Penalización";
-            this.btnPenalizacion.Click += new System.EventHandler(this.btnPenalizacion_Click);
             // 
             // Frm_RPT_Acopiadores
             // 

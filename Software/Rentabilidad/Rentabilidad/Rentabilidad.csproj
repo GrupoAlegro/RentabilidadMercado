@@ -293,6 +293,12 @@
       <DependentUpon>rpt_Bonificacion_NoCapturados.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\rpt_Bonificacion_OCanceladas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_Bonificacion_OCanceladas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\rpt_Bonificacion_Volumen_Detallado.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -407,6 +413,10 @@
     <EmbeddedResource Include="Reports\rpt_Bonificacion_NoCapturados.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rpt_Bonificacion_NoCapturados.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rpt_Bonificacion_OCanceladas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_Bonificacion_OCanceladas.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rpt_Bonificacion_Volumen_Detallado.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
